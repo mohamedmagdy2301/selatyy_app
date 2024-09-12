@@ -1,8 +1,4 @@
 import 'package:go_router/go_router.dart';
-import 'package:selaty_app/bottom_bar.dart';
-import 'package:selaty_app/features/Delivery/presentation/views/screens/address_delivery_screen.dart';
-import 'package:selaty_app/features/Delivery/presentation/views/screens/success_order_delivery_screen.dart';
-import 'package:selaty_app/features/Delivery/presentation/views/screens/timeline_tile_screen.dart';
 import 'package:selaty_app/features/auth/presenation/views/screens/otp_screen.dart';
 import 'package:selaty_app/features/auth/presentation/views/screens/auth_screen.dart';
 import 'package:selaty_app/features/auth/presentation/views/screens/change_password_screen.dart';
@@ -10,7 +6,12 @@ import 'package:selaty_app/features/auth/presentation/views/screens/login_screen
 import 'package:selaty_app/features/auth/presentation/views/screens/register_screen.dart';
 import 'package:selaty_app/features/cart/presentation/views/screens/cart_screen.dart';
 import 'package:selaty_app/features/cart/presentation/views/screens/empty_cart_screen.dart';
+import 'package:selaty_app/features/delivery/presentation/views/screens/address_delivery_screen.dart';
+import 'package:selaty_app/features/delivery/presentation/views/screens/success_order_delivery_screen.dart';
+import 'package:selaty_app/features/delivery/presentation/views/screens/timeline_tile_screen.dart';
+import 'package:selaty_app/features/home/presentation/views/screens/home_screen.dart';
 import 'package:selaty_app/features/onboarding/preseentation/view/screens/onboarding_screen.dart';
+import 'package:selaty_app/features/onboarding/preseentation/view/screens/splash_screen.dart';
 
 class RoutersManager {
   static const String kSplashScreen = '/';
@@ -33,11 +34,11 @@ class RoutersManager {
     routes: [
       GoRoute(
         path: kSplashScreen,
-        builder: (context, state) => MainScreen(),
+        builder: (context, state) => const SplashScreen(),
       ),
       GoRoute(
         path: kHomeScreen,
-        builder: (context, state) => MainScreen(),
+        builder: (context, state) => HomeScreen(),
       ),
       GoRoute(
         path: kOnboardingScreen,
