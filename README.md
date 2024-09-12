@@ -1,4 +1,4 @@
-# selatyy_app
+# selaty_app
 
 A new Flutter project.
 
