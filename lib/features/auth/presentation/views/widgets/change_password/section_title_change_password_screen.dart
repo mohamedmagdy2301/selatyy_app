@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:selaty_app/core/utils/Strings_app.dart';
-import 'package:selaty_app/core/utils/colors.dart';
-import 'package:selaty_app/core/utils/text_styles.dart';
+import 'package:selaty/core/utils/Strings_app.dart';
+import 'package:selaty/core/utils/colors.dart';
+import 'package:selaty/core/utils/text_styles.dart';
 
 class SectionTitleChangePasseordScreen extends StatelessWidget {
   const SectionTitleChangePasseordScreen({super.key});

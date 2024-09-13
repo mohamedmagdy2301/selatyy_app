@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:selaty_app/core/utils/resposive.dart';
-import 'package:selaty_app/core/utils/text_styles.dart';
+import 'package:selaty/core/utils/resposive.dart';
+import 'package:selaty/core/utils/text_styles.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({

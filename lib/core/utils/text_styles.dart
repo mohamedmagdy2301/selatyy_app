@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:selaty_app/core/utils/colors.dart';
-import 'package:selaty_app/core/utils/resposive.dart';
+import 'package:selaty/core/utils/colors.dart';
+import 'package:selaty/core/utils/resposive.dart';
 
 abstract class StylesManager {
   static TextStyle textStyle_6_Light(BuildContext context) {

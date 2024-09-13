@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:selaty_app/core/routers/routers_manager.dart';
-import 'package:selaty_app/core/utils/Strings_app.dart';
-import 'package:selaty_app/core/utils/colors.dart';
-import 'package:selaty_app/core/utils/functions.dart';
-import 'package:selaty_app/core/utils/resposive.dart';
-import 'package:selaty_app/core/utils/text_styles.dart';
+import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
+import 'package:selaty/core/utils/Strings_app.dart';
+import 'package:selaty/core/utils/colors.dart';
+import 'package:selaty/core/utils/functions.dart';
+import 'package:selaty/core/utils/resposive.dart';
+import 'package:selaty/core/utils/text_styles.dart';
+import 'package:selaty/features/home/presentation/views/screens/home_screen.dart';
 
 class CustomAppbarTrackOrder {
   static List<Widget> appBarActions(BuildContext context) {
@@ -14,7 +14,12 @@ class CustomAppbarTrackOrder {
       SizedBox(width: context.width * 0.02),
       GestureDetector(
         onTap: () {
-          GoRouter.of(context).push(RoutersManager.kHomeScreen);
+          PersistentNavBarNavigator.pushNewScreen(
+            context,
+            screen: HomeScreen(),
+            withNavBar: true,
+            pageTransitionAnimation: PageTransitionAnimation.cupertino,
+          );
         },
         child: Container(
           height: context.height * 0.045,

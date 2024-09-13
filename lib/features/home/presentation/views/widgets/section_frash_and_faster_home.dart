@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:selaty_app/core/utils/resposive.dart';
-import 'package:selaty_app/core/utils/text_styles.dart';
-import 'package:selaty_app/features/home/presentation/views/widgets/item_product_home.dart';
+import 'package:selaty/core/utils/resposive.dart';
+import 'package:selaty/core/utils/text_styles.dart';
+import 'package:selaty/features/home/presentation/views/widgets/item_product_home.dart';
 
 class SectionFrashAndFasterHome extends StatelessWidget {
   const SectionFrashAndFasterHome({super.key});

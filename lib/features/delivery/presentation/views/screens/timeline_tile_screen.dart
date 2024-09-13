@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:selaty_app/core/utils/Strings_app.dart';
-import 'package:selaty_app/core/utils/colors.dart';
-import 'package:selaty_app/core/utils/resposive.dart';
-import 'package:selaty_app/core/utils/text_styles.dart';
-import 'package:selaty_app/features/delivery/presentation/views/widgets/custom_appbar_track_order.dart';
-import 'package:selaty_app/features/delivery/presentation/views/widgets/custom_timeline_tile.dart';
+import 'package:selaty/core/utils/Strings_app.dart';
+import 'package:selaty/core/utils/colors.dart';
+import 'package:selaty/core/utils/resposive.dart';
+import 'package:selaty/core/utils/text_styles.dart';
+import 'package:selaty/features/delivery/presentation/views/widgets/custom_appbar_track_order.dart';
+import 'package:selaty/features/delivery/presentation/views/widgets/custom_timeline_tile.dart';
 
 class TimelineTileScreen extends StatelessWidget {
   @override
@@ -15,87 +15,89 @@ class TimelineTileScreen extends StatelessWidget {
         actions: CustomAppbarTrackOrder.appBarActions(context),
         backgroundColor: Colors.transparent,
       ),
-      body: Center(
-        child: SingleChildScrollView(
-          padding: EdgeInsets.zero,
-          physics: BouncingScrollPhysics(),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                height: context.height * 0.14,
-                width: context.width * 0.8,
-                padding: EdgeInsets.symmetric(
-                  vertical: context.height * 0.01,
-                  horizontal: context.width * 0.03,
-                ),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: primaryGreen,
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Text(
-                          "${StringsApp.orderID} :#3289789 ",
-                          style:
-                              StylesManager.textStyle_10_bold(context).copyWith(
-                            color: primaryWhite,
-                          ),
-                        ),
-                        SizedBox(height: context.height * 0.005),
-                        Text(
-                          "${StringsApp.orderDate}",
-                          style: StylesManager.textStyle_8_Medium(context)
-                              .copyWith(
-                            color: primaryWhite,
-                          ),
-                        ),
-                        SizedBox(height: context.height * 0.015),
-                        Row(
-                          children: [
-                            Text(
-                              "${StringsApp.orderItems}8 ",
-                              style: StylesManager.textStyle_8_Medium(context)
-                                  .copyWith(
-                                color: primaryWhite,
-                              ),
+      body: SafeArea(
+        child: Center(
+          child: SingleChildScrollView(
+            padding: EdgeInsets.zero,
+            physics: BouncingScrollPhysics(),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  height: context.height * 0.14,
+                  width: context.width * 0.8,
+                  padding: EdgeInsets.symmetric(
+                    vertical: context.height * 0.01,
+                    horizontal: context.width * 0.03,
+                  ),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: primaryGreen,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text(
+                            "${StringsApp.orderID} :#3289789 ",
+                            style: StylesManager.textStyle_10_bold(context)
+                                .copyWith(
+                              color: primaryWhite,
                             ),
-                            SizedBox(width: context.width * 0.05),
-                            Text(
-                              "${StringsApp.totalPrice}EGP 880 ",
-                              style: StylesManager.textStyle_8_Medium(context)
-                                  .copyWith(
-                                color: primaryWhite,
-                              ),
+                          ),
+                          SizedBox(height: context.height * 0.005),
+                          Text(
+                            "${StringsApp.orderDate}",
+                            style: StylesManager.textStyle_8_Medium(context)
+                                .copyWith(
+                              color: primaryWhite,
                             ),
-                          ],
-                        )
-                      ],
-                    ),
-                    Container(
-                      height: context.height * 0.15,
-                      width: context.width * .2,
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Colors.white,
+                          ),
+                          SizedBox(height: context.height * 0.015),
+                          Row(
+                            children: [
+                              Text(
+                                "${StringsApp.orderItems}8 ",
+                                style: StylesManager.textStyle_8_Medium(context)
+                                    .copyWith(
+                                  color: primaryWhite,
+                                ),
+                              ),
+                              SizedBox(width: context.width * 0.05),
+                              Text(
+                                "${StringsApp.totalPrice}EGP 880 ",
+                                style: StylesManager.textStyle_8_Medium(context)
+                                    .copyWith(
+                                  color: primaryWhite,
+                                ),
+                              ),
+                            ],
+                          )
+                        ],
                       ),
-                      child: Icon(
-                        Icons.local_shipping_outlined,
-                        color: primaryBlack,
-                        size: context.height * 0.06,
+                      Container(
+                        height: context.height * 0.15,
+                        width: context.width * .2,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.white,
+                        ),
+                        child: Icon(
+                          Icons.local_shipping_outlined,
+                          color: primaryBlack,
+                          size: context.height * 0.06,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-              TimeLineCard(),
-            ],
+                TimeLineCard(),
+              ],
+            ),
           ),
         ),
       ),
