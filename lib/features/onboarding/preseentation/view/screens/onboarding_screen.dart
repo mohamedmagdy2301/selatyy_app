@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:selaty_app/core/constants.dart';
-import 'package:selaty_app/core/decoration/decoration.dart';
-import 'package:selaty_app/core/utils/Strings_app.dart';
-import 'package:selaty_app/core/utils/colors.dart';
-import 'package:selaty_app/core/utils/resposive.dart';
-import 'package:selaty_app/features/onboarding/data/models/onboarding_model.dart';
-import 'package:selaty_app/features/onboarding/preseentation/view/widgets/custom_cricle_button_onboarding.dart';
-import 'package:selaty_app/features/onboarding/preseentation/view/widgets/custom_dot_onboarding.dart';
-import 'package:selaty_app/features/onboarding/preseentation/view/widgets/section_info_onboarding.dart';
+import 'package:selaty/core/constants.dart';
+import 'package:selaty/core/decoration/decoration.dart';
+import 'package:selaty/core/utils/Strings_app.dart';
+import 'package:selaty/core/utils/colors.dart';
+import 'package:selaty/core/utils/resposive.dart';
+import 'package:selaty/features/onboarding/data/models/onboarding_model.dart';
+import 'package:selaty/features/onboarding/preseentation/view/widgets/custom_cricle_button_onboarding.dart';
+import 'package:selaty/features/onboarding/preseentation/view/widgets/custom_dot_onboarding.dart';
+import 'package:selaty/features/onboarding/preseentation/view/widgets/section_info_onboarding.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});

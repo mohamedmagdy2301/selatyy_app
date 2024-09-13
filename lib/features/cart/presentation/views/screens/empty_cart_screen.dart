@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:selaty_app/core/constants.dart';
-import 'package:selaty_app/core/routers/routers_manager.dart';
-import 'package:selaty_app/core/utils/Strings_app.dart';
-import 'package:selaty_app/core/utils/colors.dart';
-import 'package:selaty_app/core/utils/resposive.dart';
-import 'package:selaty_app/core/utils/text_styles.dart';
-import 'package:selaty_app/core/widgets/custom_button.dart';
-import 'package:selaty_app/features/cart/presentation/views/widgets/custom_appbar.dart';
+import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
+import 'package:selaty/core/constants.dart';
+import 'package:selaty/core/utils/Strings_app.dart';
+import 'package:selaty/core/utils/colors.dart';
+import 'package:selaty/core/utils/resposive.dart';
+import 'package:selaty/core/utils/text_styles.dart';
+import 'package:selaty/core/widgets/custom_button.dart';
+import 'package:selaty/features/cart/presentation/views/widgets/custom_appbar.dart';
+import 'package:selaty/features/delivery/presentation/views/screens/address_delivery_screen.dart';
 
 class EmptyCartScreen extends StatelessWidget {
   const EmptyCartScreen({super.key});
@@ -17,12 +17,7 @@ class EmptyCartScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 234, 234, 234),
       appBar: AppBar(actions: CustomAppbarCart.appBarActions(context)),
-      body: Padding(
-        padding: EdgeInsets.symmetric(
-          horizontal: context.isLandscape
-              ? MediaQuery.of(context).padding.horizontal * 0.5
-              : 0,
-        ),
+      body: SafeArea(
         child: OrientationBuilder(
           builder: (context, orientation) {
             if (context.isLandscape) {
@@ -65,8 +60,13 @@ class EmptyCartScreen extends StatelessWidget {
                         width: context.width * .7,
                         child: CustomButton(
                           onTap: () {
-                            GoRouter.of(context)
-                                .push(RoutersManager.kAddressDeliveryScreen);
+                            PersistentNavBarNavigator.pushNewScreen(
+                              context,
+                              screen: AddressDeliveryScreen(),
+                              withNavBar: true,
+                              pageTransitionAnimation:
+                                  PageTransitionAnimation.cupertino,
+                            );
                           },
                           titleButton: StringsApp.startShopping,
                           colorButton: primaryGreen,
@@ -117,8 +117,13 @@ class EmptyCartScreen extends StatelessWidget {
                       width: context.width * .7,
                       child: CustomButton(
                         onTap: () {
-                          GoRouter.of(context)
-                              .push(RoutersManager.kAddressDeliveryScreen);
+                          PersistentNavBarNavigator.pushNewScreen(
+                            context,
+                            screen: AddressDeliveryScreen(),
+                            withNavBar: true,
+                            pageTransitionAnimation:
+                                PageTransitionAnimation.cupertino,
+                          );
                         },
                         titleButton: StringsApp.startShopping,
                         colorButton: primaryGreen,

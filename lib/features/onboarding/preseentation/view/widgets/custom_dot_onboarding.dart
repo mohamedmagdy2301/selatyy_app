@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:selaty_app/core/utils/resposive.dart';
-import 'package:selaty_app/features/onboarding/data/models/onboarding_model.dart';
+import 'package:selaty/core/utils/resposive.dart';
+import 'package:selaty/features/onboarding/data/models/onboarding_model.dart';
 
 class CustomDotOnboarding extends StatelessWidget {
   const CustomDotOnboarding(

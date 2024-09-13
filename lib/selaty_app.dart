@@ -1,7 +1,7 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:selaty_app/core/routers/routers_manager.dart';
+import 'package:selaty/core/routers/routers_manager.dart';
 
 class SelatyApp extends StatelessWidget {
   const SelatyApp({super.key});

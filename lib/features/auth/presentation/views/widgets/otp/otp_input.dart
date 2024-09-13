@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
-import 'package:selaty_app/core/routers/routers_manager.dart';
-import 'package:selaty_app/core/utils/colors.dart';
-import 'package:selaty_app/core/utils/resposive.dart';
+import 'package:selaty/core/routers/routers_manager.dart';
+import 'package:selaty/core/utils/colors.dart';
+import 'package:selaty/core/utils/resposive.dart';
 
 class OtpInput extends StatefulWidget {
   const OtpInput({super.key});
@@ -51,7 +51,8 @@ class _OtpInputState extends State<OtpInput> {
       onCompleted: (v) {
         debugPrint("Completed");
 
-        GoRouter.of(context).pushReplacement(RoutersManager.kHomeScreen);
+        GoRouter.of(context)
+            .pushReplacement(RoutersManager.kMainScaffoldScreen);
       },
       onChanged: (value) {
         debugPrint(value);

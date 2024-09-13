@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:selaty_app/core/utils/colors.dart';
-import 'package:selaty_app/core/utils/functions.dart';
-import 'package:selaty_app/core/utils/resposive.dart';
+import 'package:selaty/core/utils/colors.dart';
+import 'package:selaty/core/utils/functions.dart';
+import 'package:selaty/core/utils/resposive.dart';
 
 class CustomAppbarAuth extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppbarAuth({super.key, required this.iconRight});

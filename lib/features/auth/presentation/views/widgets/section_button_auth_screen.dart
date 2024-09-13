@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:selaty_app/core/routers/routers_manager.dart';
-import 'package:selaty_app/core/utils/Strings_app.dart';
-import 'package:selaty_app/core/utils/colors.dart';
-import 'package:selaty_app/core/utils/resposive.dart';
-import 'package:selaty_app/core/widgets/custom_button.dart';
+import 'package:selaty/core/routers/routers_manager.dart';
+import 'package:selaty/core/utils/Strings_app.dart';
+import 'package:selaty/core/utils/colors.dart';
+import 'package:selaty/core/utils/resposive.dart';
+import 'package:selaty/core/widgets/custom_button.dart';
 
 class SectionButtonAuthScreen extends StatelessWidget {
   const SectionButtonAuthScreen({

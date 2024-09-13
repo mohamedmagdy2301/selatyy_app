@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:selaty_app/core/utils/colors.dart';
+import 'package:selaty/core/utils/colors.dart';
 
 class CustomTextFieldSearch extends StatelessWidget {
   const CustomTextFieldSearch({

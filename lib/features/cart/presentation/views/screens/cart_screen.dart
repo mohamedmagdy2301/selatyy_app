@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:selaty_app/core/routers/routers_manager.dart';
-import 'package:selaty_app/core/utils/Strings_app.dart';
-import 'package:selaty_app/core/utils/colors.dart';
-import 'package:selaty_app/core/utils/resposive.dart';
-import 'package:selaty_app/core/widgets/custom_button.dart';
-import 'package:selaty_app/features/cart/presentation/views/widgets/custom_appbar.dart';
-import 'package:selaty_app/features/cart/presentation/views/widgets/item_product_cart_screen.dart';
-import 'package:selaty_app/features/cart/presentation/views/widgets/total_price_cart_screen.dart';
+import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
+import 'package:selaty/core/utils/Strings_app.dart';
+import 'package:selaty/core/utils/colors.dart';
+import 'package:selaty/core/utils/resposive.dart';
+import 'package:selaty/core/widgets/custom_button.dart';
+import 'package:selaty/features/cart/presentation/views/screens/empty_cart_screen.dart';
+import 'package:selaty/features/cart/presentation/views/widgets/custom_appbar.dart';
+import 'package:selaty/features/cart/presentation/views/widgets/item_product_cart_screen.dart';
+import 'package:selaty/features/cart/presentation/views/widgets/total_price_cart_screen.dart';
 
 class CartScreen extends StatelessWidget {
   const CartScreen({super.key});
@@ -16,12 +16,7 @@ class CartScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 234, 234, 234),
-      body: Padding(
-        padding: EdgeInsets.symmetric(
-          horizontal: context.isLandscape
-              ? MediaQuery.of(context).padding.horizontal * 0.5
-              : 0,
-        ),
+      body: SafeArea(
         child: OrientationBuilder(
           builder: (context, orientation) {
             if (context.isLandscape) {
@@ -55,8 +50,13 @@ class CartScreen extends StatelessWidget {
                             width: context.width * .7,
                             child: CustomButton(
                               onTap: () {
-                                GoRouter.of(context)
-                                    .push(RoutersManager.kEmptyCartScreen);
+                                PersistentNavBarNavigator.pushNewScreen(
+                                  context,
+                                  screen: EmptyCartScreen(),
+                                  withNavBar: true,
+                                  pageTransitionAnimation:
+                                      PageTransitionAnimation.cupertino,
+                                );
                               },
                               titleButton: StringsApp.payment,
                               colorButton: primaryGreen,
@@ -99,8 +99,13 @@ class CartScreen extends StatelessWidget {
                       width: context.width,
                       child: CustomButton(
                         onTap: () {
-                          GoRouter.of(context)
-                              .push(RoutersManager.kEmptyCartScreen);
+                          PersistentNavBarNavigator.pushNewScreen(
+                            context,
+                            screen: EmptyCartScreen(),
+                            withNavBar: true,
+                            pageTransitionAnimation:
+                                PageTransitionAnimation.cupertino,
+                          );
                         },
                         titleButton: StringsApp.payment,
                         colorButton: primaryGreen,
