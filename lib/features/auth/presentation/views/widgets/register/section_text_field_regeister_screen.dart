@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
-import 'package:selaty_app/core/utils/Strings_app.dart';
-import 'package:selaty_app/core/utils/colors.dart';
-import 'package:selaty_app/core/utils/resposive.dart';
-import 'package:selaty_app/core/widgets/custom_text_feild.dart';
+import 'package:selaty/core/utils/Strings_app.dart';
+import 'package:selaty/core/utils/colors.dart';
+import 'package:selaty/core/utils/resposive.dart';
+import 'package:selaty/core/widgets/custom_text_feild.dart';
 
 class SectionTextFeildRegister extends StatelessWidget {
   const SectionTextFeildRegister({super.key});

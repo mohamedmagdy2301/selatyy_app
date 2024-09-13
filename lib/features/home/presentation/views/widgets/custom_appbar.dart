@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
-import 'package:selaty_app/core/utils/colors.dart';
-import 'package:selaty_app/core/utils/functions.dart';
-import 'package:selaty_app/core/utils/resposive.dart';
-import 'package:selaty_app/core/utils/text_styles.dart';
+import 'package:selaty/core/utils/colors.dart';
+import 'package:selaty/core/utils/functions.dart';
+import 'package:selaty/core/utils/resposive.dart';
+import 'package:selaty/core/utils/text_styles.dart';
 
 class CustomAppbarHome {
   static List<Widget> appBarActions(BuildContext context) {
@@ -14,11 +14,11 @@ class CustomAppbarHome {
           child: Image.asset(
             'assets/images/profile.png',
             fit: BoxFit.fitHeight,
-            width: context.width * 0.1,
+            width: context.width * 0.09,
           ),
         ),
       ),
-      SizedBox(width: context.width * 0.03),
+      SizedBox(width: context.width * 0.02),
       Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.center,

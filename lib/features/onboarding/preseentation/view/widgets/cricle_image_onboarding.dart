@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:selaty_app/core/utils/resposive.dart';
+import 'package:selaty/core/utils/resposive.dart';
 
 class CricleImageOnboarding extends StatelessWidget {
   const CricleImageOnboarding({

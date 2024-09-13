@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:selaty_app/core/constants.dart';
-import 'package:selaty_app/core/utils/Strings_app.dart';
-import 'package:selaty_app/core/utils/resposive.dart';
-import 'package:selaty_app/core/utils/text_styles.dart';
+import 'package:selaty/core/constants.dart';
+import 'package:selaty/core/utils/Strings_app.dart';
+import 'package:selaty/core/utils/resposive.dart';
+import 'package:selaty/core/utils/text_styles.dart';
 
 class SectionNameAuthScreen extends StatelessWidget {
   const SectionNameAuthScreen({

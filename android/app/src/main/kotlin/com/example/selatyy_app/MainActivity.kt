@@ -1,4 +1,4 @@
-package com.example.selaty_app
+package com.androidID.selaty
 
 import io.flutter.embedding.android.FlutterActivity
 

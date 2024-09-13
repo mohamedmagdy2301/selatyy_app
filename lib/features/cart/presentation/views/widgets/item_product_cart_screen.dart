@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:selaty_app/core/utils/colors.dart';
-import 'package:selaty_app/core/utils/resposive.dart';
-import 'package:selaty_app/core/utils/text_styles.dart';
+import 'package:selaty/core/utils/colors.dart';
+import 'package:selaty/core/utils/resposive.dart';
+import 'package:selaty/core/utils/text_styles.dart';
 
 class ItemProductCartScreen extends StatefulWidget {
   const ItemProductCartScreen({super.key});
@@ -18,7 +18,7 @@ class _ItemProductCartScreenState extends State<ItemProductCartScreen> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: context.height * .6,
+      height: context.height * .55,
       child: ListView.builder(
         itemCount: counts.length,
         padding: EdgeInsets.zero,

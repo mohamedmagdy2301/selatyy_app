@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:selaty_app/core/utils/colors.dart';
-import 'package:selaty_app/core/utils/resposive.dart';
-import 'package:selaty_app/features/onboarding/data/models/onboarding_model.dart';
-import 'package:selaty_app/features/onboarding/preseentation/view/widgets/cricle_image_onboarding.dart';
+import 'package:selaty/core/utils/colors.dart';
+import 'package:selaty/core/utils/resposive.dart';
+import 'package:selaty/features/onboarding/data/models/onboarding_model.dart';
+import 'package:selaty/features/onboarding/preseentation/view/widgets/cricle_image_onboarding.dart';
 
 class SectionInfoOnboarding extends StatelessWidget {
   const SectionInfoOnboarding({

@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:selaty_app/core/routers/routers_manager.dart';
-import 'package:selaty_app/core/utils/colors.dart';
-import 'package:selaty_app/core/utils/resposive.dart';
-import 'package:selaty_app/core/utils/text_styles.dart';
+import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
+import 'package:selaty/core/utils/colors.dart';
+import 'package:selaty/core/utils/resposive.dart';
+import 'package:selaty/core/utils/text_styles.dart';
+import 'package:selaty/features/cart/presentation/views/screens/cart_screen.dart';
 
 class ItemProductHome extends StatelessWidget {
   const ItemProductHome({super.key});
@@ -13,7 +13,12 @@ class ItemProductHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).push(RoutersManager.kCartScreen);
+        PersistentNavBarNavigator.pushNewScreen(
+          context,
+          screen: CartScreen(),
+          withNavBar: true,
+          pageTransitionAnimation: PageTransitionAnimation.cupertino,
+        );
       },
       child: Card(
         color: primaryWhite,

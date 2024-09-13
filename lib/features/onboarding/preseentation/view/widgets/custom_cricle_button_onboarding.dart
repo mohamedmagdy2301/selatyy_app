@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:selaty_app/core/routers/routers_manager.dart';
-import 'package:selaty_app/core/utils/resposive.dart';
-import 'package:selaty_app/features/onboarding/data/models/onboarding_model.dart';
+import 'package:selaty/core/routers/routers_manager.dart';
+import 'package:selaty/core/utils/resposive.dart';
+import 'package:selaty/features/onboarding/data/models/onboarding_model.dart';
 
 class CustomCricleButtonOnboarding extends StatelessWidget {
   const CustomCricleButtonOnboarding({

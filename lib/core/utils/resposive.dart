@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:selaty_app/core/enums/device_type_enum.dart';
+import 'package:selaty/core/enums/device_type_enum.dart';
 
 extension SizeExtension on BuildContext {
   double get height => getDeviceHeight(MediaQuery.of(this));
