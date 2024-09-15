@@ -76,4 +76,7 @@ abstract class StringsApp {
   static const String deliverySuccessOrder = "تم شحن الطلب ";
   static const String successDelivery = "تم التسليم بنجاح";
   static const String orderPending = "قيد الانتظار";
+
+  static const String features = "التصنيفات";
+  static const String fruits = "الفواكه";
 }

@@ -112,13 +112,13 @@ class ItemProductHome extends StatelessWidget {
                     bottomLeft: Radius.circular(10),
                     bottomRight: Radius.circular(10),
                   ),
-                  color: primaryGrey,
+                  color: Colors.grey[200],
                 ),
                 child: Row(
                   children: [
                     Text(
                       "120 EGP",
-                      style: StylesManager.textStyle_6_bold(context),
+                      style: StylesManager.textStyle_7_bold(context),
                     ),
                     Spacer(),
                     Icon(

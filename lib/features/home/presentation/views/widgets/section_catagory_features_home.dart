@@ -14,12 +14,19 @@ class SectionCatagoryFeaturesHome extends StatelessWidget {
           padding: EdgeInsets.symmetric(
               horizontal: context.width * 0.05, vertical: context.width * 0.03),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "التصنيفات",
+                "القيمه الافضل",
                 style: StylesManager.textStyle_11_bold(context),
               ),
+              SizedBox(width: context.width * 0.01),
+              Text(
+                "اعلى المبيعات",
+                style: StylesManager.textStyle_8_Medium(context).copyWith(
+                  color: primaryDarkGrey,
+                ),
+              ),
+              Spacer(),
               Text(
                 " << عرض الكل",
                 style: StylesManager.textStyle_9_Medium(context).copyWith(
