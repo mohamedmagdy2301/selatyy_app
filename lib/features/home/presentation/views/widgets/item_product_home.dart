@@ -117,7 +117,7 @@ class ItemProductHome extends StatelessWidget {
                 child: Row(
                   children: [
                     Text(
-                      "120 EGP",
+                      "125 EGP",
                       style: StylesManager.textStyle_7_bold(context),
                     ),
                     Spacer(),
