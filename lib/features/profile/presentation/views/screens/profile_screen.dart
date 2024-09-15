@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:selaty/core/utils/resposive.dart';
+import 'package:selaty/cubit.dart';
 import 'package:selaty/features/profile/presentation/views/widgets/custom_appbar.dart';
 import 'package:selaty/features/profile/presentation/views/widgets/section_info_about_me.dart';
 import 'package:selaty/features/profile/presentation/views/widgets/section_log_and_help.dart';
@@ -10,6 +12,8 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final tabCubit = context.read<TabCubit>();
+
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 238, 238, 238),
       body: SafeArea(
@@ -23,7 +27,9 @@ class ProfileScreen extends StatelessWidget {
               flexibleSpace: Container(
                 color: Color.fromARGB(255, 238, 238, 238),
               ),
-              actions: CustomAppbarProfile.appBarActions(context),
+              actions: CustomAppbarProfile.appBarActions(context, () {
+                tabCubit.updateTabIndex(2);
+              }),
               automaticallyImplyLeading: false,
             ),
             SliverToBoxAdapter(child: SectionYourPicture()),
