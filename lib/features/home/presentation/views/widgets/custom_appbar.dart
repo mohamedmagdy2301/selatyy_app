@@ -13,8 +13,6 @@ class CustomAppbarHome {
       GestureDetector(
         onTap: () {
           hideKeybourd();
-
-
           onTap();
         },
         child: ClipOval(
