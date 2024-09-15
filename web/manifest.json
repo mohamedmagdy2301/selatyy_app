@@ -1,6 +1,6 @@
 {
-    "name": "selatyy_app",
-    "short_name": "selatyy_app",
+    "name": "selaty",
+    "short_name": "selaty",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
