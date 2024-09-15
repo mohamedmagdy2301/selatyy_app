@@ -18,7 +18,7 @@ class _ItemProductCartScreenState extends State<ItemProductCartScreen> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: context.height * .55,
+      height: context.height * .47,
       child: ListView.builder(
         itemCount: counts.length,
         padding: EdgeInsets.zero,

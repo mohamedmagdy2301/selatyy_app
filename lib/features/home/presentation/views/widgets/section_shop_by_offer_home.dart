@@ -35,7 +35,30 @@ class SectionShopByOfferHome extends StatelessWidget {
           spacing: context.width * 0.02,
           runSpacing: context.height * 0.01,
           children: [
-            for (int i = 0; i < 4; i++) ItemShopByOfferHome(),
+            ItemShopByOfferHome1(
+              color: primaryGreen,
+              number: '10%',
+            ),
+            ItemShopByOfferHome1(
+              color: secondaryOrange,
+              number: '80%',
+            ),
+            ItemShopByOfferHome1(
+              color: secondaryOlive,
+              number: '40%',
+            ),
+            ItemShopByOfferHome2(
+              color: primaryRed,
+              text: 'اشتري 1\nوحصل على 2',
+            ),
+            ItemShopByOfferHome2(
+              color: secondaryPurple,
+              text: 'اشتري 2\nوحصل على 3',
+            ),
+            ItemShopByOfferHome2(
+              color: secondarySkyBlue,
+              text: 'اختارات\n الشهر',
+            ),
           ],
         ),
       ],
