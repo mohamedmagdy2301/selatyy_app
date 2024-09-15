@@ -48,7 +48,7 @@ class HomeScreen extends StatelessWidget {
             SliverToBoxAdapter(child: SectionShopByOfferHome()),
             SliverToBoxAdapter(child: SectionFrashAndFasterHome()),
             SliverToBoxAdapter(child: SecationAbsCardHome()),
-            // SliverToBoxAdapter(child: SectionSeizeOpportunityHome()),
+            SliverToBoxAdapter(child: SectionSeizeOpportunityHome()),
             SliverToBoxAdapter(child: SizedBox(height: context.height * 0.1)),
           ],
         ),
