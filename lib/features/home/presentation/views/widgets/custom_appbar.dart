@@ -1,10 +1,8 @@
 import 'package:flutter/cupertino.dart';
-import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 import 'package:selaty/core/utils/colors.dart';
 import 'package:selaty/core/utils/functions.dart';
 import 'package:selaty/core/utils/resposive.dart';
 import 'package:selaty/core/utils/text_styles.dart';
-import 'package:selaty/features/Profile/presentation/views/screens/profile_screen.dart';
 
 class CustomAppbarHome {
   static List<Widget> appBarActions(BuildContext context, Function onTap) {
