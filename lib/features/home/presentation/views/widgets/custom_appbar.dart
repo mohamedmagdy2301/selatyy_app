@@ -7,18 +7,22 @@ import 'package:selaty/core/utils/text_styles.dart';
 import 'package:selaty/features/Profile/presentation/views/screens/profile_screen.dart';
 
 class CustomAppbarHome {
-  static List<Widget> appBarActions(BuildContext context) {
+  static List<Widget> appBarActions(BuildContext context, Function onTap) {
     return [
       SizedBox(width: context.width * 0.02),
       GestureDetector(
         onTap: () {
           hideKeybourd();
+<<<<<<< HEAD
           PersistentNavBarNavigator.pushNewScreen(
             context,
             screen: ProfileScreen(),
             withNavBar: true,
             pageTransitionAnimation: PageTransitionAnimation.cupertino,
           );
+=======
+          onTap();
+>>>>>>> d8ef5c981c73e3178f8845d1bc3d03f0216654a1
         },
         child: ClipOval(
           child: Image.asset(

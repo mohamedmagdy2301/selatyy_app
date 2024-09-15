@@ -47,6 +47,7 @@ dependencies:
   order_tracker_zen: ^1.0.0+4
   timeline_tile: ^2.0.0
   persistent_bottom_nav_bar: ^6.2.1
+  flutter_bloc: ^8.1.6
 
 dev_dependencies:
   flutter_test:
