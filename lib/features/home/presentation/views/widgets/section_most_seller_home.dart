@@ -32,7 +32,7 @@ class SectionMostSellerHome extends StatelessWidget {
           ),
         ),
         SizedBox(
-          height: context.height * 0.48,
+          height: context.height * 0.50,
           child: GridView.builder(
             itemCount: 20,
             padding: EdgeInsets.zero,

@@ -24,6 +24,7 @@ class ItemProductHome extends StatelessWidget {
         color: primaryWhite,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -55,6 +56,7 @@ class ItemProductHome extends StatelessWidget {
                 ),
               ],
             ),
+            Spacer(),
             Center(
               child: Image.asset(
                 "assets/images/fruits.png",
@@ -63,6 +65,7 @@ class ItemProductHome extends StatelessWidget {
                 fit: BoxFit.fill,
               ),
             ),
+            Spacer(),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(
@@ -100,34 +103,60 @@ class ItemProductHome extends StatelessWidget {
                 ],
               ),
             ),
-            Expanded(
-              child: Container(
-                width: double.infinity,
-                padding: EdgeInsets.symmetric(
-                  horizontal: context.width * 0.02,
-                  vertical: context.height * 0.01,
+            Container(
+              padding: EdgeInsets.symmetric(
+                horizontal: context.width * 0.02,
+                vertical: context.height * 0.005,
+              ),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(10),
+                  bottomRight: Radius.circular(10),
                 ),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(10),
-                    bottomRight: Radius.circular(10),
+                color: Colors.grey[200],
+              ),
+              child: Row(
+                children: [
+                  Text(
+                    "120 EGP",
+                    style: StylesManager.textStyle_7_bold(context),
                   ),
-                  color: Colors.grey[200],
-                ),
-                child: Row(
-                  children: [
-                    Text(
-                      "120 EGP",
-                      style: StylesManager.textStyle_7_bold(context),
-                    ),
-                    Spacer(),
-                    Icon(
-                      CupertinoIcons.shopping_cart,
-                      color: primaryRed,
-                      size: context.height * 0.025,
-                    ),
-                  ],
-                ),
+                  Spacer(),
+                  Icon(
+                    CupertinoIcons.shopping_cart,
+                    color: primaryRed,
+                    size: context.height * 0.025,
+                  ),
+
+                  // Container(
+                  //   height: context.height * 0.0,
+                  //   width: double.infinity,
+                  //   padding: EdgeInsets.symmetric(
+                  //     horizontal: context.width * 0.02,
+                  //     vertical: context.height * 0.01,
+                  //   ),
+                  //   decoration: BoxDecoration(
+                  //     borderRadius: BorderRadius.only(
+                  //       bottomLeft: Radius.circular(10),
+                  //       bottomRight: Radius.circular(10),
+                  //     ),
+                  //     color: Colors.grey[200],
+                  //   ),
+                  //   child: Row(
+                  //     children: [
+                  //       Text(
+                  //         "120 EGP",
+                  //         style: StylesManager.textStyle_7_bold(context),
+                  //       ),
+                  //       Spacer(),
+                  //       Icon(
+                  //         CupertinoIcons.shopping_cart,
+                  //         color: primaryRed,
+                  //         size: context.height * 0.025,
+                  //       ),
+                  //     ],
+                  //   ),
+                ],
               ),
             ),
           ],

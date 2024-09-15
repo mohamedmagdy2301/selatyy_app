@@ -112,7 +112,7 @@ class CartScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(height: context.height * .02),
+                  SizedBox(height: context.height * .005),
                 ],
               ),
             );
