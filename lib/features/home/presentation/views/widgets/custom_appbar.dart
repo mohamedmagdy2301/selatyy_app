@@ -13,16 +13,9 @@ class CustomAppbarHome {
       GestureDetector(
         onTap: () {
           hideKeybourd();
-<<<<<<< HEAD
-          PersistentNavBarNavigator.pushNewScreen(
-            context,
-            screen: ProfileScreen(),
-            withNavBar: true,
-            pageTransitionAnimation: PageTransitionAnimation.cupertino,
-          );
-=======
+
+
           onTap();
->>>>>>> d8ef5c981c73e3178f8845d1bc3d03f0216654a1
         },
         child: ClipOval(
           child: Image.asset(
