@@ -3,6 +3,7 @@ import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 import 'package:selaty/core/constants.dart';
 import 'package:selaty/core/utils/colors.dart';
 import 'package:selaty/core/utils/resposive.dart';
+import 'package:selaty/features/Profile/presentation/views/screens/profile_screen.dart';
 import 'package:selaty/features/home/presentation/views/screens/home_screen.dart';
 import 'package:selaty/some_screens.dart';
 
@@ -16,23 +17,16 @@ class MainScaffold extends StatefulWidget {
 }
 
 class _MainScaffoldState extends State<MainScaffold> {
+  int currentIndex = 2;
   PersistentTabController _controller =
       PersistentTabController(initialIndex: 2);
   final List<Widget> screens = [
-    SearchScreen(),
+    ProfileScreen(),
     NotificationsScreen(),
     HomeScreen(),
-    ProfileScreen(),
+    SearchScreen(),
     SettingsScreen(),
   ];
-
-  int currentIndex = 2;
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
 
   List<PersistentBottomNavBarItem> getNavBarItems() {
     return [
@@ -42,7 +36,7 @@ class _MainScaffoldState extends State<MainScaffold> {
           padding: EdgeInsets.only(
             top: .015 * context.height,
           ),
-          child: Icon(Icons.search),
+          child: Icon(Icons.person),
         ),
         title: " ",
         activeColorPrimary: primaryGreen,
@@ -75,7 +69,7 @@ class _MainScaffoldState extends State<MainScaffold> {
           padding: EdgeInsets.only(
             top: .015 * context.height,
           ),
-          child: Icon(Icons.person),
+          child: Icon(Icons.search),
         ),
         title: " ",
         activeColorPrimary: primaryGreen,
@@ -94,6 +88,12 @@ class _MainScaffoldState extends State<MainScaffold> {
         inactiveColorPrimary: primaryGrey,
       ),
     ];
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 
   @override

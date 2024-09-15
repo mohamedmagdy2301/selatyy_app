@@ -1,15 +1,25 @@
 import 'package:flutter/cupertino.dart';
+import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 import 'package:selaty/core/utils/colors.dart';
 import 'package:selaty/core/utils/functions.dart';
 import 'package:selaty/core/utils/resposive.dart';
 import 'package:selaty/core/utils/text_styles.dart';
+import 'package:selaty/features/Profile/presentation/views/screens/profile_screen.dart';
 
 class CustomAppbarHome {
   static List<Widget> appBarActions(BuildContext context) {
     return [
       SizedBox(width: context.width * 0.02),
       GestureDetector(
-        onTap: () {},
+        onTap: () {
+          hideKeybourd();
+          PersistentNavBarNavigator.pushNewScreen(
+            context,
+            screen: ProfileScreen(),
+            withNavBar: true,
+            pageTransitionAnimation: PageTransitionAnimation.cupertino,
+          );
+        },
         child: ClipOval(
           child: Image.asset(
             'assets/images/profile.png',
