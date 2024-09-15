@@ -88,7 +88,7 @@ class CartScreen extends StatelessWidget {
               },
               body: Column(
                 children: [
-                  SizedBox(height: context.height * .02),
+                  SizedBox(height: context.height * .01),
                   TotalPriceCartScreen(),
                   SizedBox(height: context.height * .02),
                   Padding(

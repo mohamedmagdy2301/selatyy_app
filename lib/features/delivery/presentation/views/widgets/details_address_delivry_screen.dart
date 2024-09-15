@@ -23,7 +23,8 @@ class _DetailsAddressDelivryScreenState
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: context.height * .78,
+      height:
+          context.isLandscape ? context.height * .78 : context.height * .765,
       child: ListView.builder(
         itemCount: 8,
         padding: EdgeInsets.zero,

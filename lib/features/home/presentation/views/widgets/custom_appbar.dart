@@ -5,11 +5,14 @@ import 'package:selaty/core/utils/resposive.dart';
 import 'package:selaty/core/utils/text_styles.dart';
 
 class CustomAppbarHome {
-  static List<Widget> appBarActions(BuildContext context) {
+  static List<Widget> appBarActions(BuildContext context, Function onTap) {
     return [
       SizedBox(width: context.width * 0.02),
       GestureDetector(
-        onTap: () {},
+        onTap: () {
+          hideKeybourd();
+          onTap();
+        },
         child: ClipOval(
           child: Image.asset(
             'assets/images/profile.png',
