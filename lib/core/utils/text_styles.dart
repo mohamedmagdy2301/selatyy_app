@@ -5,12 +5,20 @@ import 'package:selaty/core/utils/resposive.dart';
 abstract class StylesManager {
   static TextStyle textStyle_6_Light(BuildContext context) {
     return TextStyle(
-        fontSize: 2 * context.textScale,
-        fontWeight: FontWeight.w300,
-        color: primaryWhite);
+      fontSize: 2 * context.textScale,
+      fontWeight: FontWeight.w300,
+      color: primaryWhite,
+    );
   }
 
   static TextStyle textStyle_6_bold(BuildContext context) {
+    return TextStyle(
+      fontSize: 1.5 * context.textScale,
+      fontWeight: FontWeight.bold,
+    );
+  }
+
+  static TextStyle textStyle_7_bold(BuildContext context) {
     return TextStyle(
       fontSize: 3 * context.textScale,
       fontWeight: FontWeight.bold,
