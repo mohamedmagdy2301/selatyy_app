@@ -48,6 +48,7 @@ dependencies:
   timeline_tile: ^2.0.0
   persistent_bottom_nav_bar: ^6.2.1
   flutter_bloc: ^8.1.6
+  logger: ^2.4.0
 
 dev_dependencies:
   flutter_test:

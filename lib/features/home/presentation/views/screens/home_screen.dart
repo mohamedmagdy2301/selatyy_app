@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 import 'package:selaty/core/utils/resposive.dart';
 import 'package:selaty/cubit.dart';
 import 'package:selaty/features/home/presentation/views/widgets/custom_appbar.dart';
@@ -14,9 +13,7 @@ import 'package:selaty/features/home/presentation/views/widgets/section_seize_op
 import 'package:selaty/features/home/presentation/views/widgets/section_shop_by_offer_home.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key, this.controller});
-
-  final PersistentTabController? controller;
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +46,7 @@ class HomeScreen extends StatelessWidget {
             SliverToBoxAdapter(child: SectionFrashAndFasterHome()),
             SliverToBoxAdapter(child: SecationAbsCardHome()),
             SliverToBoxAdapter(child: SectionSeizeOpportunityHome()),
-            SliverToBoxAdapter(child: SizedBox(height: context.height * 0.1)),
+            SliverToBoxAdapter(child: SizedBox(height: context.height * 0.02)),
           ],
         ),
       ),
