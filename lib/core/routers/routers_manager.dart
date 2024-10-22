@@ -7,7 +7,7 @@ import 'package:selaty/features/auth/presentation/views/screens/register_screen.
 import 'package:selaty/features/home/presentation/views/screens/home_screen.dart';
 import 'package:selaty/features/onboarding/preseentation/view/screens/onboarding_screen.dart';
 import 'package:selaty/features/onboarding/preseentation/view/screens/splash_screen.dart';
-import 'package:selaty/main_scaffold.dart';
+import 'package:selaty/selaty%20app/main_scaffold.dart';
 
 class RoutersManager {
   static const String kSplashScreen = '/';
