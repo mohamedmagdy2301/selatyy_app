@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 import 'package:selaty/core/utils/resposive.dart';
 import 'package:selaty/cubit.dart';
 import 'package:selaty/features/home/presentation/views/widgets/custom_appbar.dart';
