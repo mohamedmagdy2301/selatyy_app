@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:selaty/core/utils/resposive.dart';
-import 'package:selaty/cubit.dart';
+import 'package:selaty/selaty%20app/cubit.dart';
 import 'package:selaty/features/home/presentation/views/widgets/custom_appbar.dart';
 import 'package:selaty/features/home/presentation/views/widgets/secation_abs_card_home.dart';
 import 'package:selaty/features/home/presentation/views/widgets/section_best_features_home.dart';
