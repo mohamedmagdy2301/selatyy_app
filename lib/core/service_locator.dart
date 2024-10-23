@@ -5,8 +5,7 @@ import 'package:selaty/features/auth/data/source/auth_api_service.dart';
 import 'package:selaty/features/auth/domain/repos/auth_repo.dart';
 import 'package:selaty/features/auth/domain/usecases/register_usecase.dart';
 
-final sl = GetIt.instance;
-
+GetIt sl = GetIt.instance;
 void setupServiceLocator() {
   sl.registerSingleton<DioApiService>(DioApiService());
 
