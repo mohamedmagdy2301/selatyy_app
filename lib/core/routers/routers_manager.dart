@@ -25,7 +25,7 @@ class RoutersManager {
   static const String kMainScaffoldScreen = "/mainScaffoldView";
 
   static final router = GoRouter(
-    initialLocation: kSplashScreen,
+    initialLocation: kRegisterScreen,
     routes: [
       ShellRoute(
         builder: (context, state, child) {

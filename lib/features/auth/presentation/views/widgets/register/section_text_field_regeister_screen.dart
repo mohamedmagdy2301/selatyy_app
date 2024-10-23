@@ -49,10 +49,6 @@ class _SectionTextFeildRegisterState extends State<SectionTextFeildRegister> {
           CustomTextFeild(
             labelText: StringsApp.email,
             obscureText: false,
-            suffixIcon: Icon(
-              CupertinoIcons.check_mark_circled,
-              color: email == null ? primaryGrey : primaryGreen,
-            ),
             onSaved: (email) {
               this.email = email;
             },
@@ -77,14 +73,13 @@ class _SectionTextFeildRegisterState extends State<SectionTextFeildRegister> {
               this.address = address;
             },
           ),
-          SizedBox(height: context.height * 0.02),
+          SizedBox(height: context.height * 0.022),
           CustomButton(
             titleButton: StringsApp.submitRegister,
             colorButton: primaryGreen,
             onTap: () {
               if (_formKey.currentState?.validate() ?? false) {
                 _formKey.currentState?.save();
-
                 sl<RegisterUsecase>().call(
                   param: RegisterRequest(
                     mobile: phone!,

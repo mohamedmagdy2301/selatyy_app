@@ -7,21 +7,27 @@ class CustomTextFeild extends StatelessWidget {
     super.key,
     this.suffixIcon,
     required this.labelText,
-    this.onSubmitted,
+    this.onSaved,
     this.iconColor,
-    this.isPassword,
+    required this.obscureText,
   });
   final Icon? suffixIcon;
   final Color? iconColor;
   final String labelText;
-  final void Function(String)? onSubmitted;
-  final bool? isPassword;
+  final Function(String?)? onSaved;
+  final bool obscureText;
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
-      onSubmitted: onSubmitted,
-      obscureText: isPassword ?? false,
+    return TextFormField(
+      validator: (value) {
+        if (value == null || value.isEmpty) {
+          return "Field is required";
+        }
+        return null;
+      },
+      onSaved: onSaved,
+      obscureText: obscureText,
       decoration: InputDecoration(
         border: customOutlineInputBorder(),
         enabledBorder: customOutlineInputBorder(),
