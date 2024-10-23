@@ -13,21 +13,21 @@ class SectionAlreadyHaveAccount extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Text(
           StringsApp.alreadyHaveAccount,
-          style: StylesManager.textStyle_8_Medium(context).copyWith(
+          style: StylesManager.textStyle_9_bold(context).copyWith(
             color: primaryDarkGrey,
           ),
         ),
-        const Spacer(),
         TextButton(
           onPressed: () {
             GoRouter.of(context).push(RoutersManager.kLoginScreen);
           },
           child: Text(
             StringsApp.loginAccount,
-            style: StylesManager.textStyle_8_Medium(context).copyWith(
+            style: StylesManager.textStyle_9_bold(context).copyWith(
               color: primaryGreen,
             ),
           ),

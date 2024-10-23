@@ -21,7 +21,7 @@ class SectionButtonSocialRegister extends StatelessWidget {
         ),
         SizedBox(height: context.height * 0.025),
         Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             const CustomButtonSocial(
               title: StringsApp.facebook,

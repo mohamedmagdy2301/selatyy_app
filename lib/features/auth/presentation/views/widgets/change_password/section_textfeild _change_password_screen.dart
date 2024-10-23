@@ -15,7 +15,7 @@ class SectionTextFeildChangePasswordScreen extends StatelessWidget {
       children: [
         const CustomTextFeild(
           labelText: StringsApp.oldPassword,
-          isPassword: true,
+          obscureText: true,
           suffixIcon: Icon(
             CupertinoIcons.eye_slash_fill,
             color: primaryDarkGrey,
@@ -24,7 +24,7 @@ class SectionTextFeildChangePasswordScreen extends StatelessWidget {
         SizedBox(height: context.height * 0.02),
         const CustomTextFeild(
           labelText: StringsApp.newPassword,
-          isPassword: true,
+          obscureText: true,
           suffixIcon: Icon(
             CupertinoIcons.eye_slash_fill,
             color: primaryDarkGrey,

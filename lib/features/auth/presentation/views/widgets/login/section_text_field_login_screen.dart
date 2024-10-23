@@ -15,6 +15,7 @@ class SectionTextFeildLoginScreen extends StatelessWidget {
         SizedBox(height: context.height * 0.018),
         const CustomTextFeild(
           labelText: StringsApp.email,
+          obscureText: true,
           suffixIcon: Icon(
             CupertinoIcons.check_mark_circled,
             color: primaryGreen,
@@ -23,7 +24,7 @@ class SectionTextFeildLoginScreen extends StatelessWidget {
         SizedBox(height: context.height * 0.018),
         const CustomTextFeild(
           labelText: StringsApp.password,
-          isPassword: true,
+          obscureText: true,
           suffixIcon: Icon(
             CupertinoIcons.eye_slash_fill,
             color: primaryDarkGrey,
