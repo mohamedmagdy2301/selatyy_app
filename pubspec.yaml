@@ -49,6 +49,8 @@ dependencies:
   persistent_bottom_nav_bar: ^6.2.1
   flutter_bloc: ^8.1.6
   logger: ^2.4.0
+  dartz: ^0.10.1
+  get_it: ^8.0.1
 
 dev_dependencies:
   flutter_test:
