@@ -16,9 +16,8 @@ void main() {
   );
 }
 
-
 //  double height = MediaQuery.of(context).size.height;
-        // double width = MediaQuery.of(context).size.width;
-        // log("height: $height");
-        // log("width: $width");
-        // log("Device Type: ${Platform.operatingSystem}");
+// double width = MediaQuery.of(context).size.width;
+// log("height: $height");
+// log("width: $width");
+// log("Device Type: ${Platform.operatingSystem}");

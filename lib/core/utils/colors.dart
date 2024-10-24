@@ -17,5 +17,4 @@ const Color secondaryOrange = Color(0xffEB971B); // Warm Orange
 const Color secondarySkyBlue = Color(0xff24B4AA); // Teal Blue
 
 // Accent Colors
-const Color accentRedText = Color(0xffE11E24);    // Deep Red Text
-
+const Color accentRedText = Color(0xffE11E24); // Deep Red Text

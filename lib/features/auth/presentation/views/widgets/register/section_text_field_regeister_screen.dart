@@ -16,9 +16,11 @@ class SectionTextFeildRegister extends StatefulWidget {
 
 class _SectionTextFeildRegisterState extends State<SectionTextFeildRegister> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
-  String? name, password, address, email, phone;
-
+  final TextEditingController name = TextEditingController();
+  final TextEditingController address = TextEditingController();
+  final TextEditingController email = TextEditingController();
+  final TextEditingController phone = TextEditingController();
+  final TextEditingController password = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -30,58 +32,43 @@ class _SectionTextFeildRegisterState extends State<SectionTextFeildRegister> {
         children: [
           CustomTextFeild(
             labelText: StringsApp.nameUser,
-            obscureText: false,
-            onSaved: (name) {
-              this.name = name;
-            },
+            controller: name,
           ),
           SizedBox(height: context.height * 0.018),
           CustomTextFeild(
             labelText: StringsApp.phone,
-            obscureText: false,
-            onSaved: (phone) {
-              this.phone = phone;
-            },
+            controller: phone,
           ),
           SizedBox(height: context.height * 0.018),
           CustomTextFeild(
             labelText: StringsApp.email,
-            obscureText: false,
-            onSaved: (email) {
-              this.email = email;
-            },
+            controller: email,
           ),
           SizedBox(height: context.height * 0.018),
           CustomTextFeild(
             labelText: StringsApp.password,
-            obscureText: false,
+            obscureText: true,
             suffixIcon: Icon(
               CupertinoIcons.eye_slash_fill,
               color: primaryDarkGrey,
             ),
-            onSaved: (password) {
-              this.password = password;
-            },
+            controller: password,
           ),
           SizedBox(height: context.height * 0.018),
           CustomTextFeild(
             labelText: 'العنوان',
-            obscureText: false,
-            onSaved: (address) {
-              this.address = address;
-            },
+            controller: address,
           ),
           SizedBox(height: context.height * 0.022),
           BuildRegisterCubitWidget(
-            autovalidateMode: autovalidateMode,
             formKey: _formKey,
             registerRequest: RegisterRequest(
-              mobile: phone ?? '',
-              name: name ?? '',
-              email: email ?? '',
-              password: password ?? '',
-              cPassword: password ?? '',
-              address: address ?? '',
+              mobile: phone.text,
+              name: name.text,
+              email: email.text,
+              password: password.text,
+              cPassword: password.text,
+              address: address.text,
               profilePhotoPath: '',
             ),
           ),

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -13,12 +15,8 @@ import 'package:selaty/features/auth/presentation/view_model/register_cubit/regi
 
 class BuildRegisterCubitWidget extends StatelessWidget {
   const BuildRegisterCubitWidget(
-      {super.key,
-      required this.formKey,
-      required this.autovalidateMode,
-      required this.registerRequest});
+      {super.key, required this.formKey, required this.registerRequest});
   final GlobalKey<FormState> formKey;
-  final AutovalidateMode autovalidateMode;
   final RegisterRequest registerRequest;
   @override
   Widget build(BuildContext context) {
@@ -31,6 +29,7 @@ class BuildRegisterCubitWidget extends StatelessWidget {
             color: primaryGreen,
             icon: Icons.check,
           );
+          GoRouter.of(context).pushReplacement(RoutersManager.kLoginScreen);
         }
         if (state is RegisterCubitFailure) {
           showToast(
@@ -51,14 +50,20 @@ class BuildRegisterCubitWidget extends StatelessWidget {
           onTap: () {
             if (formKey.currentState?.validate() ?? false) {
               formKey.currentState?.save();
-              BlocProvider.of<RegisterCubit>(context).register(
-                registerRequest: registerRequest,
-              );
-              GoRouter.of(context).pushReplacement(
-                RoutersManager.kLoginScreen,
-              );
+              context.read<RegisterCubit>().register(
+                    registerRequest: RegisterRequest(
+                        mobile: registerRequest.mobile,
+                        name: registerRequest.name,
+                        email: registerRequest.email,
+                        password: registerRequest.password,
+                        cPassword: registerRequest.password,
+                        address: registerRequest.address,
+                        profilePhotoPath: registerRequest.profilePhotoPath),
+                  );
+              log(registerRequest.name);
             }
             hideKeybourd();
+            log(registerRequest.name);
           },
         );
       },

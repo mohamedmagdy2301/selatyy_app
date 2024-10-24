@@ -5,7 +5,8 @@ import 'package:selaty/features/auth/data/models/register_model/register_request
 import 'package:selaty/features/auth/data/models/register_model/register_response.dart';
 import 'package:selaty/features/auth/domain/repos/auth_repo.dart';
 
-class RegisterUsecase implements UseCase<Either, RegisterRequest> {
+class RegisterUsecase
+    implements UseCase<Either<String, Data>, RegisterRequest> {
   @override
   Future<Either<String, Data>> call({RegisterRequest? param}) async {
     Either<String, RegisterResponse> result =

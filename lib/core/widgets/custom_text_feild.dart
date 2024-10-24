@@ -7,27 +7,27 @@ class CustomTextFeild extends StatelessWidget {
     super.key,
     this.suffixIcon,
     required this.labelText,
-    this.onSaved,
+    this.controller,
     this.iconColor,
-    required this.obscureText,
+    this.obscureText,
   });
   final Icon? suffixIcon;
   final Color? iconColor;
   final String labelText;
-  final Function(String?)? onSaved;
-  final bool obscureText;
+  final TextEditingController? controller;
+  final bool? obscureText;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: controller,
       validator: (value) {
-        if (value == null || value.isEmpty) {
-          return "Field is required";
+        if (value == '') {
+          return "$labelText مطلوب";
         }
         return null;
       },
-      onSaved: onSaved,
-      obscureText: obscureText,
+      obscureText: obscureText ?? false,
       decoration: InputDecoration(
         border: customOutlineInputBorder(),
         enabledBorder: customOutlineInputBorder(),

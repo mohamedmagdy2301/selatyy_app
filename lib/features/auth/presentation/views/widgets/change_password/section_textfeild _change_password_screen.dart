@@ -13,7 +13,7 @@ class SectionTextFeildChangePasswordScreen extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        const CustomTextFeild(
+        CustomTextFeild(
           labelText: StringsApp.oldPassword,
           obscureText: true,
           suffixIcon: Icon(
@@ -22,7 +22,7 @@ class SectionTextFeildChangePasswordScreen extends StatelessWidget {
           ),
         ),
         SizedBox(height: context.height * 0.02),
-        const CustomTextFeild(
+        CustomTextFeild(
           labelText: StringsApp.newPassword,
           obscureText: true,
           suffixIcon: Icon(

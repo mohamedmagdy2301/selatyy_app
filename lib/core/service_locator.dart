@@ -3,6 +3,7 @@ import 'package:selaty/core/network/dio_client.dart';
 import 'package:selaty/features/auth/data/repos/auth_repos_impl.dart';
 import 'package:selaty/features/auth/data/source/auth_api_service.dart';
 import 'package:selaty/features/auth/domain/repos/auth_repo.dart';
+import 'package:selaty/features/auth/domain/usecases/login_usecase.dart';
 import 'package:selaty/features/auth/domain/usecases/register_usecase.dart';
 
 GetIt sl = GetIt.instance;
@@ -17,4 +18,5 @@ void setupServiceLocator() {
 
   // Usecases
   sl.registerSingleton<RegisterUsecase>(RegisterUsecase());
+  sl.registerSingleton<LoginUsecase>(LoginUsecase());
 }
