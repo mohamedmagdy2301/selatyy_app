@@ -30,6 +30,7 @@ class CustomToastMassage extends StatelessWidget {
         color: color,
       ),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
           Icon(
@@ -39,10 +40,14 @@ class CustomToastMassage extends StatelessWidget {
           SizedBox(
             width: 12.0,
           ),
-          Text(
-            text,
-            style: StylesManager.textStyle_10_bold(context).copyWith(
-              color: primaryWhite,
+          Expanded(
+            child: Text(
+              text,
+              style: StylesManager.textStyle_10_bold(context).copyWith(
+                color: primaryWhite,
+              ),
+              maxLines: 5,
+              overflow: TextOverflow.ellipsis,
             ),
           ),
         ],

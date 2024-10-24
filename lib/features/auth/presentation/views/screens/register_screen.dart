@@ -26,6 +26,7 @@ class RegisterScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SectionCreateNewAccRegeisterScreen(),
+
               SectionTextFeildRegister(),
               SizedBox(height: context.height * 0.01),
               const SectionAlreadyHaveAccount(),

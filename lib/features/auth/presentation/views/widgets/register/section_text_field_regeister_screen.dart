@@ -1,12 +1,10 @@
 import 'package:flutter/cupertino.dart';
-import 'package:selaty/core/service_locator.dart';
 import 'package:selaty/core/utils/Strings_app.dart';
 import 'package:selaty/core/utils/colors.dart';
 import 'package:selaty/core/utils/resposive.dart';
-import 'package:selaty/core/widgets/custom_button.dart';
 import 'package:selaty/core/widgets/custom_text_feild.dart';
 import 'package:selaty/features/auth/data/models/register_model/register_request.dart';
-import 'package:selaty/features/auth/domain/usecases/register_usecase.dart';
+import 'package:selaty/features/auth/presentation/views/widgets/register/build_register_cubit_widget.dart';
 
 class SectionTextFeildRegister extends StatefulWidget {
   const SectionTextFeildRegister({super.key});
@@ -18,16 +16,16 @@ class SectionTextFeildRegister extends StatefulWidget {
 
 class _SectionTextFeildRegisterState extends State<SectionTextFeildRegister> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  String? name;
-  String? phone;
-  String? email;
-  String? address;
-  String? password;
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+  String? name, password, address, email, phone;
 
   @override
   Widget build(BuildContext context) {
     return Form(
       key: _formKey,
+      autovalidateMode: _formKey.currentState?.validate() ?? false
+          ? AutovalidateMode.disabled
+          : AutovalidateMode.always,
       child: Column(
         children: [
           CustomTextFeild(
@@ -74,27 +72,18 @@ class _SectionTextFeildRegisterState extends State<SectionTextFeildRegister> {
             },
           ),
           SizedBox(height: context.height * 0.022),
-          CustomButton(
-            titleButton: StringsApp.submitRegister,
-            colorButton: primaryGreen,
-            onTap: () {
-              if (_formKey.currentState?.validate() ?? false) {
-                _formKey.currentState?.save();
-                sl<RegisterUsecase>().call(
-                  param: RegisterRequest(
-                    mobile: phone!,
-                    name: name!,
-                    email: email!,
-                    password: password!,
-                    cPassword: password!,
-                    address: address!,
-                    profilePhotoPath: '',
-                  ),
-                );
-              }
-              // GoRouter.of(context).pushReplacement(
-              //     RoutersManager.kMainScaffoldScreen);
-            },
+          BuildRegisterCubitWidget(
+            autovalidateMode: autovalidateMode,
+            formKey: _formKey,
+            registerRequest: RegisterRequest(
+              mobile: phone ?? '',
+              name: name ?? '',
+              email: email ?? '',
+              password: password ?? '',
+              cPassword: password ?? '',
+              address: address ?? '',
+              profilePhotoPath: '',
+            ),
           ),
         ],
       ),

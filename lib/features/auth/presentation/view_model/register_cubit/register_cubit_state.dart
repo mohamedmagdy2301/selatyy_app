@@ -6,8 +6,10 @@ final class RegisterCubitInitial extends RegisterCubitState {}
 
 final class RegisterCubitLoading extends RegisterCubitState {}
 
-final class RegisterCubitRequired extends RegisterCubitState {}
-
 final class RegisterCubitSuccess extends RegisterCubitState {}
 
-final class RegisterCubitFailure extends RegisterCubitState {}
+final class RegisterCubitFailure extends RegisterCubitState {
+  final String errorMassage;
+
+  RegisterCubitFailure(this.errorMassage);
+}

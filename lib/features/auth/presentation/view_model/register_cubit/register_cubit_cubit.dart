@@ -12,10 +12,9 @@ part 'register_cubit_state.dart';
 class RegisterCubit extends Cubit<RegisterCubitState> {
   RegisterCubit() : super(RegisterCubitInitial());
 
-  register(formKey, {required RegisterRequest registerRequest}) async {
+  register({required RegisterRequest registerRequest}) async {
     emit(RegisterCubitLoading());
-    if (formKey.currentState?.validate() ?? false) {
-      formKey.currentState?.save();
+    Future.delayed(Duration(seconds: 2), () async {
       Either<String, Data> result =
           await sl<RegisterUsecase>().call(param: registerRequest);
       result.fold(
@@ -23,7 +22,7 @@ class RegisterCubit extends Cubit<RegisterCubitState> {
           log('-------------Error-------------');
           log(result.toString());
           log('-------------------------------');
-          emit(RegisterCubitFailure());
+          emit(RegisterCubitFailure(error));
         },
         (data) {
           log('-------------Token-------------');
@@ -33,8 +32,6 @@ class RegisterCubit extends Cubit<RegisterCubitState> {
           emit(RegisterCubitSuccess());
         },
       );
-    }
-    //  autovalidateMode = AutovalidateMode.always;
-    emit(RegisterCubitRequired());
+    });
   }
 }
