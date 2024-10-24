@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:selaty/core/routers/routers_manager.dart';
 import 'package:selaty/core/utils/Strings_app.dart';
 import 'package:selaty/core/utils/colors.dart';
 import 'package:selaty/core/utils/functions.dart';
@@ -63,13 +65,12 @@ class BuildRegisterCubitWidget extends StatelessWidget {
           onTap: () {
             if (formKey.currentState?.validate() ?? false) {
               formKey.currentState?.save();
-
               BlocProvider.of<RegisterCubit>(context).register(
                 registerRequest: registerRequest,
               );
-
-              // GoRouter.of(context).pushReplacement(
-              //     RoutersManager.kMainScaffoldScreen);
+              GoRouter.of(context).pushReplacement(
+                RoutersManager.kLoginScreen,
+              );
             }
             hideKeybourd();
           },
