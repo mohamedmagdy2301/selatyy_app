@@ -1,7 +1,7 @@
 class RegisterResponse {
   bool status;
   String? errorMessage;
-  Data? data;
+  RegisterData? data;
 
   RegisterResponse({
     required this.status,
@@ -15,11 +15,11 @@ class RegisterResponse {
         errorMessage: json['error_message'] as String?,
         data: json['data'] == null
             ? null
-            : Data.fromJson(json['data'] as Map<String, dynamic>),
+            : RegisterData.fromJson(json['data'] as Map<String, dynamic>),
       );
 }
 
-class Data {
+class RegisterData {
   String? mobile;
   String? name;
   String? email;
@@ -27,7 +27,7 @@ class Data {
   dynamic profilePhotoPath;
   String? token;
 
-  Data({
+  RegisterData({
     this.mobile,
     this.name,
     this.email,
@@ -36,7 +36,7 @@ class Data {
     this.token,
   });
 
-  factory Data.fromJson(Map<String, dynamic> json) => Data(
+  factory RegisterData.fromJson(Map<String, dynamic> json) => RegisterData(
         mobile: json['mobile'] as String?,
         name: json['name'] as String?,
         email: json['email'] as String?,
@@ -44,12 +44,4 @@ class Data {
         profilePhotoPath: json['profile_photo_path'] as dynamic,
         token: json['token'] as String?,
       );
-
-  Map<String, dynamic> toJson() => {
-        'mobile': mobile,
-        'name': name,
-        'email': email,
-        'address': address,
-        'profile_photo_path': profilePhotoPath,
-      };
 }

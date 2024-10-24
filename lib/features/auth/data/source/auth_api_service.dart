@@ -9,14 +9,13 @@ import 'package:selaty/features/auth/data/models/register_model/register_request
 import 'package:selaty/features/auth/data/models/register_model/register_response.dart';
 
 abstract class AuthApiService {
-  Future<Either<String, RegisterResponse>> register(RegisterRequest model);
+  Future<Either<String, RegisterData>> register(RegisterRequest model);
   Future<Either<String, LoginData>> login(LoginRequest model);
 }
 
 class AuthApiServiceImpl implements AuthApiService {
   @override
-  Future<Either<String, RegisterResponse>> register(
-      RegisterRequest model) async {
+  Future<Either<String, RegisterData>> register(RegisterRequest model) async {
     try {
       Response<dynamic> response = await sl<DioApiService>().post(
         ApiUrls.registerUrl,
@@ -24,7 +23,10 @@ class AuthApiServiceImpl implements AuthApiService {
       );
       RegisterResponse registerResponse =
           RegisterResponse.fromJson(response.data);
-      return right(registerResponse);
+      if (registerResponse.status) {
+        return right(registerResponse.data!);
+      }
+      return left(registerResponse.errorMessage!);
     } on DioException catch (e) {
       return left(e.toString());
     } catch (e) {

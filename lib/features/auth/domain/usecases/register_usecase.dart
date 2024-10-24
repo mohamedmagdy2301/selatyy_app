@@ -6,19 +6,13 @@ import 'package:selaty/features/auth/data/models/register_model/register_respons
 import 'package:selaty/features/auth/domain/repos/auth_repo.dart';
 
 class RegisterUsecase
-    implements UseCase<Either<String, Data>, RegisterRequest> {
+    implements UseCase<Either<String, RegisterData>, RegisterRequest> {
   @override
-  Future<Either<String, Data>> call({RegisterRequest? param}) async {
-    Either<String, RegisterResponse> result =
-        await sl<AuthRepo>().register(param!);
+  Future<Either<String, RegisterData>> call({RegisterRequest? param}) async {
+    Either<String, RegisterData> result = await sl<AuthRepo>().register(param!);
     return result.fold(
       (error) => left(error),
-      (result) {
-        if (result.status) {
-          return right(result.data!);
-        }
-        return left(result.errorMessage!);
-      },
+      (data) => right(data),
     );
   }
 }

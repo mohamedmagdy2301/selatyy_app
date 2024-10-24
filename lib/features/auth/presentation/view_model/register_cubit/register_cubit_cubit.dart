@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:selaty/core/service_locator.dart';
@@ -15,22 +13,11 @@ class RegisterCubit extends Cubit<RegisterCubitState> {
   register({required RegisterRequest registerRequest}) async {
     emit(RegisterCubitLoading());
     Future.delayed(Duration(seconds: 2), () async {
-      Either<String, Data> result =
+      Either<String, RegisterData> result =
           await sl<RegisterUsecase>().call(param: registerRequest);
       result.fold(
-        (error) {
-          log('-------------Error-------------');
-          log(result.toString());
-          log('-------------------------------');
-          emit(RegisterCubitFailure(error));
-        },
-        (data) {
-          log('-------------Token-------------');
-          log(data.token!);
-          log('-------------------------------');
-          // Todo: save token in local
-          emit(RegisterCubitSuccess());
-        },
+        (error) => emit(RegisterCubitFailure(error)),
+        (data) => emit(RegisterCubitSuccess()),
       );
     });
   }

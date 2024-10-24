@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:selaty/features/auth/presentation/view_model/is_logged_in_cubit/is_logged_in_cubit.dart';
 import 'package:selaty/features/auth/presentation/view_model/login_cubit/login_cubit.dart';
 import 'package:selaty/features/auth/presentation/view_model/register_cubit/register_cubit_cubit.dart';
 import 'package:selaty/features/auth/presentation/views/screens/auth_screen.dart';
@@ -28,7 +29,7 @@ class RoutersManager {
   static const String kMainScaffoldScreen = "/mainScaffoldView";
 
   static final router = GoRouter(
-    initialLocation: kAuthScreen,
+    initialLocation: kSplashScreen,
     routes: [
       ShellRoute(
         builder: (context, state, child) {
@@ -43,7 +44,10 @@ class RoutersManager {
       ),
       GoRoute(
         path: kSplashScreen,
-        builder: (context, state) => const SplashScreen(),
+        builder: (context, state) => BlocProvider<IsLoggedInCubit>(
+          create: (context) => IsLoggedInCubit()..isLoggedIn(),
+          child: const SplashScreen(),
+        ),
       ),
       GoRoute(
         path: kOnboardingScreen,

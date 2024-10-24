@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:selaty/core/routers/routers_manager.dart';
 import 'package:selaty/core/utils/Strings_app.dart';
 import 'package:selaty/core/utils/colors.dart';
 import 'package:selaty/core/utils/functions.dart';
@@ -62,7 +64,7 @@ class _SectionTextFeildLoginScreenState
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: TextButton(
               onPressed: () {
-                // GoRouter.of(context).push(RoutersManager.kChangePasswordScreen);
+                GoRouter.of(context).push(RoutersManager.kChangePasswordScreen);
               },
               child: Text(
                 StringsApp.forgetPassword,
