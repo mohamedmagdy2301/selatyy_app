@@ -3,5 +3,6 @@ import 'package:selaty/features/auth/data/models/register_model/register_request
 import 'package:selaty/features/auth/data/models/register_model/register_response.dart';
 
 abstract class AuthRepo {
-  Future<Either<String, Data>> register(RegisterRequest registerReqParm);
+  Future<Either<String, RegisterResponse>> register(
+      RegisterRequest registerReqParm);
 }

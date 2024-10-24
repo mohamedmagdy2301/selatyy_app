@@ -9,19 +9,20 @@ import 'package:selaty/features/auth/domain/repos/auth_repo.dart';
 
 class AuthReposImpl implements AuthRepo {
   @override
-  Future<Either<String, Data>> register(RegisterRequest registerReqPram) async {
+  Future<Either<String, RegisterResponse>> register(
+      RegisterRequest registerReqPram) async {
     Either<String, RegisterResponse> result =
         await sl<AuthApiService>().register(registerReqPram);
     return result.fold(
       (error) => left(error),
       (result) {
-        if (result.status) {
-          log(result.data!.toString());
-          return right(result.data!);
-        }
-        log(result.errorMessage!);
+        // if (result.status) {
+        //   log(result.data!.toString());
+        //   return right(result.data!);
+        // }
+        log(result.toString());
 
-        return left(result.errorMessage!);
+        return right(result);
       },
     );
   }
