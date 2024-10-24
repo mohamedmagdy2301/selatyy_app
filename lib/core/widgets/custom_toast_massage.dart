@@ -2,20 +2,24 @@
 
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:selaty/core/utils/colors.dart';
+import 'package:selaty/core/utils/text_styles.dart';
 
-showToast({required String text, required Color color}) {
-  FToast().showToast(
-    gravity: ToastGravity.BOTTOM,
-    toastDuration: Duration(seconds: 2),
-    child: CustomToastMassage(text: text, color: color),
-  );
+showToast(context,
+    {required String text, required Color color, required IconData icon}) {
+  FToast().init(context).showToast(
+        gravity: ToastGravity.BOTTOM,
+        toastDuration: Duration(seconds: 2),
+        child: CustomToastMassage(text: text, color: color, icon: icon),
+      );
 }
 
 class CustomToastMassage extends StatelessWidget {
   const CustomToastMassage(
-      {super.key, required this.text, required this.color});
+      {super.key, required this.text, required this.color, required this.icon});
   final String text;
   final Color color;
+  final IconData icon;
 
   @override
   Widget build(BuildContext context) {
@@ -28,11 +32,19 @@ class CustomToastMassage extends StatelessWidget {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(Icons.check),
+          Icon(
+            icon,
+            color: primaryWhite,
+          ),
           SizedBox(
             width: 12.0,
           ),
-          Text(text),
+          Text(
+            text,
+            style: StylesManager.textStyle_10_bold(context).copyWith(
+              color: primaryWhite,
+            ),
+          ),
         ],
       ),
     );
