@@ -15,6 +15,7 @@ abstract class StringsApp {
   static const String password = "كلمة المرور";
 
   static const String submitRegister = "اشتراك";
+  static const String doneRegister = "تم الأشتراك";
   static const String alreadyHaveAccount = "لديك حساب بالفعل؟";
 
   static const String google = "Google";

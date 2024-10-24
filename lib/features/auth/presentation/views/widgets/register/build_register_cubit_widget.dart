@@ -5,7 +5,7 @@ import 'package:selaty/core/routers/routers_manager.dart';
 import 'package:selaty/core/utils/Strings_app.dart';
 import 'package:selaty/core/utils/colors.dart';
 import 'package:selaty/core/utils/functions.dart';
-import 'package:selaty/core/utils/resposive.dart';
+import 'package:selaty/core/widgets/button_loading.dart';
 import 'package:selaty/core/widgets/custom_button.dart';
 import 'package:selaty/core/widgets/custom_toast_massage.dart';
 import 'package:selaty/features/auth/data/models/register_model/register_request.dart';
@@ -27,37 +27,23 @@ class BuildRegisterCubitWidget extends StatelessWidget {
         if (state is RegisterCubitSuccess) {
           showToast(
             context,
-            text: "تم الأشتراك",
+            text: StringsApp.doneRegister,
             color: primaryGreen,
             icon: Icons.check,
           );
-        } else if (state is RegisterCubitFailure) {
+        }
+        if (state is RegisterCubitFailure) {
           showToast(
             context,
             text: state.errorMassage.split(".").first,
             color: primaryRed,
             icon: Icons.error_outline_outlined,
           );
-        } else {}
+        }
       },
       builder: (context, state) {
         if (state is RegisterCubitLoading) {
-          return Container(
-            alignment: Alignment.center,
-            width: context.width * 0.9,
-            height: context.height * 0.06,
-            decoration: BoxDecoration(
-              color: primaryGreen,
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: SizedBox(
-              width: context.width * 0.05,
-              height: context.width * 0.05,
-              child: CircularProgressIndicator(
-                valueColor: AlwaysStoppedAnimation<Color>(primaryWhite),
-              ),
-            ),
-          );
+          return ButtonLoading();
         }
         return CustomButton(
           titleButton: StringsApp.submitRegister,
