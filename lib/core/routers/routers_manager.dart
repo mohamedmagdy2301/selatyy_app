@@ -1,4 +1,6 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:selaty/features/auth/presentation/view_model/register_cubit_cubit/register_cubit_cubit.dart';
 import 'package:selaty/features/auth/presentation/views/screens/auth_screen.dart';
 import 'package:selaty/features/auth/presentation/views/screens/change_password_screen.dart';
 import 'package:selaty/features/auth/presentation/views/screens/login_screen.dart';
@@ -56,7 +58,10 @@ class RoutersManager {
       ),
       GoRoute(
         path: kRegisterScreen,
-        builder: (context, state) => const RegisterScreen(),
+        builder: (context, state) => BlocProvider<RegisterCubit>(
+          create: (context) => RegisterCubit(),
+          child: const RegisterScreen(),
+        ),
       ),
       GoRoute(
         path: kOtpScreen,
