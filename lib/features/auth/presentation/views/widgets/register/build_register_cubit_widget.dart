@@ -29,8 +29,7 @@ class BuildRegisterCubitWidget extends StatelessWidget {
             color: primaryGreen,
             icon: Icons.check,
           );
-          GoRouter.of(context)
-              .pushReplacement(RoutersManager.kMainScaffoldScreen);
+          GoRouter.of(context).pushReplacement(RoutersManager.kLoginScreen);
         }
         if (state is RegisterCubitFailure) {
           showToast(

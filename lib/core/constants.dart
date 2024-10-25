@@ -13,6 +13,8 @@ const String kDeliveryOnboarding = "assets/images/delivery.png";
 const String kEmptyCart = "assets/images/bag_icon.png";
 const String kSuccessBagDelivery = "assets/images/success_bag_icon.png";
 
-const String registerDataKey = 'registerDataKey';
-const String loginDataKey = "loginDataKey";
+const String nameKey = 'nameKey';
+const String phoneKey = 'phoneKey';
+const String imageKey = 'imageKey';
 const String tokenKey = 'tokenKey';
+const String addressKey = 'addressKey';

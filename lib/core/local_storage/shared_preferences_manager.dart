@@ -1,4 +1,5 @@
 import 'dart:convert';
+
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPreferencesManager {
@@ -27,6 +28,11 @@ class SharedPreferencesManager {
     } else if (value is List<String>) {
       await _sharedPreferences.setStringList(key, value);
       return true;
+    } else if (value is Map<String, dynamic>) {
+      // Convert the map to a JSON string and store it
+      String jsonString = json.encode(value);
+      await _sharedPreferences.setString(key, jsonString);
+      return true;
     } else if (value is List<List<dynamic>>) {
       String jsonString = json.encode(value);
       await _sharedPreferences.setString(key, jsonString);
@@ -40,12 +46,19 @@ class SharedPreferencesManager {
     String? jsonString = _sharedPreferences.getString(key);
     if (jsonString != null) {
       try {
-        List<dynamic> jsonData = json.decode(jsonString);
-        return jsonData
-            .map<List<dynamic>>((e) => List<dynamic>.from(e))
-            .toList();
+        // Try decoding as a JSON map
+        Map<String, dynamic> jsonData = json.decode(jsonString);
+        return jsonData;
       } catch (e) {
-        return jsonString; // If not a JSON list, return as a simple string
+        try {
+          // Try decoding as a JSON list if the data is not a map
+          List<dynamic> jsonData = json.decode(jsonString);
+          return jsonData
+              .map<List<dynamic>>((e) => List<dynamic>.from(e))
+              .toList();
+        } catch (e) {
+          return jsonString; // If not JSON, return as a simple string
+        }
       }
     }
     return _sharedPreferences.get(key);

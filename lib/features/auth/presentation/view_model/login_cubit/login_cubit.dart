@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:selaty/core/service_locator.dart';
@@ -14,23 +12,13 @@ class LoginCubit extends Cubit<LoginState> {
 
   login({required LoginRequest param}) async {
     emit(LoginLoading());
-    // Future.delayed(Duration(seconds: 2), () async {
-    Either<String, LoginData> result =
-        await sl<LoginUsecase>().call(param: param);
-    result.fold(
-      (error) {
-        log('-------------Error-------------');
-        log(result.toString());
-        log('-------------------------------');
-        emit(LoginFailure(error));
-      },
-      (data) {
-        log('-------------Token-------------');
-        log(data.token!);
-        log('-------------------------------');
-        emit(LoginSuccess());
-      },
-    );
-    // });
+    Future.delayed(Duration(seconds: 2), () async {
+      Either<String, LoginData> result =
+          await sl<LoginUsecase>().call(param: param);
+      result.fold(
+        (failure) => emit(LoginFailure(failure)),
+        (success) => emit(LoginSuccess()),
+      );
+    });
   }
 }

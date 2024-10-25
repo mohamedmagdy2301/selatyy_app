@@ -1,3 +1,7 @@
+// ignore_for_file: overridden_fields
+
+import 'package:selaty/features/auth/domain/entities/user_profile_entity.dart';
+
 class LoginResponse {
   bool? status;
   String? message;
@@ -14,28 +18,40 @@ class LoginResponse {
       );
 }
 
-class LoginData {
+class LoginData extends UserProfileEntity {
   int? id;
+  @override
   String? name;
+  @override
   String? mobile;
+
   String? email;
   int? roleId;
+  @override
   String? address;
   dynamic profilePhotoPath;
+  @override
   String? token;
+  @override
   String? profilePhotoUrl;
 
   LoginData({
     this.id,
-    this.name,
-    this.mobile,
+    required this.name,
+    required this.mobile,
     this.email,
     this.roleId,
-    this.address,
+    required this.address,
     this.profilePhotoPath,
-    this.token,
-    this.profilePhotoUrl,
-  });
+    required this.token,
+    required this.profilePhotoUrl,
+  }) : super(
+          name: name,
+          mobile: mobile,
+          profilePhotoUrl: profilePhotoUrl,
+          address: address,
+          token: token,
+        );
 
   factory LoginData.fromJson(Map<String, dynamic> json) => LoginData(
         id: json['id'] as int?,

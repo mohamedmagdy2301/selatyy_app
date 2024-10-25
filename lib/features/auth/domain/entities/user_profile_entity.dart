@@ -1,13 +1,14 @@
 class UserProfileEntity {
-  final String name;
-  final String email;
-  final String phone;
-  final String image;
+  final String? name;
+  final String? mobile;
+  final String? profilePhotoUrl;
+  final String? address;
+  final String? token;
 
-  UserProfileEntity({
-    required this.name,
-    required this.email,
-    required this.phone,
-    required this.image,
-  });
+  UserProfileEntity(
+      {required this.name,
+      required this.mobile,
+      required this.profilePhotoUrl,
+      required this.address,
+      required this.token});
 }

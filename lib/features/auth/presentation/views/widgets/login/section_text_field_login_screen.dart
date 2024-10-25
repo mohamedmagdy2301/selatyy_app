@@ -84,8 +84,8 @@ class _SectionTextFeildLoginScreenState
                   color: primaryGreen,
                   icon: Icons.check,
                 );
-                //  GoRouter.of(context)
-                //       .pushReplacement(RoutersManager.kMainScaffoldScreen);
+                GoRouter.of(context)
+                    .pushReplacement(RoutersManager.kMainScaffoldScreen);
               }
               if (state is LoginFailure) {
                 showToast(

@@ -36,20 +36,14 @@ class AuthApiServiceImpl implements AuthApiService {
 
   @override
   Future<Either<String, LoginData>> login(LoginRequest model) async {
-    try {
-      var result = await sl<DioApiService>().post(
-        ApiUrls.loginUrl,
-        data: model.toJson(),
-      );
-      LoginResponse loginResponse = LoginResponse.fromJson(result.data);
-      if (loginResponse.status!) {
-        return Right(loginResponse.data!);
-      }
-      return left(loginResponse.message!);
-    } on DioException catch (e) {
-      return Left(e.toString());
-    } catch (e) {
-      return Left(e.toString());
+    Response<dynamic> result = await sl<DioApiService>().post(
+      ApiUrls.loginUrl,
+      data: model.toJson(),
+    );
+    LoginResponse loginResponse = LoginResponse.fromJson(result.data);
+    if (loginResponse.status!) {
+      return right(loginResponse.data!);
     }
+    return left(loginResponse.message!);
   }
 }
