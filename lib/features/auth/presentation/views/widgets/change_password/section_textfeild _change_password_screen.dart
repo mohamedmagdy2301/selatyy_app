@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/cupertino.dart';
 import 'package:selaty/core/utils/Strings_app.dart';
 import 'package:selaty/core/utils/colors.dart';

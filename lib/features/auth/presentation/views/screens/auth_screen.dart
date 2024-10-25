@@ -11,45 +11,42 @@ class AuthScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Container(
-          child: OrientationBuilder(
-            builder: (context, orientation) {
-              bool isLandscape = orientation == Orientation.landscape;
-              return Container(
-                width: isLandscape ? context.height : context.width,
-                height: isLandscape ? context.width : context.height,
-                padding:
-                    EdgeInsets.symmetric(horizontal: context.width * 0.035),
-                decoration: kBackgroundDecoration,
-                child: isLandscape
-                    ? Center(
-                        child: SingleChildScrollView(
-                          physics: const BouncingScrollPhysics(),
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              SectionButtonAuthScreen(),
-                              SectionNameAuthScreen(),
-                            ],
-                          ),
-                        ),
-                      )
-                    : SingleChildScrollView(
+        child: OrientationBuilder(
+          builder: (context, orientation) {
+            bool isLandscape = orientation == Orientation.landscape;
+            return Container(
+              width: isLandscape ? context.height : context.width,
+              height: isLandscape ? context.width : context.height,
+              padding: EdgeInsets.symmetric(horizontal: context.width * 0.035),
+              decoration: kBackgroundDecoration,
+              child: isLandscape
+                  ? Center(
+                      child: SingleChildScrollView(
                         physics: const BouncingScrollPhysics(),
-                        child: Column(
+                        child: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            SizedBox(height: context.height * 0.35),
-                            const SectionNameAuthScreen(),
-                            SizedBox(height: context.height * 0.035),
-                            const SectionButtonAuthScreen(),
+                            SectionButtonAuthScreen(),
+                            SectionNameAuthScreen(),
                           ],
                         ),
                       ),
-              );
-            },
-          ),
+                    )
+                  : SingleChildScrollView(
+                      physics: const BouncingScrollPhysics(),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          SizedBox(height: context.height * 0.35),
+                          const SectionNameAuthScreen(),
+                          SizedBox(height: context.height * 0.035),
+                          const SectionButtonAuthScreen(),
+                        ],
+                      ),
+                    ),
+            );
+          },
         ),
       ),
     );

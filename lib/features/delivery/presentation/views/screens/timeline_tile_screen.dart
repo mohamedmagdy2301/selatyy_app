@@ -7,6 +7,8 @@ import 'package:selaty/features/delivery/presentation/views/widgets/custom_appba
 import 'package:selaty/features/delivery/presentation/views/widgets/custom_timeline_tile.dart';
 
 class TimelineTileScreen extends StatelessWidget {
+  const TimelineTileScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,7 +52,7 @@ class TimelineTileScreen extends StatelessWidget {
                           ),
                           SizedBox(height: context.height * 0.005),
                           Text(
-                            "${StringsApp.orderDate}",
+                            StringsApp.orderDate,
                             style: StylesManager.textStyle_8_Medium(context)
                                 .copyWith(
                               color: primaryWhite,

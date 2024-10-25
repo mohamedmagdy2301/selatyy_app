@@ -12,7 +12,8 @@ class TimelineTile extends StatelessWidget {
   final bool previousIsCompleted;
   final bool nextIsCompleted;
 
-  TimelineTile({
+  const TimelineTile({
+    super.key,
     required this.title,
     required this.date,
     required this.isCompleted,

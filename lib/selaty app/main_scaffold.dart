@@ -4,15 +4,15 @@ import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 import 'package:selaty/core/constants.dart';
 import 'package:selaty/core/utils/colors.dart';
 import 'package:selaty/core/utils/resposive.dart';
-import 'package:selaty/selaty%20app/cubit.dart';
 import 'package:selaty/features/Profile/presentation/views/screens/profile_screen.dart';
 import 'package:selaty/features/home/presentation/views/screens/home_screen.dart';
+import 'package:selaty/selaty%20app/cubit.dart';
 import 'package:selaty/selaty%20app/some_screens.dart';
 
 class MainScaffold extends StatelessWidget {
   final Widget child;
 
-  const MainScaffold({required this.child});
+  const MainScaffold({super.key, required this.child});
 
   @override
   Widget build(BuildContext context) {

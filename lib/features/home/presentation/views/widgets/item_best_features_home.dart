@@ -11,6 +11,7 @@ class ItemBestFeaturesHome extends StatelessWidget {
       required this.heightImageBackground,
       required this.heightCricleImage});
   final double heightImageBackground, heightCricleImage;
+  @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
