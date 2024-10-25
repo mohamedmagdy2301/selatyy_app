@@ -2,7 +2,7 @@
     package="com.androidID.selaty">
 
     <application
-        android:label="selaty"
+        android:label="سلــتى"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
