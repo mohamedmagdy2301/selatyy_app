@@ -27,11 +27,11 @@ class ItemLogOutProfile extends StatelessWidget {
           Icon(
             Icons.logout,
             color: primaryWhite,
-            size: context.textScale * 7,
+            size: context.textScale * 10,
           ),
           Text(
-            "خروج",
-            style: StylesManager.textStyle_30_bold(context).copyWith(
+            "تسجيل خروج",
+            style: StylesManager.textStyle_28_bold(context).copyWith(
               color: primaryWhite,
             ),
           ),
