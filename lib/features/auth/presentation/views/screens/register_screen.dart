@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:selaty/core/utils/functions.dart';
 import 'package:selaty/core/utils/resposive.dart';
 import 'package:selaty/features/auth/presentation/views/widgets/custom_appbar.dart';
 import 'package:selaty/features/auth/presentation/views/widgets/register/section_already_have_acc.dart';
@@ -25,7 +26,9 @@ class RegisterScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SectionCreateNewAccRegeisterScreen(),
+              isKeybordVisible(context)
+                  ? SizedBox()
+                  : SectionCreateNewAccRegeisterScreen(),
               SectionTextFeildRegister(),
               SizedBox(height: context.height * 0.01),
               const SectionAlreadyHaveAccount(),
