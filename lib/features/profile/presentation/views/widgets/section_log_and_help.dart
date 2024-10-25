@@ -17,7 +17,7 @@ class SectionLogAndHelp extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        ItemCenterHelpProfile(),
+        EditUserProfile(),
         SizedBox(width: context.width * 0.04),
         GestureDetector(
             onTap: () {

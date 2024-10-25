@@ -19,12 +19,12 @@ class SectionYourPicture extends StatelessWidget {
             Column(
               children: [
                 Container(
-                  height: .15 * context.width,
+                  height: .16 * context.width,
                   color: Color.fromARGB(255, 238, 238, 238),
                 ),
                 Container(
-                  width: context.width * 0.8,
-                  height: .15 * context.width,
+                  width: context.width * 0.84,
+                  height: .18 * context.width,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(10),
@@ -36,7 +36,7 @@ class SectionYourPicture extends StatelessWidget {
               ],
             ),
             Container(
-              width: context.width * 0.8,
+              width: context.width * 0.84,
               padding: EdgeInsets.zero,
               alignment: Alignment.center,
               decoration: BoxDecoration(

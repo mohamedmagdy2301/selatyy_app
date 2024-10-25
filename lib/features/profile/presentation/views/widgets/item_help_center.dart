@@ -3,8 +3,8 @@ import 'package:selaty/core/utils/colors.dart';
 import 'package:selaty/core/utils/resposive.dart';
 import 'package:selaty/core/utils/text_styles.dart';
 
-class ItemCenterHelpProfile extends StatelessWidget {
-  const ItemCenterHelpProfile({
+class EditUserProfile extends StatelessWidget {
+  const EditUserProfile({
     super.key,
   });
 
@@ -24,10 +24,10 @@ class ItemCenterHelpProfile extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          Icon(CupertinoIcons.hammer_fill,
-              color: primaryWhite, size: context.textScale * 7),
+          Icon(CupertinoIcons.settings,
+              color: primaryWhite, size: context.textScale * 10),
           Text(
-            "مركز المساعدة",
+            "تعديل البيانات",
             style: StylesManager.textStyle_28_bold(context).copyWith(
               color: primaryWhite,
             ),
