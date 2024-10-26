@@ -11,6 +11,7 @@ import 'package:selaty/features/auth/presentation/views/screens/register_screen.
 import 'package:selaty/features/home/presentation/views/screens/home_screen.dart';
 import 'package:selaty/features/onboarding/preseentation/view/screens/onboarding_screen.dart';
 import 'package:selaty/features/onboarding/preseentation/view/screens/splash_screen.dart';
+import 'package:selaty/features/profile/presentation/view%20model/view_user_profile_cubit/view_user_profile_cubit.dart';
 import 'package:selaty/selaty%20app/main_scaffold.dart';
 
 class RoutersManager {
@@ -33,7 +34,10 @@ class RoutersManager {
     routes: [
       ShellRoute(
         builder: (context, state, child) {
-          return MainScaffold(child: child);
+          return BlocProvider(
+            create: (context) => ViewUserProfileCubit()..viewUserProfile(),
+            child: MainScaffold(child: child),
+          );
         },
         routes: [
           GoRoute(

@@ -25,6 +25,7 @@ class LoginData extends UserProfileEntity {
   @override
   String? mobile;
 
+  @override
   String? email;
   int? roleId;
   @override
@@ -48,6 +49,7 @@ class LoginData extends UserProfileEntity {
   }) : super(
           name: name,
           mobile: mobile,
+          email: email,
           profilePhotoUrl: profilePhotoUrl,
           address: address,
           token: token,

@@ -7,6 +7,7 @@ import 'package:selaty/features/auth/domain/repos/auth_repo.dart';
 import 'package:selaty/features/auth/domain/usecases/is_logged_in_usecase.dart';
 import 'package:selaty/features/auth/domain/usecases/login_usecase.dart';
 import 'package:selaty/features/auth/domain/usecases/register_usecase.dart';
+import 'package:selaty/features/auth/domain/usecases/user_profile_usecase.dart';
 
 GetIt sl = GetIt.instance;
 void setupServiceLocator() {
@@ -23,4 +24,5 @@ void setupServiceLocator() {
   sl.registerSingleton<RegisterUsecase>(RegisterUsecase());
   sl.registerSingleton<LoginUsecase>(LoginUsecase());
   sl.registerSingleton<IsLoggedInUsecase>(IsLoggedInUsecase());
+  sl.registerSingleton<UserProfileUsecase>(UserProfileUsecase());
 }

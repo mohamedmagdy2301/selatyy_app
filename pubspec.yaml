@@ -50,6 +50,7 @@ dependencies:
   bloc: ^8.1.4
   fluttertoast: ^8.2.8
   shared_preferences: ^2.3.2
+  cached_network_image: ^3.4.1
 
 dev_dependencies:
   flutter_test:

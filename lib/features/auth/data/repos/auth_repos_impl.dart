@@ -68,5 +68,9 @@ class AuthReposImpl implements AuthRepo {
       key: imageKey,
       value: data.profilePhotoUrl,
     );
+    SharedPreferencesManager.setData(
+      key: emailKey,
+      value: data.email,
+    );
   }
 }

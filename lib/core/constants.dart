@@ -18,3 +18,4 @@ const String phoneKey = 'phoneKey';
 const String imageKey = 'imageKey';
 const String tokenKey = 'tokenKey';
 const String addressKey = 'addressKey';
+const String emailKey = 'emailKey';

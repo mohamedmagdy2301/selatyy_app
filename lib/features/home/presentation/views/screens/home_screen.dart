@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:selaty/core/utils/resposive.dart';
-import 'package:selaty/selaty%20app/cubit.dart';
 import 'package:selaty/features/home/presentation/views/widgets/custom_appbar.dart';
 import 'package:selaty/features/home/presentation/views/widgets/secation_abs_card_home.dart';
 import 'package:selaty/features/home/presentation/views/widgets/section_best_features_home.dart';
@@ -11,6 +10,8 @@ import 'package:selaty/features/home/presentation/views/widgets/section_most_sel
 import 'package:selaty/features/home/presentation/views/widgets/section_search_home.dart';
 import 'package:selaty/features/home/presentation/views/widgets/section_seize_opportunity_home.dart';
 import 'package:selaty/features/home/presentation/views/widgets/section_shop_by_offer_home.dart';
+import 'package:selaty/features/profile/presentation/view%20model/view_user_profile_cubit/view_user_profile_cubit.dart';
+import 'package:selaty/selaty%20app/cubit.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -25,17 +26,30 @@ class HomeScreen extends StatelessWidget {
         bottom: false,
         child: CustomScrollView(
           slivers: [
-            SliverAppBar(
-              pinned: true,
-              expandedHeight: context.height * 0.08,
-              toolbarHeight: context.height * 0.075,
-              flexibleSpace: Container(
-                color: Color.fromARGB(255, 238, 238, 238),
-              ),
-              actions: CustomAppbarHome.appBarActions(context, () {
-                tabCubit.updateTabIndex(0);
-              }),
-              automaticallyImplyLeading: false,
+            BlocBuilder<ViewUserProfileCubit, ViewUserProfileState>(
+              builder: (context, state) {
+                return SliverAppBar(
+                  pinned: true,
+                  expandedHeight: context.height * 0.08,
+                  toolbarHeight: context.height * 0.075,
+                  flexibleSpace: Container(
+                    color: Color.fromARGB(255, 238, 238, 238),
+                  ),
+                  actions: CustomAppbarHome.appBarActions(
+                    context,
+                    () {
+                      tabCubit.updateTabIndex(0);
+                    },
+                    name: state is ViewUserProfileDone
+                        ? state.userProfileInfo.name!
+                        : '',
+                    address: state is ViewUserProfileDone
+                        ? state.userProfileInfo.address!
+                        : '',
+                  ),
+                  automaticallyImplyLeading: false,
+                );
+              },
             ),
             SliverToBoxAdapter(child: SectionSearchHome()),
             SliverToBoxAdapter(child: SectionCatagoryFeaturesHome()),
