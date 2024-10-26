@@ -3,13 +3,13 @@ class ApiUrls {
 
   static const registerUrl = '${baseURL}register';
   static const loginUrl = '${baseURL}login';
-  static const userProfileUrl = '${baseURL}profile';
-  static const logoutUrl = '${baseURL}user_delete/0';
-  static const forgotPasswordUrl = '${baseURL}forget_pass_user';
-  static const resetPasswordUrl = '${baseURL}change_password';
+  static const updateProfileUrl = '${baseURL}update_profile/0';
 
   // ? Additional URLs from the collection
-  // static const updateProfileUrl = '${baseURL}update_profile/0';
+  // static const userProfileUrl = '${baseURL}profile';
+  // static const logoutUrl = '${baseURL}user_delete/0';
+  // static const forgotPasswordUrl = '${baseURL}forget_pass_user';
+  // static const resetPasswordUrl = '${baseURL}change_password';
   // static const userOrdersUrl = '${baseURL}user_orders';
   // static const getUserOrdersUrl = '${baseURL}user_orders/t/ar';
   // static const userFavoritesUrl = '${baseURL}user_favorite/t/ar';

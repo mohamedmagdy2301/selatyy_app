@@ -73,4 +73,16 @@ class AuthReposImpl implements AuthRepo {
       value: data.email,
     );
   }
+
+  @override
+  Future<String> updateUserProfile(model) async {
+    try {
+      String data = await sl<AuthApiService>().updateUserProfile(model);
+      return data;
+    } on DioException catch (e) {
+      return e.toString();
+    } catch (e) {
+      return e.toString();
+    }
+  }
 }
