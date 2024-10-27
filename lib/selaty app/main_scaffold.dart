@@ -4,10 +4,11 @@ import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 import 'package:selaty/core/constants.dart';
 import 'package:selaty/core/utils/colors.dart';
 import 'package:selaty/core/utils/resposive.dart';
-import 'package:selaty/features/Profile/presentation/views/screens/profile_screen.dart';
+import 'package:selaty/features/auth/presentation/views/screens/profile_screen.dart';
 import 'package:selaty/features/home/presentation/views/screens/home_screen.dart';
-import 'package:selaty/selaty%20app/cubit.dart';
-import 'package:selaty/selaty%20app/some_screens.dart';
+
+import 'cubit.dart';
+import 'some_screens.dart';
 
 class MainScaffold extends StatelessWidget {
   final Widget child;
@@ -17,7 +18,7 @@ class MainScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => TabCubit(), // Provide the TabCubit
+      create: (_) => TabCubit(),
       child: BlocBuilder<TabCubit, TabIndexState>(
         builder: (context, state) {
           final tabCubit = context.read<TabCubit>();

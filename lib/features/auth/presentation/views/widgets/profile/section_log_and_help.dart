@@ -9,9 +9,9 @@ import 'package:selaty/core/utils/resposive.dart';
 import 'package:selaty/core/utils/text_styles.dart';
 import 'package:selaty/core/widgets/custom_toast_massage.dart';
 import 'package:selaty/features/auth/data/models/update_user_model/update_profile_request.dart';
-import 'package:selaty/features/profile/presentation/view%20model/update_user_profile_cubit/update_user_profile_cubit.dart';
-import 'package:selaty/features/profile/presentation/views/widgets/item_help_center.dart';
-import 'package:selaty/features/profile/presentation/views/widgets/item_log_out.dart';
+import 'package:selaty/features/auth/presentation/view_model/update_user_profile_cubit/update_user_profile_cubit.dart';
+import 'package:selaty/features/auth/presentation/views/widgets/profile/item_help_center.dart';
+import 'package:selaty/features/auth/presentation/views/widgets/profile/item_log_out.dart';
 
 class SectionLogAndHelp extends StatelessWidget {
   const SectionLogAndHelp({
@@ -212,10 +212,10 @@ class SectionLogAndHelp extends StatelessWidget {
                     onPressed: () {
                       context.read<UpdateUserProfileCubit>().updateUserProfile(
                             param: UpdateProfileRequest(
-                              mobile: phoneController.text,
-                              name: nameController.text,
-                              email: emailController.text,
-                              address: addressController.text,
+                              mobile: phoneController.text.trim(),
+                              name: nameController.text.trim(),
+                              email: emailController.text.trim(),
+                              address: addressController.text.trim(),
                             ),
                           );
                       Navigator.of(context).pop();

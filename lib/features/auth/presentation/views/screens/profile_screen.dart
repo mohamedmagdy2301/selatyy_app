@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:selaty/core/utils/resposive.dart';
-import 'package:selaty/features/profile/presentation/views/widgets/custom_appbar.dart';
-import 'package:selaty/features/profile/presentation/views/widgets/section_log_and_help.dart';
-import 'package:selaty/features/profile/presentation/views/widgets/section_your_picture.dart';
+import 'package:selaty/features/auth/presentation/views/widgets/profile/custom_appbar.dart';
+import 'package:selaty/features/auth/presentation/views/widgets/profile/section_log_and_help.dart';
+import 'package:selaty/features/auth/presentation/views/widgets/profile/section_your_picture.dart';
 import 'package:selaty/selaty%20app/cubit.dart';
 
 class ProfileScreen extends StatelessWidget {

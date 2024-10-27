@@ -13,9 +13,12 @@ const String kDeliveryOnboarding = "assets/images/delivery.png";
 const String kEmptyCart = "assets/images/bag_icon.png";
 const String kSuccessBagDelivery = "assets/images/success_bag_icon.png";
 
+const String kBaseUrlForImage = "https://master-market.masool.net/uploads/";
+
 const String nameKey = 'nameKey';
 const String phoneKey = 'phoneKey';
 const String imageKey = 'imageKey';
 const String tokenKey = 'tokenKey';
 const String addressKey = 'addressKey';
 const String emailKey = 'emailKey';
+const String isFisrtKey = "isFisrtKey";

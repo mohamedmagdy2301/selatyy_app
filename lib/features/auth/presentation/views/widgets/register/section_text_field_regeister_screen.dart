@@ -63,12 +63,12 @@ class _SectionTextFeildRegisterState extends State<SectionTextFeildRegister> {
           BuildRegisterCubitWidget(
             formKey: _formKey,
             registerRequest: RegisterRequest(
-              mobile: phone.text,
-              name: name.text,
-              email: email.text,
-              password: password.text,
-              cPassword: password.text,
-              address: address.text,
+              mobile: phone.text.trim(),
+              name: name.text.trim(),
+              email: email.text.trim(),
+              password: password.text.trim(),
+              cPassword: password.text.trim(),
+              address: address.text.trim(),
               profilePhotoPath: '',
             ),
           ),

@@ -16,7 +16,16 @@ class AuthReposImpl implements AuthRepo {
   @override
   Future<Either<String, RegisterData>> register(
       RegisterRequest registerReqPram) async {
-    return await sl<AuthApiService>().register(registerReqPram);
+    var data = await sl<AuthApiService>().register(registerReqPram);
+    return data.fold((e) {
+      return left(e);
+    }, (data) {
+      SharedPreferencesManager.setData(
+        key: imageKey,
+        value: "$kBaseUrlForImage${data.profilePhotoPath}",
+      );
+      return right(data);
+    });
   }
 
   @override
@@ -64,10 +73,7 @@ class AuthReposImpl implements AuthRepo {
       key: phoneKey,
       value: data.mobile,
     );
-    SharedPreferencesManager.setData(
-      key: imageKey,
-      value: data.profilePhotoUrl,
-    );
+
     SharedPreferencesManager.setData(
       key: emailKey,
       value: data.email,

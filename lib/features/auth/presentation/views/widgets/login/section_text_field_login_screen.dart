@@ -108,8 +108,8 @@ class _SectionTextFeildLoginScreenState
                     _formKey.currentState?.save();
                     context.read<LoginCubit>().login(
                           param: LoginRequest(
-                            phoneEmail: email.text,
-                            password: password.text,
+                            phoneEmail: email.text.trim(),
+                            password: password.text.trim(),
                           ),
                         );
                   }

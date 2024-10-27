@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:selaty/core/routers/routers_manager.dart';
-import 'package:selaty/features/profile/presentation/view%20model/update_user_profile_cubit/update_user_profile_cubit.dart';
+import 'package:selaty/features/auth/presentation/view_model/update_user_profile_cubit/update_user_profile_cubit.dart';
 
 class SelatyApp extends StatelessWidget {
   const SelatyApp({super.key});

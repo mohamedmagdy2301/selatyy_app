@@ -39,24 +39,28 @@ class SharedPreferencesManager {
   }
 
   static dynamic getData({required String key}) {
-    String? jsonString = _sharedPreferences.getString(key);
-    if (jsonString != null) {
-      try {
-        Map<String, dynamic> jsonData = json.decode(jsonString);
-        return jsonData;
-      } catch (e) {
-        try {
-          List<dynamic> jsonData = json.decode(jsonString);
-          return jsonData
-              .map<List<dynamic>>((e) => List<dynamic>.from(e))
-              .toList();
-        } catch (e) {
-          return jsonString;
-        }
-      }
-    }
     return _sharedPreferences.get(key);
   }
+
+  // static dynamic getData({required String key}) {
+  //   String? jsonString = _sharedPreferences.getString(key);
+  //   if (jsonString != null) {
+  //     try {
+  //       Map<String, dynamic> jsonData = json.decode(jsonString);
+  //       return jsonData;
+  //     } catch (e) {
+  //       try {
+  //         List<dynamic> jsonData = json.decode(jsonString);
+  //         return jsonData
+  //             .map<List<dynamic>>((e) => List<dynamic>.from(e))
+  //             .toList();
+  //       } catch (e) {
+  //         return jsonString;
+  //       }
+  //     }
+  //   }
+  //   return _sharedPreferences.get(key);
+  // }
 
   static Future<bool> removeData({required String key}) async {
     await _sharedPreferences.remove(key);

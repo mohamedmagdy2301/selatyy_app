@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:selaty/core/utils/resposive.dart';
-import 'package:selaty/features/profile/presentation/views/widgets/item_gridview.dart';
+import 'package:selaty/features/auth/presentation/views/widgets/profile/item_gridview.dart';
 
 class SectionInfoAboutMe extends StatelessWidget {
   const SectionInfoAboutMe({

@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:selaty/core/constants.dart';
 import 'package:selaty/core/decoration/decoration.dart';
+import 'package:selaty/core/local_storage/shared_preferences_manager.dart';
 import 'package:selaty/core/routers/routers_manager.dart';
 import 'package:selaty/core/utils/Strings_app.dart';
 import 'package:selaty/core/utils/resposive.dart';
@@ -18,19 +19,22 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     bool isLandscape =
         MediaQuery.of(context).orientation != Orientation.portrait;
+
     return BlocListener<IsLoggedInCubit, IsLoggedInState>(
       listener: (context, state) {
-        if (state is UnAuthenticatedState) {
-          Future.delayed(const Duration(seconds: 5)).then((value) {
+        Future.delayed(Duration(seconds: 5), () {
+          if (SharedPreferencesManager.getData(key: isFisrtKey) ?? true) {
             GoRouter.of(context)
                 .pushReplacement(RoutersManager.kOnboardingScreen);
-          });
-        } else {
-          Future.delayed(const Duration(seconds: 5)).then((value) {
-            GoRouter.of(context)
-                .pushReplacement(RoutersManager.kMainScaffoldScreen);
-          });
-        }
+          } else {
+            if (state is UnAuthenticatedState) {
+              GoRouter.of(context).pushReplacement(RoutersManager.kAuthScreen);
+            } else {
+              GoRouter.of(context)
+                  .pushReplacement(RoutersManager.kMainScaffoldScreen);
+            }
+          }
+        });
       },
       child: Scaffold(
         body: SafeArea(

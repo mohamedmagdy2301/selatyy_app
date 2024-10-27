@@ -10,7 +10,7 @@ import 'package:selaty/features/home/presentation/views/widgets/section_most_sel
 import 'package:selaty/features/home/presentation/views/widgets/section_search_home.dart';
 import 'package:selaty/features/home/presentation/views/widgets/section_seize_opportunity_home.dart';
 import 'package:selaty/features/home/presentation/views/widgets/section_shop_by_offer_home.dart';
-import 'package:selaty/features/profile/presentation/view%20model/view_user_profile_cubit/view_user_profile_cubit.dart';
+import 'package:selaty/features/auth/presentation/view_model/view_user_profile_cubit/view_user_profile_cubit.dart';
 import 'package:selaty/selaty%20app/cubit.dart';
 
 class HomeScreen extends StatelessWidget {
