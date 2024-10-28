@@ -10,11 +10,12 @@ class SliderCubit extends Cubit<SliderState> {
 
   getSlider() async {
     emit(SliderLoading());
-    Future.delayed(const Duration(seconds: 1));
-    var data = await sl<ViewSliderUsecase>().call();
-    return data.fold(
-      (error) => emit(SliderFailure(error)),
-      (data) => emit(SliderSuccess(data)),
-    );
+    Future.delayed(const Duration(seconds: 4), () async {
+      var data = await sl<ViewSliderUsecase>().call();
+      return data.fold(
+        (error) => emit(SliderFailure(error)),
+        (data) => emit(SliderSuccess(data)),
+      );
+    });
   }
 }

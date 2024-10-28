@@ -5,8 +5,8 @@ import 'package:selaty/core/utils/resposive.dart';
 import 'package:selaty/features/home/domain/entities/slider_entity.dart';
 
 class SliderHome extends StatelessWidget {
-  const SliderHome({super.key, required this.imgList});
-  final List<SliderEntity> imgList;
+  const SliderHome({super.key, this.imgList});
+  final List<SliderEntity>? imgList;
 
   @override
   Widget build(BuildContext context) {
@@ -19,23 +19,28 @@ class SliderHome extends StatelessWidget {
           initialPage: 0,
           enableInfiniteScroll: true,
           reverse: false,
-          autoPlay: true,
+          autoPlay: imgList != null,
           autoPlayInterval: const Duration(seconds: 5),
           autoPlayAnimationDuration: const Duration(milliseconds: 800),
           autoPlayCurve: Curves.easeInBack,
           enlargeCenterPage: true,
           scrollDirection: Axis.horizontal,
         ),
-        itemCount: imgList.length,
+        itemCount: imgList?.length ?? 4,
         itemBuilder: (BuildContext context, int itemIndex, int pageViewIndex) =>
             ClipRRect(
           borderRadius: BorderRadius.circular(10),
-          child: CachedNetworkImage(
-            fit: BoxFit.fill,
-            imageUrl: imgList[itemIndex].image,
-            placeholder: (context, url) => SizedBox(),
-            errorWidget: (context, url, error) => SizedBox(),
-          ),
+          child: imgList == null
+              ? Image.asset(
+                  'assets/images/fruits_category.jpg',
+                  fit: BoxFit.fill,
+                )
+              : CachedNetworkImage(
+                  fit: BoxFit.fill,
+                  imageUrl: imgList![itemIndex].image,
+                  placeholder: (context, url) => SizedBox(),
+                  errorWidget: (context, url, error) => SizedBox(),
+                ),
         ),
       ),
     );
