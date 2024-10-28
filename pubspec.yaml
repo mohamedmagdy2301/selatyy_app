@@ -51,6 +51,8 @@ dependencies:
   fluttertoast: ^8.2.8
   shared_preferences: ^2.3.2
   cached_network_image: ^3.4.1
+  carousel_slider: ^5.0.0
+  skeletonizer: ^1.4.2
 
 dev_dependencies:
   flutter_test:
