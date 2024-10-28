@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -60,10 +58,8 @@ class BuildRegisterCubitWidget extends StatelessWidget {
                         address: registerRequest.address,
                         profilePhotoPath: registerRequest.profilePhotoPath),
                   );
-              log(registerRequest.name);
             }
             hideKeybourd();
-            log(registerRequest.name);
           },
         );
       },

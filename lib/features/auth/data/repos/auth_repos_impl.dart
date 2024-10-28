@@ -21,10 +21,6 @@ class AuthReposImpl implements AuthRepo {
     return data.fold((e) {
       return left(e);
     }, (data) {
-      SharedPreferencesManager.setData(
-        key: imageKey,
-        value: "$kBaseUrlForImage${data.profilePhotoPath}",
-      );
       return right(data);
     });
   }
@@ -90,6 +86,10 @@ class AuthReposImpl implements AuthRepo {
     SharedPreferencesManager.setData(
       key: emailKey,
       value: data.email,
+    );
+    SharedPreferencesManager.setData(
+      key: imageKey,
+      value: "$kBaseUrlForImage${data.profilePhotoPath}",
     );
   }
 }

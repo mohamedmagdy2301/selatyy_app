@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:selaty/core/constants.dart';
 import 'package:selaty/core/utils/Strings_app.dart';
 import 'package:selaty/core/utils/colors.dart';
 import 'package:selaty/core/utils/resposive.dart';
@@ -69,7 +70,7 @@ class _SectionTextFeildRegisterState extends State<SectionTextFeildRegister> {
               password: password.text.trim(),
               cPassword: password.text.trim(),
               address: address.text.trim(),
-              profilePhotoPath: '',
+              profilePhotoPath: kMegoImageUrl,
             ),
           ),
         ],

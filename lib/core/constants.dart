@@ -15,6 +15,9 @@ const String kSuccessBagDelivery = "assets/images/success_bag_icon.png";
 
 const String kBaseUrlForImage = "https://master-market.masool.net/uploads/";
 
+const String kMegoImageUrl = "assets/images/mego2.jpg";
+const String kAvatarImageUrl = "assets/images/avatar.jpg";
+
 const String nameKey = 'nameKey';
 const String phoneKey = 'phoneKey';
 const String imageKey = 'imageKey';

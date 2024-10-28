@@ -34,18 +34,18 @@ class HomeScreen extends StatelessWidget {
                   flexibleSpace: Container(
                     color: Color.fromARGB(255, 238, 238, 238),
                   ),
-                  actions: CustomAppbarHome.appBarActions(
-                    context,
-                    () {
-                      tabCubit.updateTabIndex(0);
-                    },
-                    name: state is ViewUserProfileDone
-                        ? state.userProfileInfo.name!
-                        : '',
-                    address: state is ViewUserProfileDone
-                        ? state.userProfileInfo.address!
-                        : '',
-                  ),
+                  actions: CustomAppbarHome.appBarActions(context, () {
+                    tabCubit.updateTabIndex(0);
+                  },
+                      name: state is ViewUserProfileDone
+                          ? state.userProfileInfo.name!
+                          : '',
+                      address: state is ViewUserProfileDone
+                          ? state.userProfileInfo.address!
+                          : '',
+                      image: state is ViewUserProfileDone
+                          ? state.userProfileInfo.profilePhotoUrl!
+                          : ''),
                   automaticallyImplyLeading: false,
                 );
               },

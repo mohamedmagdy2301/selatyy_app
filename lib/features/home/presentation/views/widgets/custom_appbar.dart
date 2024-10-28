@@ -1,14 +1,16 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:selaty/core/constants.dart';
 import 'package:selaty/core/utils/colors.dart';
 import 'package:selaty/core/utils/functions.dart';
 import 'package:selaty/core/utils/resposive.dart';
 import 'package:selaty/core/utils/text_styles.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 class CustomAppbarHome {
   static List<Widget> appBarActions(BuildContext context, Function onTap,
-      {required name, required address}) {
+      {required name, required address, required image}) {
     return [
       SizedBox(width: context.width * 0.02),
       GestureDetector(
@@ -16,22 +18,29 @@ class CustomAppbarHome {
           hideKeybourd();
           onTap();
         },
-        child: SizedBox(
-          width: context.width * 0.08,
-          child: ClipOval(
-            child: CachedNetworkImage(
-              imageUrl:
-                  "https://i.pinimg.com/564x/cd/4b/d9/cd4bd9b0ea2807611ba3a67c331bff0b.jpg",
-              placeholder: (context, url) => Center(
-                child: CircularProgressIndicator(),
-              ),
-              errorWidget: (context, url, error) {
-                return Image.asset(
-                  'assets/images/profile.png',
-                  fit: BoxFit.cover,
-                );
-              },
-            ),
+        child: ClipOval(
+          child: CachedNetworkImage(
+            imageUrl: image,
+            fit: BoxFit.cover,
+            width: context.width * 0.11,
+            placeholder: (context, url) {
+              return Skeletonizer(
+                enabled: true,
+                effect: ShimmerEffect(
+                  baseColor: Colors.grey.shade400,
+                  highlightColor: Colors.grey.shade200,
+                  duration: Duration(seconds: 1),
+                ),
+                child: Image.asset(
+                  kAvatarImageUrl,
+                ),
+              );
+            },
+            errorWidget: (context, url, error) {
+              return Image.asset(
+                kAvatarImageUrl,
+              );
+            },
           ),
         ),
       ),
@@ -42,9 +51,9 @@ class CustomAppbarHome {
         children: [
           Text(
             "مرحباً $name 👋",
-            style: StylesManager.textStyle_10_Medium(context).copyWith(
+            style: StylesManager.textStyle_14_bold(context).copyWith(
               color: primaryBlack,
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w900,
             ),
           ),
           Text(
