@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:selaty/core/constants.dart';
+import 'package:selaty/core/errors/failure.dart';
 import 'package:selaty/core/local_storage/shared_preferences_manager.dart';
 import 'package:selaty/core/service_locator.dart';
 import 'package:selaty/features/auth/data/models/login_model/login_request.dart';
@@ -40,9 +41,9 @@ class AuthReposImpl implements AuthRepo {
         },
       );
     } on DioException catch (e) {
-      return left(e.toString());
+      return left(ServerFailure.fromDioException(e).message);
     } catch (e) {
-      return left(e.toString());
+      return left("حدث خطأ غير متوقع");
     }
   }
 
@@ -54,6 +55,18 @@ class AuthReposImpl implements AuthRepo {
   @override
   Future<UserProfileEntity> getUserProfile() async {
     return await sl<AuthLoaclService>().userProfile();
+  }
+
+  @override
+  Future<String> updateUserProfile(model) async {
+    try {
+      String data = await sl<AuthApiService>().updateUserProfile(model);
+      return data;
+    } on DioException catch (e) {
+      return ServerFailure.fromDioException(e).message;
+    } catch (e) {
+      return "حدث خطأ غير متوقع";
+    }
   }
 
   void saveUerInfo(LoginData data) {
@@ -78,17 +91,5 @@ class AuthReposImpl implements AuthRepo {
       key: emailKey,
       value: data.email,
     );
-  }
-
-  @override
-  Future<String> updateUserProfile(model) async {
-    try {
-      String data = await sl<AuthApiService>().updateUserProfile(model);
-      return data;
-    } on DioException catch (e) {
-      return e.toString();
-    } catch (e) {
-      return e.toString();
-    }
   }
 }
