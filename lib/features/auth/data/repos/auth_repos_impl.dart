@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:selaty/core/constants.dart';
+import 'package:selaty/core/constants/constants.dart';
 import 'package:selaty/core/errors/failure.dart';
 import 'package:selaty/core/local_storage/shared_preferences_manager.dart';
 import 'package:selaty/core/service_locator.dart';
@@ -45,12 +45,12 @@ class AuthReposImpl implements AuthRepo {
 
   @override
   Future<bool> isLoggedIn() async {
-    return await sl<AuthLoaclService>().isLoggedIn();
+    return await sl<AuthLocalService>().isLoggedIn();
   }
 
   @override
   Future<UserProfileEntity> getUserProfile() async {
-    return await sl<AuthLoaclService>().userProfile();
+    return await sl<AuthLocalService>().userProfile();
   }
 
   @override

@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:selaty/core/constants.dart';
+import 'package:selaty/core/constants/constants.dart';
 import 'package:selaty/core/decoration/decoration.dart';
 import 'package:selaty/core/local_storage/shared_preferences_manager.dart';
 import 'package:selaty/core/routers/routers_manager.dart';

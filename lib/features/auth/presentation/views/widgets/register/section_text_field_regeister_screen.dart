@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:selaty/core/constants.dart';
+import 'package:selaty/core/constants/constants.dart';
 import 'package:selaty/core/utils/Strings_app.dart';
 import 'package:selaty/core/utils/colors.dart';
 import 'package:selaty/core/utils/resposive.dart';

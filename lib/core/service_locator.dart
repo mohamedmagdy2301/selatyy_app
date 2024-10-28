@@ -9,9 +9,11 @@ import 'package:selaty/features/auth/domain/usecases/login_usecase.dart';
 import 'package:selaty/features/auth/domain/usecases/register_usecase.dart';
 import 'package:selaty/features/auth/domain/usecases/update_profile_usecase.dart';
 import 'package:selaty/features/auth/domain/usecases/user_profile_usecase.dart';
-import 'package:selaty/features/home/data/repos/view_silder_repo_imple.dart';
-import 'package:selaty/features/home/data/source/remotly_source.dart';
-import 'package:selaty/features/home/domain/repo/view_silder_repo.dart';
+import 'package:selaty/features/home/data/repos/home_repo_imple.dart';
+import 'package:selaty/features/home/data/source/home_local_source.dart';
+import 'package:selaty/features/home/data/source/home_remotly_source.dart';
+import 'package:selaty/features/home/domain/repo/home_repo.dart';
+import 'package:selaty/features/home/domain/usecases/view_categories_usecase.dart';
 import 'package:selaty/features/home/domain/usecases/view_slider_usecase.dart';
 
 GetIt sl = GetIt.instance;
@@ -20,8 +22,9 @@ void setupServiceLocator() {
 
   // Services
   sl.registerSingleton<AuthApiService>(AuthApiServiceImpl());
-  sl.registerSingleton<RemotlySource>(RemotlySourceImple());
-  sl.registerSingleton<AuthLoaclService>(AuthLoaclServiceImpl());
+  sl.registerSingleton<AuthLocalService>(AuthLocalServiceImpl());
+  sl.registerSingleton<HomeRemotlySource>(HomeRemotlySourceImple());
+  sl.registerSingleton<HomeLocalSource>(HomeLocalSourceImple());
 
   // Repositories
   sl.registerSingleton<AuthRepo>(AuthReposImpl());
@@ -34,4 +37,5 @@ void setupServiceLocator() {
   sl.registerSingleton<UserProfileUsecase>(UserProfileUsecase());
   sl.registerSingleton<UpdateProfileUsecase>(UpdateProfileUsecase());
   sl.registerSingleton<ViewSliderUsecase>(ViewSliderUsecase());
+  sl.registerSingleton<ViewCategoriesUsecase>(ViewCategoriesUsecase());
 }

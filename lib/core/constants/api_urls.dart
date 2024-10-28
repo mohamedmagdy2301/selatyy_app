@@ -7,6 +7,8 @@ class ApiUrls {
 
   static const sliderUrl = '${baseURL}advertising/t/ar/0';
 
+  static const categoriesUrl = '${baseURL}categories/t/ar/0/0';
+
   // ? Additional URLs from the collection
   // static const userProfileUrl = '${baseURL}profile';
   // static const logoutUrl = '${baseURL}user_delete/0';

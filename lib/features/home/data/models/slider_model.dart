@@ -1,4 +1,4 @@
-import 'package:selaty/core/constants.dart';
+import 'package:selaty/core/constants/constants.dart';
 import 'package:selaty/features/home/domain/entities/slider_entity.dart';
 
 class SliderModel extends SliderEntity {

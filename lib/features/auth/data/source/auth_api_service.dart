@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:selaty/core/constants.dart';
+import 'package:selaty/core/constants/constants.dart';
 import 'package:selaty/core/constants/api_urls.dart';
 import 'package:selaty/core/local_storage/shared_preferences_manager.dart';
 import 'package:selaty/core/network/dio_client.dart';

@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:selaty/core/constants.dart';
+import 'package:selaty/core/constants/constants.dart';
 import 'package:selaty/core/utils/colors.dart';
 import 'package:selaty/core/utils/functions.dart';
 import 'package:selaty/core/utils/resposive.dart';

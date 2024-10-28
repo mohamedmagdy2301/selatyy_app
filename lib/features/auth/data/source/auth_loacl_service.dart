@@ -1,16 +1,16 @@
 import 'dart:developer';
 
-import 'package:selaty/core/constants.dart';
+import 'package:selaty/core/constants/constants.dart';
 import 'package:selaty/core/local_storage/shared_preferences_manager.dart';
 import 'package:selaty/features/auth/data/models/login_model/login_response.dart';
 import 'package:selaty/features/auth/domain/entities/user_profile_entity.dart';
 
-abstract class AuthLoaclService {
+abstract class AuthLocalService {
   Future<bool> isLoggedIn();
   Future<UserProfileEntity> userProfile();
 }
 
-class AuthLoaclServiceImpl extends AuthLoaclService {
+class AuthLocalServiceImpl extends AuthLocalService {
   @override
   Future<bool> isLoggedIn() async {
     String token = await SharedPreferencesManager.getData(key: tokenKey) ?? '';
@@ -39,7 +39,6 @@ class AuthLoaclServiceImpl extends AuthLoaclService {
       token: token,
       profilePhotoUrl: image,
     );
-    log(userProfileEntity.toString());
     return userProfileEntity;
   }
 }

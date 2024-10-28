@@ -5,7 +5,7 @@ import 'package:selaty/features/auth/presentation/view_model/view_user_profile_c
 import 'package:selaty/features/home/presentation/views/widgets/build/build_slider_home.dart';
 import 'package:selaty/features/home/presentation/views/widgets/custom_appbar.dart';
 import 'package:selaty/features/home/presentation/views/widgets/secation_abs_card_home.dart';
-import 'package:selaty/features/home/presentation/views/widgets/section_best_features_home.dart';
+import 'package:selaty/features/home/presentation/views/widgets/section_categories_home.dart';
 import 'package:selaty/features/home/presentation/views/widgets/section_frash_and_faster_home.dart';
 import 'package:selaty/features/home/presentation/views/widgets/section_most_seller_home.dart';
 import 'package:selaty/features/home/presentation/views/widgets/section_search_home.dart';
@@ -52,7 +52,7 @@ class HomeScreen extends StatelessWidget {
             ),
             SliverToBoxAdapter(child: SectionSearchHome()),
             SliverToBoxAdapter(child: BuildSliderHome()),
-            SliverToBoxAdapter(child: SectionBestFeaturesHome()),
+            SliverToBoxAdapter(child: SectionCategoriesHome()),
             SliverToBoxAdapter(child: SectionMostSellerHome()),
             SliverToBoxAdapter(child: SecationAbsCardHome()),
             SliverToBoxAdapter(child: SectionShopByOfferHome()),

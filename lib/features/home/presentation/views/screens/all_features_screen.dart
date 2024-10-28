@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:selaty/core/utils/resposive.dart';
 import 'package:selaty/features/home/presentation/views/widgets/custom_appbar_all_features.dart';
-import 'package:selaty/features/home/presentation/views/widgets/item_best_features_home.dart';
+import 'package:selaty/features/home/presentation/views/widgets/item_categories_home.dart';
 
 class AllFeaturesScreen extends StatelessWidget {
   const AllFeaturesScreen({super.key});
@@ -40,10 +40,7 @@ class AllFeaturesScreen extends StatelessWidget {
                   childAspectRatio: 4 / 2.7,
                 ),
                 itemBuilder: (context, index) {
-                  return ItemBestFeaturesHome(
-                    heightImageBackground: .05,
-                    heightCricleImage: .04,
-                  );
+                  return ItemCategoriesHome();
                 },
               ),
             );
@@ -62,10 +59,7 @@ class AllFeaturesScreen extends StatelessWidget {
                 childAspectRatio: 4 / 2.7,
               ),
               itemBuilder: (context, index) {
-                return ItemBestFeaturesHome(
-                  heightImageBackground: .085,
-                  heightCricleImage: .06,
-                );
+                return ItemCategoriesHome();
               },
             ),
           );
