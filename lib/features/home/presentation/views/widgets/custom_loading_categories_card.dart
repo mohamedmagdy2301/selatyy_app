@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:selaty/core/utils/resposive.dart';
-import 'package:selaty/features/home/data/models/categories_model.dart';
+import 'package:selaty/features/home/data/models/categories_modell/categoriesdart';
 import 'package:selaty/features/home/presentation/views/widgets/item_categories_home.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 

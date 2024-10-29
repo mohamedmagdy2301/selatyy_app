@@ -1,11 +1,10 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:selaty/core/constants/api_urls.dart';
-import 'package:selaty/core/constants/constants.dart';
-import 'package:selaty/core/local_storage/shared_preferences_manager.dart';
 import 'package:selaty/core/network/dio_client.dart';
 import 'package:selaty/core/service_locator.dart';
-import 'package:selaty/features/home/data/models/categories_model.dart';
+import 'package:selaty/features/home/data/models/categories_modell/categories_model.dart';
+import 'package:selaty/features/home/data/models/categories_modell/categoriesdart';
 import 'package:selaty/features/home/data/models/slider_model.dart';
 import 'package:selaty/features/home/domain/entities/slider_entity.dart';
 
@@ -32,12 +31,14 @@ class HomeRemotlySourceImple extends HomeRemotlySource {
     CategoriesModel categoriesModel = CategoriesModel.fromJson(response.data);
 
     if (categoriesModel.result!) {
-      SharedPreferencesManager.setData(
-        key: categoriesKey,
-        value: categoriesModel.data,
-      );
       return right(categoriesModel.data ?? []);
     }
     return left(categoriesModel.errorMessage!);
   }
 }
+
+
+      // SharedPreferencesManager.setData(
+      //   key: categoriesKey,
+      //   value: categoriesModel.data,
+      // );

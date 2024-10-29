@@ -1,11 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
-import 'package:selaty/core/constants/constants.dart';
 import 'package:selaty/core/utils/colors.dart';
 import 'package:selaty/core/utils/resposive.dart';
 import 'package:selaty/core/utils/text_styles.dart';
-import 'package:selaty/features/home/data/models/categories_model.dart';
+import 'package:selaty/features/home/data/models/categories_modell/categoriesdart';
 import 'package:selaty/features/home/presentation/views/screens/all_item_feature_screen.dart';
 
 class ItemCategoriesHome extends StatelessWidget {
@@ -31,8 +30,7 @@ class ItemCategoriesHome extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
                 image: DecorationImage(
-                  image: CachedNetworkImageProvider(
-                      "$kBaseUrlForImage${categories!.img ?? ""}"),
+                  image: CachedNetworkImageProvider(categories!.img ?? ""),
                   fit: BoxFit.cover,
                 ),
               ),

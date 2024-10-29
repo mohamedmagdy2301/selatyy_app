@@ -1,5 +1,7 @@
 import 'package:selaty/features/home/domain/entities/categories_entity.dart';
 
+import 'categoriesdart';
+
 class CategoriesModel extends CategoriesEntity {
   bool? result;
   String? errorMessage;
@@ -12,10 +14,11 @@ class CategoriesModel extends CategoriesEntity {
     this.errorMessageEn,
     this.data,
   }) : super(
-          id: data![0].id!,
-          image: data[0].img!,
-          name: data[0].name!,
-          details: data[0].details!,
+          idCategory: data![0].id ?? 0,
+          nameCategory: data[0].name ?? '',
+          imageCategory: data[0].img ?? '',
+          detailsCategory: data[0].details ?? '',
+          subCategories: data[0].subCat!,
         );
 
   factory CategoriesModel.fromJson(Map<String, dynamic> json) {
@@ -28,34 +31,4 @@ class CategoriesModel extends CategoriesEntity {
           .toList(),
     );
   }
-}
-
-class Categories {
-  int? id;
-  int? ord;
-  String? type;
-  int? parentId;
-  String? name;
-  String? img;
-  String? details;
-
-  Categories({
-    this.id,
-    this.ord,
-    this.type,
-    this.parentId,
-    this.name,
-    this.img,
-    this.details,
-  });
-
-  factory Categories.fromJson(Map<String, dynamic> json) => Categories(
-        id: json['id'] as int?,
-        ord: json['ord'] as int?,
-        type: json['type'] as String?,
-        parentId: json['parent_id'] as int?,
-        name: json['name'] as String?,
-        img: json['img'] as String?,
-        details: json['details'] as String?,
-      );
 }

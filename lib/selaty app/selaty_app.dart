@@ -1,4 +1,3 @@
-import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -20,7 +19,7 @@ class SelatyApp extends StatelessWidget {
           create: (context) => UpdateUserProfileCubit(),
           child: MaterialApp.router(
             routerConfig: RoutersManager.router,
-            builder: DevicePreview.appBuilder,
+            // builder: DevicePreview.appBuilder,
             debugShowCheckedModeBanner: false,
             theme: ThemeData(
               fontFamily: 'Cairo',
