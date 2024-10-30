@@ -5,12 +5,14 @@ import 'package:selaty/core/network/dio_client.dart';
 import 'package:selaty/core/service_locator.dart';
 import 'package:selaty/features/home/data/models/categories_model/categories.dart';
 import 'package:selaty/features/home/data/models/categories_model/categories_model.dart';
+import 'package:selaty/features/home/data/models/products_model/products_model.dart';
 import 'package:selaty/features/home/data/models/slider_model.dart';
 import 'package:selaty/features/home/domain/entities/slider_entity.dart';
 
 abstract class HomeRemotlySource {
   Future<List<SliderEntity>> viewSlider();
   Future<Either<String, List<Categories>>> viewCategories();
+  Future<ProductsModel> viewProducts();
 }
 
 class HomeRemotlySourceImple extends HomeRemotlySource {
@@ -35,7 +37,20 @@ class HomeRemotlySourceImple extends HomeRemotlySource {
     }
     return left(categoriesModel.errorMessage!);
   }
+
+  @override
+  Future<ProductsModel> viewProducts() async {
+    Response response =
+        await sl<DioApiService>().get("${ApiUrls.productsUrl}?page=1");
+    ProductsModel productsModel = ProductsModel.fromJson(response.data);
+    return productsModel;
+  }
 }
+
+  //  if (productsModel.status!) {
+  //     return right(categoriesModel.data ?? []);
+  //   }
+
 
 // SharedPreferencesManager.setData(
 //   key: categoriesKey,
