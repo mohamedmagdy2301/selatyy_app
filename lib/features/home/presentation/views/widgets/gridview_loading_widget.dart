@@ -29,6 +29,9 @@ class _GridViewLoadingWidgetState extends State<GridViewLoadingWidget> {
           itemBuilder: (context, index) {
             return ItemProductHome(
               product: products[index],
+              isFavorite: false,
+              onFavorite: () {},
+              products: products,
             );
           },
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(

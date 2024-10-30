@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:selaty/core/utils/resposive.dart';
 import 'package:selaty/features/home/domain/entities/product_entity.dart';
+import 'package:selaty/features/home/presentation/view%20model/add_favorite_product_cubit/add_favorite_product_cubit.dart';
 import 'package:selaty/features/home/presentation/views/widgets/item_product_home.dart';
 
 class GridViewSuccessWidget extends StatelessWidget {
@@ -8,6 +10,7 @@ class GridViewSuccessWidget extends StatelessWidget {
     super.key,
     required this.products,
   });
+
   final List<ProductEntity> products;
 
   @override
@@ -19,8 +22,32 @@ class GridViewSuccessWidget extends StatelessWidget {
         padding: EdgeInsets.zero,
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
-          return ItemProductHome(
-            product: products[index + 1],
+          final product = products[index + 1];
+          return BlocConsumer<AddFavoriteProductCubit, AddFavoriteProductState>(
+            listener: (context, state) {
+              if (state is AddFavoriteProductError) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(state.message),
+                  ),
+                );
+              }
+            },
+            builder: (context, state) {
+              final isFavorite = context
+                  .read<AddFavoriteProductCubit>()
+                  .isFavorite(product.id!);
+              return ItemProductHome(
+                product: product,
+                isFavorite: isFavorite,
+                onFavorite: () {
+                  context
+                      .read<AddFavoriteProductCubit>()
+                      .addFavoriteProduct(productId: product.id!);
+                },
+                products: products,
+              );
+            },
           );
         },
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(

@@ -25,8 +25,9 @@ class HomeScreen extends StatelessWidget {
             BlocBuilder<ViewUserProfileCubit, ViewUserProfileState>(
               builder: (context, state) {
                 return SliverAppBar(
-                  pinned: true,
-                  expandedHeight: context.height * 0.08,
+                  // pinned: true,
+                  floating: true,
+                  snap: true, expandedHeight: context.height * 0.08,
                   toolbarHeight: context.height * 0.075,
                   flexibleSpace: Container(
                     color: Color.fromARGB(255, 238, 238, 238),

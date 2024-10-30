@@ -1,8 +1,11 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:selaty/core/constants/api_urls.dart';
+import 'package:selaty/core/constants/constants.dart';
+import 'package:selaty/core/local_storage/shared_preferences_manager.dart';
 import 'package:selaty/core/network/dio_client.dart';
 import 'package:selaty/core/service_locator.dart';
+import 'package:selaty/features/home/data/models/add_favorite_product_req_param.dart';
 import 'package:selaty/features/home/data/models/categories_model/categories.dart';
 import 'package:selaty/features/home/data/models/categories_model/categories_model.dart';
 import 'package:selaty/features/home/data/models/products_model/products_model.dart';
@@ -13,6 +16,7 @@ abstract class HomeRemotlySource {
   Future<List<SliderEntity>> viewSlider();
   Future<Either<String, List<Categories>>> viewCategories();
   Future<ProductsModel> viewProducts();
+  Future<void> addFavoriteProduct(AddFavoriteProductReqParam param);
 }
 
 class HomeRemotlySourceImple extends HomeRemotlySource {
@@ -45,12 +49,25 @@ class HomeRemotlySourceImple extends HomeRemotlySource {
     ProductsModel productsModel = ProductsModel.fromJson(response.data);
     return productsModel;
   }
+
+  @override
+  Future<void> addFavoriteProduct(AddFavoriteProductReqParam param) async {
+    await sl<DioApiService>().post(
+      ApiUrls.addUserFavoriteUrl,
+      data: param.toJson(),
+      options: Options(
+        headers: {
+          'Authorization':
+              "Bearer ${SharedPreferencesManager.getData(key: tokenKey)}",
+        },
+      ),
+    );
+  }
 }
 
-  //  if (productsModel.status!) {
-  //     return right(categoriesModel.data ?? []);
-  //   }
-
+//  if (productsModel.status!) {
+//     return right(categoriesModel.data ?? []);
+//   }
 
 // SharedPreferencesManager.setData(
 //   key: categoriesKey,

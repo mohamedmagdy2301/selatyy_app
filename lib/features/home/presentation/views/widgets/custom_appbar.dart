@@ -13,50 +13,34 @@ class CustomAppbarHome {
       {required name, required address, required image}) {
     return [
       SizedBox(width: context.width * 0.02),
-      ClipOval(
-        child: CachedNetworkImage(
-          fit: BoxFit.cover,
-          width: context.width * 0.11,
-          imageUrl: image,
-          placeholder: (context, url) {
-            Future.delayed(Duration(seconds: 6));
-            return Skeletonizer(
-              effect: shimmerEffect(),
-              enabled: true,
-              child: Image.asset(
+      GestureDetector(
+        onTap: () {
+          hideKeybourd();
+          onTap();
+        },
+        child: ClipOval(
+          child: CachedNetworkImage(
+            fit: BoxFit.cover,
+            width: context.width * 0.1,
+            imageUrl: image,
+            placeholder: (context, url) {
+              Future.delayed(Duration(seconds: 6));
+              return Skeletonizer(
+                effect: shimmerEffect(),
+                enabled: true,
+                child: Image.asset(
+                  kAvatarImageUrl,
+                ),
+              );
+            },
+            errorWidget: (context, url, error) {
+              return Image.asset(
                 kAvatarImageUrl,
-              ),
-            );
-          },
-          errorWidget: (context, url, error) {
-            return Image.asset(
-              kAvatarImageUrl,
-            );
-          },
+              );
+            },
+          ),
         ),
       ),
-      // : GestureDetector(
-      //   onTap: () {
-      //     hideKeybourd();
-      //     onTap();
-      //   },
-      //   child: ClipOval(
-      //     child: CachedNetworkImage(
-      //       imageUrl: image,
-      //       fit: BoxFit.cover,
-      //       width: context.width * 0.11,
-      //       placeholder: (context, url) {
-      //         return Skeletonizer(
-      //           enabled: true,
-      //           effect: shimmerEffect(),
-      //           child: Image.asset(
-      //             kAvatarImageUrl,
-      //           ),
-      //         );
-      //       },
-      //     ),
-      //   ),
-      // ),
       SizedBox(width: context.width * 0.02),
       Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -78,21 +62,6 @@ class CustomAppbarHome {
         ],
       ),
       Spacer(),
-      GestureDetector(
-        onTap: () {
-          hideKeybourd();
-          Navigator.pop(context);
-        },
-        child: const Center(
-          child: Icon(
-            CupertinoIcons.camera_on_rectangle,
-            textDirection: TextDirection.ltr,
-            color: primaryDarkGrey,
-            size: 20,
-          ),
-        ),
-      ),
-      SizedBox(width: context.width * 0.04),
     ];
   }
 }
