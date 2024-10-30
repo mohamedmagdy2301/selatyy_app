@@ -6,7 +6,7 @@ import 'package:selaty/core/decoration/decoration.dart';
 import 'package:selaty/core/utils/colors.dart';
 import 'package:selaty/core/utils/resposive.dart';
 import 'package:selaty/core/utils/text_styles.dart';
-import 'package:selaty/features/home/data/models/categories_modell/categories.dart';
+import 'package:selaty/features/home/data/models/categories_model/categories.dart';
 import 'package:selaty/features/home/presentation/views/screens/sub_categories_screen.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 

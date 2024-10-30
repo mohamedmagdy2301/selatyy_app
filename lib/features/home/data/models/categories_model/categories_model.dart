@@ -1,4 +1,4 @@
-import 'package:selaty/features/home/data/models/categories_modell/categories.dart';
+import 'package:selaty/features/home/data/models/categories_model/categories.dart';
 import 'package:selaty/features/home/domain/entities/categories_entity.dart';
 
 class CategoriesModel extends CategoriesEntity {
