@@ -95,18 +95,16 @@ class SectionLogAndHelp extends StatelessWidget {
                 color: Colors.transparent,
                 borderRadius: BorderRadius.circular(15),
               ),
-              margin: const EdgeInsets.symmetric(horizontal: 20),
+              margin: EdgeInsets.symmetric(horizontal: context.width * 0.08),
               child: AlertDialog(
-                title: Text('تسجيل الخروج'),
-                titleTextStyle:
-                    StylesManager.textStyle_9_bold(context).copyWith(
-                  color: primaryBlack,
-                ),
-                content: Text('هل أنت متأكد أنك تريد تسجيل الخروج؟'),
-                contentTextStyle:
-                    StylesManager.textStyle_6_Light(context).copyWith(
-                  color: primaryBlack,
-                ),
+                title: Text('تسجيل الخروج',
+                    style: StylesManager.textStyle_14_bold(context).copyWith(
+                      color: primaryBlack,
+                    )),
+                content: Text('هل أنت متأكد أنك تريد تسجيل الخروج؟',
+                    style: StylesManager.textStyle_11_bold(context).copyWith(
+                      color: primaryBlack,
+                    )),
                 contentPadding:
                     const EdgeInsets.symmetric(horizontal: 35, vertical: 30),
                 actions: [
@@ -116,7 +114,7 @@ class SectionLogAndHelp extends StatelessWidget {
                     },
                     child: Text(
                       'إلغاء',
-                      style: StylesManager.textStyle_6_bold(context).copyWith(
+                      style: StylesManager.textStyle_9_bold(context).copyWith(
                         color: primaryBlack,
                       ),
                     ),
@@ -129,7 +127,7 @@ class SectionLogAndHelp extends StatelessWidget {
                     },
                     child: Text(
                       'تسجيل الخروج',
-                      style: StylesManager.textStyle_6_bold(context).copyWith(
+                      style: StylesManager.textStyle_9_bold(context).copyWith(
                         color: primaryRed,
                       ),
                     ),
@@ -178,11 +176,10 @@ class SectionLogAndHelp extends StatelessWidget {
                 borderRadius: BorderRadius.circular(15),
               ),
               child: AlertDialog(
-                title: Text('تعديل البيانات'),
-                titleTextStyle:
-                    StylesManager.textStyle_9_bold(context).copyWith(
-                  color: primaryBlack,
-                ),
+                title: Text('تعديل البيانات',
+                    style: StylesManager.textStyle_14_bold(context).copyWith(
+                      color: primaryBlack,
+                    )),
                 content: SingleChildScrollView(
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
@@ -194,8 +191,10 @@ class SectionLogAndHelp extends StatelessWidget {
                     ],
                   ),
                 ),
-                contentPadding:
-                    const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+                contentPadding: EdgeInsets.symmetric(
+                  horizontal: context.width * .09,
+                  vertical: context.height * .02,
+                ),
                 actions: [
                   TextButton(
                     onPressed: () {
@@ -203,7 +202,7 @@ class SectionLogAndHelp extends StatelessWidget {
                     },
                     child: Text(
                       'إلغاء',
-                      style: StylesManager.textStyle_6_bold(context).copyWith(
+                      style: StylesManager.textStyle_9_bold(context).copyWith(
                         color: primaryBlack,
                       ),
                     ),
@@ -222,7 +221,7 @@ class SectionLogAndHelp extends StatelessWidget {
                     },
                     child: Text(
                       'حفظ التغييرات',
-                      style: StylesManager.textStyle_6_bold(context).copyWith(
+                      style: StylesManager.textStyle_9_bold(context).copyWith(
                         color: primaryGreen,
                       ),
                     ),
