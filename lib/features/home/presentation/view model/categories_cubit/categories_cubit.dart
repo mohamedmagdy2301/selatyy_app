@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:selaty/core/service_locator.dart';
-import 'package:selaty/features/home/data/models/categories_modell/categories.dart';
+import 'package:selaty/features/home/data/models/categories_model/categories.dart';
 import 'package:selaty/features/home/domain/usecases/view_categories_usecase.dart';
 
 part 'categories_state.dart';

@@ -5,7 +5,7 @@ import 'package:selaty/core/decoration/decoration.dart';
 import 'package:selaty/core/utils/colors.dart';
 import 'package:selaty/core/utils/resposive.dart';
 import 'package:selaty/core/utils/text_styles.dart';
-import 'package:selaty/features/home/data/models/categories_modell/sub_cat.dart';
+import 'package:selaty/features/home/data/models/categories_model/sub_cat.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 class ItemSubCategoriesHome extends StatelessWidget {

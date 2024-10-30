@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:selaty/core/service_locator.dart';
-import 'package:selaty/features/home/data/models/categories_modell/categories.dart';
+import 'package:selaty/features/home/data/models/categories_model/categories.dart';
 import 'package:selaty/features/home/data/source/home_remotly_source.dart';
 import 'package:selaty/features/home/domain/entities/slider_entity.dart';
 import 'package:selaty/features/home/domain/repo/home_repo.dart';

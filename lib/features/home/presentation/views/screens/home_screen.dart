@@ -61,8 +61,8 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-            // SliverToBoxAdapter(child: SecationAbsCardHome()),
-            // SliverToBoxAdapter(child: SectionShopByOfferHome()),
-            // SliverToBoxAdapter(child: SectionFrashAndFasterHome()),
-            // SliverToBoxAdapter(child: SecationAbsCardHome()),
-            // SliverToBoxAdapter(child: SectionSeizeOpportunityHome()),
+// SliverToBoxAdapter(child: SecationAbsCardHome()),
+// SliverToBoxAdapter(child: SectionShopByOfferHome()),
+// SliverToBoxAdapter(child: SectionFrashAndFasterHome()),
+// SliverToBoxAdapter(child: SecationAbsCardHome()),
+// SliverToBoxAdapter(child: SectionSeizeOpportunityHome()),
