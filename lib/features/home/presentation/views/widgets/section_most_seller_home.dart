@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:selaty/core/utils/colors.dart';
 import 'package:selaty/core/utils/resposive.dart';
 import 'package:selaty/core/utils/text_styles.dart';
-import 'package:selaty/features/home/presentation/views/widgets/item_product_home.dart';
+import 'package:selaty/features/home/presentation/views/widgets/build/build_products_home.dart';
 
 class SectionMostSellerHome extends StatelessWidget {
   const SectionMostSellerHome({super.key});
@@ -31,23 +31,7 @@ class SectionMostSellerHome extends StatelessWidget {
             ],
           ),
         ),
-        SizedBox(
-          height: context.height * 0.30,
-          child: GridView.builder(
-            itemCount: 20,
-            padding: EdgeInsets.zero,
-            scrollDirection: Axis.horizontal,
-            itemBuilder: (context, index) {
-              return ItemProductHome();
-            },
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 1,
-              mainAxisSpacing: 10,
-              crossAxisSpacing: 10,
-              childAspectRatio: 4.5 / 3.5,
-            ),
-          ),
-        ),
+        BuildProductsHome(),
       ],
     );
   }
