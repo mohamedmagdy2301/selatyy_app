@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:selaty/core/utils/colors.dart';
 import 'package:selaty/features/home/data/models/categories_modell/sub_cat.dart';
 import 'package:selaty/features/home/presentation/views/widgets/custom_appbar_all_item_features.dart';
-import 'package:selaty/features/home/presentation/views/widgets/item_product_home.dart';
+import 'package:selaty/features/home/presentation/views/widgets/item_sub_categories_home.dart';
 
 class SubCategoriesScreen extends StatelessWidget {
   const SubCategoriesScreen(
