@@ -3,8 +3,8 @@ import 'package:dio/dio.dart';
 import 'package:selaty/core/constants/api_urls.dart';
 import 'package:selaty/core/network/dio_client.dart';
 import 'package:selaty/core/service_locator.dart';
+import 'package:selaty/features/home/data/models/categories_modell/categories.dart';
 import 'package:selaty/features/home/data/models/categories_modell/categories_model.dart';
-import 'package:selaty/features/home/data/models/categories_modell/categoriesdart';
 import 'package:selaty/features/home/data/models/slider_model.dart';
 import 'package:selaty/features/home/domain/entities/slider_entity.dart';
 

@@ -1,6 +1,5 @@
+import 'package:selaty/features/home/data/models/categories_modell/categories.dart';
 import 'package:selaty/features/home/domain/entities/categories_entity.dart';
-
-import 'categoriesdart';
 
 class CategoriesModel extends CategoriesEntity {
   bool? result;
@@ -16,7 +15,7 @@ class CategoriesModel extends CategoriesEntity {
   }) : super(
           idCategory: data![0].id ?? 0,
           nameCategory: data[0].name ?? '',
-          imageCategory: data[0].img ?? '',
+          imageCategory: data[0].img ?? "",
           detailsCategory: data[0].details ?? '',
           subCategories: data[0].subCat!,
         );

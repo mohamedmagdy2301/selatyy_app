@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:selaty/core/constants/constants.dart';
+import 'package:selaty/core/decoration/decoration.dart';
 import 'package:selaty/core/utils/colors.dart';
 import 'package:selaty/core/utils/functions.dart';
 import 'package:selaty/core/utils/resposive.dart';
@@ -13,37 +13,50 @@ class CustomAppbarHome {
       {required name, required address, required image}) {
     return [
       SizedBox(width: context.width * 0.02),
-      GestureDetector(
-        onTap: () {
-          hideKeybourd();
-          onTap();
-        },
-        child: ClipOval(
-          child: CachedNetworkImage(
-            imageUrl: image,
-            fit: BoxFit.cover,
-            width: context.width * 0.11,
-            placeholder: (context, url) {
-              return Skeletonizer(
-                enabled: true,
-                effect: ShimmerEffect(
-                  baseColor: Colors.grey.shade400,
-                  highlightColor: Colors.grey.shade200,
-                  duration: Duration(seconds: 1),
-                ),
-                child: Image.asset(
-                  kAvatarImageUrl,
-                ),
-              );
-            },
-            errorWidget: (context, url, error) {
-              return Image.asset(
+      ClipOval(
+        child: CachedNetworkImage(
+          fit: BoxFit.cover,
+          width: context.width * 0.11,
+          imageUrl: image,
+          placeholder: (context, url) {
+            Future.delayed(Duration(seconds: 6));
+            return Skeletonizer(
+              effect: shimmerEffect(),
+              enabled: true,
+              child: Image.asset(
                 kAvatarImageUrl,
-              );
-            },
-          ),
+              ),
+            );
+          },
+          errorWidget: (context, url, error) {
+            return Image.asset(
+              kAvatarImageUrl,
+            );
+          },
         ),
       ),
+      // : GestureDetector(
+      //   onTap: () {
+      //     hideKeybourd();
+      //     onTap();
+      //   },
+      //   child: ClipOval(
+      //     child: CachedNetworkImage(
+      //       imageUrl: image,
+      //       fit: BoxFit.cover,
+      //       width: context.width * 0.11,
+      //       placeholder: (context, url) {
+      //         return Skeletonizer(
+      //           enabled: true,
+      //           effect: shimmerEffect(),
+      //           child: Image.asset(
+      //             kAvatarImageUrl,
+      //           ),
+      //         );
+      //       },
+      //     ),
+      //   ),
+      // ),
       SizedBox(width: context.width * 0.02),
       Column(
         crossAxisAlignment: CrossAxisAlignment.start,

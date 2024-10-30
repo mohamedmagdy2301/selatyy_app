@@ -19,7 +19,6 @@ class SelatyApp extends StatelessWidget {
           create: (context) => UpdateUserProfileCubit(),
           child: MaterialApp.router(
             routerConfig: RoutersManager.router,
-            // builder: DevicePreview.appBuilder,
             debugShowCheckedModeBanner: false,
             theme: ThemeData(
               fontFamily: 'Cairo',

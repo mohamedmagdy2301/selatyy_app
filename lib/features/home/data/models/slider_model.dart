@@ -1,4 +1,3 @@
-import 'package:selaty/core/constants/constants.dart';
 import 'package:selaty/features/home/domain/entities/slider_entity.dart';
 
 class SliderModel extends SliderEntity {
@@ -7,7 +6,7 @@ class SliderModel extends SliderEntity {
   SliderModel({required this.image}) : super(image: image);
   factory SliderModel.fromJson(Map<String, dynamic> json) {
     return SliderModel(
-      image: "$kBaseUrlForImage${json['img']}",
+      image: json['img'],
     );
   }
 }

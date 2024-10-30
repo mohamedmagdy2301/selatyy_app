@@ -1,13 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:selaty/core/utils/Strings_app.dart';
 import 'package:selaty/core/utils/colors.dart';
 import 'package:selaty/core/utils/functions.dart';
 import 'package:selaty/core/utils/resposive.dart';
 import 'package:selaty/core/utils/text_styles.dart';
 
 class CustomAppbarAllItemFeatures {
-  static List<Widget> appBarActions(BuildContext context) {
+  static List<Widget> appBarActions(BuildContext context, titleAppBar) {
     return [
       SizedBox(width: context.width * 0.02),
       GestureDetector(
@@ -29,9 +28,9 @@ class CustomAppbarAllItemFeatures {
       ),
       Spacer(),
       Text(
-        StringsApp.fruits,
-        style: StylesManager.textStyle_11_bold(context).copyWith(
-          color: primaryBlack,
+        titleAppBar,
+        style: StylesManager.textStyle_14_bold(context).copyWith(
+          color: primaryWhite,
         ),
       ),
       Spacer(),

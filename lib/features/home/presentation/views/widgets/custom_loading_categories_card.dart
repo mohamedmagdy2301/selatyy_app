@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:selaty/core/constants/constants.dart';
+import 'package:selaty/core/decoration/decoration.dart';
 import 'package:selaty/core/utils/resposive.dart';
-import 'package:selaty/features/home/data/models/categories_modell/categoriesdart';
-import 'package:selaty/features/home/presentation/views/widgets/item_categories_home.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 class CustomLoadingCategoriesCard extends StatelessWidget {
@@ -13,11 +13,7 @@ class CustomLoadingCategoriesCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Skeletonizer(
       enabled: true,
-      effect: ShimmerEffect(
-        baseColor: Colors.grey.shade400,
-        highlightColor: Colors.grey.shade200,
-        duration: Duration(seconds: 1),
-      ),
+      effect: shimmerEffect(),
       child: SizedBox(
         height: context.height * 0.15,
         child: ListView.builder(
@@ -25,14 +21,16 @@ class CustomLoadingCategoriesCard extends StatelessWidget {
           padding: EdgeInsets.zero,
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
-            return ItemCategoriesHome(
-              categories: List.filled(
-                10,
-                Categories(
-                  name: 'mnbvbnm',
-                  img: "2023_12_10_09_51_27_alktronyat.jpg",
+            return Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(15),
+                child: Image.asset(
+                  kCatagoryImage,
+                  width: context.width * 0.3,
+                  fit: BoxFit.fill,
                 ),
-              )[index],
+              ),
             );
           },
         ),

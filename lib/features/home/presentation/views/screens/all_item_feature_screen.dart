@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:selaty/core/utils/colors.dart';
+import 'package:selaty/features/home/data/models/categories_modell/sub_cat.dart';
 import 'package:selaty/features/home/presentation/views/widgets/custom_appbar_all_item_features.dart';
 import 'package:selaty/features/home/presentation/views/widgets/item_product_home.dart';
 import 'package:selaty/features/home/presentation/views/widgets/section_search_home.dart';
 
 class AllItemFeatureScreen extends StatelessWidget {
-  const AllItemFeatureScreen({super.key});
+  const AllItemFeatureScreen({super.key, required this.subCategories});
+
+  final List<SubCategories> subCategories;
+  final String title = 'All Item Features';
 
   @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
     final bool isLandscape = screenSize.width > screenSize.height;
-
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 234, 234, 234),
       body: NestedScrollView(
@@ -23,7 +26,8 @@ class AllItemFeatureScreen extends StatelessWidget {
               expandedHeight: screenSize.height * 0.06,
               toolbarHeight: screenSize.height * 0.09,
               backgroundColor: primaryGreen,
-              actions: CustomAppbarAllItemFeatures.appBarActions(context),
+              actions:
+                  CustomAppbarAllItemFeatures.appBarActions(context, title),
               automaticallyImplyLeading: false,
             ),
             SliverToBoxAdapter(
@@ -35,14 +39,13 @@ class AllItemFeatureScreen extends StatelessWidget {
           builder: (context, orientation) {
             final double paddingFactor = isLandscape ? 0.2 : 0.06;
             final int crossAxisCount = isLandscape ? 3 : 2;
-
             return Padding(
               padding: EdgeInsets.symmetric(
                 vertical: screenSize.height * 0.02,
                 horizontal: screenSize.width * paddingFactor,
               ),
               child: GridView.builder(
-                itemCount: 20,
+                itemCount: subCategories.length,
                 padding: EdgeInsets.zero,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: crossAxisCount,
@@ -51,7 +54,9 @@ class AllItemFeatureScreen extends StatelessWidget {
                   childAspectRatio: isLandscape ? 0.78 : 0.85,
                 ),
                 itemBuilder: (context, index) {
-                  return const ItemProductHome();
+                  return ItemSubCategoriesHome(
+                    product: subCategories[index],
+                  );
                 },
               ),
             );

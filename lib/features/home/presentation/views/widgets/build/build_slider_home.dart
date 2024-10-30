@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:selaty/core/decoration/decoration.dart';
+import 'package:selaty/features/home/domain/entities/slider_entity.dart';
 import 'package:selaty/features/home/presentation/view%20model/slider_cubit/slider_cubit.dart';
 import 'package:selaty/features/home/presentation/views/widgets/slider_home.dart';
 import 'package:skeletonizer/skeletonizer.dart';
@@ -17,15 +19,13 @@ class BuildSliderHome extends StatelessWidget {
           return SizedBox.shrink();
         }
         return Skeletonizer(
-          effect: ShimmerEffect(
-            baseColor: Colors.grey.shade400,
-            highlightColor: Colors.grey.shade200,
-            duration: Duration(seconds: 2),
-          ),
+          effect: shimmerEffect(),
           enabled: true,
-          child: SliderHome(),
+          child: SliderHome(imgList: imgList),
         );
       },
     );
   }
 }
+
+List<SliderEntity> imgList = List.filled(7, SliderEntity(image: "30.jpg"));

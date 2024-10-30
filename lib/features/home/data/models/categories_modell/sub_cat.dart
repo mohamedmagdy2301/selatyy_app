@@ -21,7 +21,8 @@ class SubCategories extends SubCategoriesEntity {
   }) : super(
           idSubCategory: id ?? 0,
           nameSubCategory: name ?? '',
-          imageSubCategory: img ?? '',
+          imageSubCategory:
+              "$kBaseUrlForImage${img ?? "assets/images/fruits.png"}",
           detailsSubCategory: details ?? '',
         );
 
@@ -31,7 +32,7 @@ class SubCategories extends SubCategoriesEntity {
         type: json['type'] as String?,
         parentId: json['parent_id'] as int?,
         name: json['name'] as String?,
-        img: "$kBaseUrlForImage${json['img']}" as String?,
+        img: json['img'] as String?,
         details: json['details'] as String?,
       );
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:selaty/core/constants/constants.dart';
 import 'package:selaty/core/utils/resposive.dart';
 import 'package:selaty/features/auth/presentation/view_model/view_user_profile_cubit/view_user_profile_cubit.dart';
 import 'package:selaty/features/home/presentation/views/widgets/build/build_slider_home.dart';
@@ -34,18 +35,21 @@ class HomeScreen extends StatelessWidget {
                   flexibleSpace: Container(
                     color: Color.fromARGB(255, 238, 238, 238),
                   ),
-                  actions: CustomAppbarHome.appBarActions(context, () {
-                    tabCubit.updateTabIndex(0);
-                  },
-                      name: state is ViewUserProfileDone
-                          ? state.userProfileInfo.name!
-                          : '',
-                      address: state is ViewUserProfileDone
-                          ? state.userProfileInfo.address!
-                          : '',
-                      image: state is ViewUserProfileDone
-                          ? state.userProfileInfo.profilePhotoUrl!
-                          : ''),
+                  actions: CustomAppbarHome.appBarActions(
+                    context,
+                    () {
+                      tabCubit.updateTabIndex(0);
+                    },
+                    name: state is ViewUserProfileDone
+                        ? state.userProfileInfo.name!
+                        : '',
+                    address: state is ViewUserProfileDone
+                        ? state.userProfileInfo.address!
+                        : '',
+                    image: state is ViewUserProfileDone
+                        ? state.userProfileInfo.profilePhotoUrl!
+                        : kAvatarImageUrl,
+                  ),
                   automaticallyImplyLeading: false,
                 );
               },

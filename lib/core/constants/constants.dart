@@ -14,9 +14,8 @@ const String kEmptyCart = "assets/images/bag_icon.png";
 const String kSuccessBagDelivery = "assets/images/success_bag_icon.png";
 
 const String kBaseUrlForImage = "https://master-market.masool.net/uploads/";
-const String kTestImage =
-    "https://master-market.masool.net/uploads/2023_12_10_09_51_27_alktronyat.jpg";
-
+const String kCatagoryImage = "assets/images/catagory_test.jpg";
+const String kSliderImage = "assets/images/slider_test.jpg";
 const String kMegoImageUrl = "assets/images/mego2.jpg";
 const String kAvatarImageUrl = "assets/images/avatar.jpg";
 

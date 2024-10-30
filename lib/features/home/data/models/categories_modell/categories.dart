@@ -1,7 +1,6 @@
 import 'sub_cat.dart';
-import 'package:selaty/core/constants/constants.dart';
 
-class Categories  {
+class Categories {
   int? id;
   int? ord;
   String? type;
@@ -21,14 +20,14 @@ class Categories  {
     this.details,
     this.subCat,
   });
-  
+
   factory Categories.fromJson(Map<String, dynamic> json) => Categories(
         id: json['id'] as int?,
         ord: json['ord'] as int?,
         type: json['type'] as String?,
         parentId: json['parent_id'] as int?,
         name: json['name'] as String?,
-        img: "$kBaseUrlForImage${json['img']}" as String?,
+        img: json['img'] as String?,
         details: json['details'] as String?,
         subCat: (json['sub_cat'] as List<dynamic>?)
             ?.map((e) => SubCategories.fromJson(e as Map<String, dynamic>))
