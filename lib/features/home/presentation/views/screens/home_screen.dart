@@ -54,6 +54,7 @@ class HomeScreen extends StatelessWidget {
             SliverToBoxAdapter(child: BuildSliderHome()),
             SliverToBoxAdapter(child: SectionCategoriesHome()),
             SliverToBoxAdapter(child: SectionMostSellerHome()),
+            SliverToBoxAdapter(child: SizedBox(height: context.height * 0.03)),
           ],
         ),
       ),
@@ -65,4 +66,3 @@ class HomeScreen extends StatelessWidget {
             // SliverToBoxAdapter(child: SectionFrashAndFasterHome()),
             // SliverToBoxAdapter(child: SecationAbsCardHome()),
             // SliverToBoxAdapter(child: SectionSeizeOpportunityHome()),
-            // SliverToBoxAdapter(child: SizedBox(height: context.height * 0.02)),
