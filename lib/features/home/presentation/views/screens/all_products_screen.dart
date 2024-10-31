@@ -58,9 +58,10 @@ class AllProductsScreen extends StatelessWidget {
                       }
                     },
                     builder: (context, state) {
-                      final isFavorite = context
+                      var isFavorite = context
                           .read<AddFavoriteProductCubit>()
-                          .isFavorite(products[index + 1].id!);
+                          .favoriteProductIds
+                          .contains(products[index + 1].id!.toString());
                       return ItemAllProductHome(
                         product: products[index + 1],
                         isFavorite: isFavorite,
@@ -91,15 +92,32 @@ class AllProductsScreen extends StatelessWidget {
                 childAspectRatio: 4 / 6.3,
               ),
               itemBuilder: (context, index) {
-                return ItemAllProductHome(
-                  product: products[index + 1],
-                  isFavorite: context
-                      .read<AddFavoriteProductCubit>()
-                      .isFavorite(products[index + 1].id!),
-                  onFavorite: () {
-                    context
+                return BlocConsumer<AddFavoriteProductCubit,
+                    AddFavoriteProductState>(
+                  listener: (context, state) {
+                    if (state is AddFavoriteProductError) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(state.message),
+                        ),
+                      );
+                    }
+                  },
+                  builder: (context, state) {
+                    var isFavorite = context
                         .read<AddFavoriteProductCubit>()
-                        .addFavoriteProduct(productId: products[index + 1].id!);
+                        .favoriteProductIds
+                        .contains(products[index + 1].id!.toString());
+                    return ItemAllProductHome(
+                      product: products[index + 1],
+                      isFavorite: isFavorite,
+                      onFavorite: () {
+                        context
+                            .read<AddFavoriteProductCubit>()
+                            .addFavoriteProduct(
+                                productId: products[index + 1].id!);
+                      },
+                    );
                   },
                 );
               },

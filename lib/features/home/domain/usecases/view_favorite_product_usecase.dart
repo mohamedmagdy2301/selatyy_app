@@ -9,7 +9,9 @@ class ViewFavoriteProductUsecase extends UseCase<Either, dynamic> {
     var data = await sl<HomeRepo>().viewFavoriteProduct();
     return data.fold(
       (error) => left(error),
-      (data) => right(data),
+      (data) {
+        return right(data);
+      },
     );
   }
 }

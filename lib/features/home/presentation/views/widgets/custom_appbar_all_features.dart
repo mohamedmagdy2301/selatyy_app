@@ -9,24 +9,6 @@ import 'package:selaty/core/utils/text_styles.dart';
 class CustomAppbarAllFeatures {
   static List<Widget> appBarActions(BuildContext context) {
     return [
-      SizedBox(width: context.width * 0.02),
-      GestureDetector(
-        onTap: () {},
-        child: Container(
-          height: context.height * 0.045,
-          width: context.height * 0.045,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            border: Border.all(color: primaryLightGrey),
-            borderRadius: BorderRadius.circular(10),
-          ),
-          child: Icon(
-            CupertinoIcons.camera_on_rectangle,
-            color: primaryDarkGrey,
-            size: 3.5 * context.textScale,
-          ),
-        ),
-      ),
       Spacer(),
       Text(
         StringsApp.features,

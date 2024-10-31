@@ -12,3 +12,12 @@ final class AddFavoriteProductError extends AddFavoriteProductState {
   final String message;
   AddFavoriteProductError(this.message);
 }
+
+final class ViewFavoriteProductLoading extends AddFavoriteProductState {}
+
+final class ViewFavoriteProductSuccess extends AddFavoriteProductState {}
+
+final class ViewFavoriteProductError extends AddFavoriteProductState {
+  final String message;
+  ViewFavoriteProductError(this.message);
+}

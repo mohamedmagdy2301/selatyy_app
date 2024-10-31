@@ -34,9 +34,10 @@ class GridViewSuccessWidget extends StatelessWidget {
               }
             },
             builder: (context, state) {
-              final isFavorite = context
+              var isFavorite = context
                   .read<AddFavoriteProductCubit>()
-                  .isFavorite(product.id!);
+                  .favoriteProductIds
+                  .contains(product.id!.toString());
               return ItemProductHome(
                 product: product,
                 isFavorite: isFavorite,

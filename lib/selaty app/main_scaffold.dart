@@ -5,6 +5,7 @@ import 'package:selaty/core/constants/constants.dart';
 import 'package:selaty/core/utils/colors.dart';
 import 'package:selaty/core/utils/resposive.dart';
 import 'package:selaty/features/auth/presentation/views/screens/profile_screen.dart';
+import 'package:selaty/features/home/presentation/views/screens/favorits_products_screen.dart';
 import 'package:selaty/features/home/presentation/views/screens/home_screen.dart';
 
 import 'cubit.dart';
@@ -47,7 +48,7 @@ class MainScaffold extends StatelessWidget {
   List<Widget> getScreens() {
     return [
       ProfileScreen(),
-      NotificationsScreen(),
+      FavoritsProductsScreen(),
       HomeScreen(),
       SearchScreen(),
       SettingsScreen(),

@@ -28,3 +28,5 @@ const String emailKey = 'emailKey';
 const String isFisrtKey = "isFisrtKey";
 
 const String categoriesKey = "categoriesKey";
+
+const String favoriteProductIdsKey = "favoriteProductIdsKey";
