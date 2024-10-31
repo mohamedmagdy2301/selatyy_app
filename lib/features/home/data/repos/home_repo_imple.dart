@@ -4,6 +4,8 @@ import 'package:selaty/core/errors/failure.dart';
 import 'package:selaty/core/service_locator.dart';
 import 'package:selaty/features/home/data/models/add_favorite_product_req_param.dart';
 import 'package:selaty/features/home/data/models/categories_model/categories.dart';
+import 'package:selaty/features/home/data/models/favorite_products_model/favorite_products_data.dart';
+import 'package:selaty/features/home/data/models/favorite_products_model/favorite_products_model.dart';
 import 'package:selaty/features/home/data/models/products_model/products_model.dart';
 import 'package:selaty/features/home/data/source/home_remotly_source.dart';
 import 'package:selaty/features/home/domain/entities/product_entity.dart';
@@ -64,6 +66,23 @@ class HomeRepoImple extends HomeRepo {
     try {
       await sl<HomeRemotlySource>().addFavoriteProduct(param);
       return right(null);
+    } on DioException catch (e) {
+      return left(ServerFailure.fromDioException(e).message);
+    } catch (e) {
+      return left("حدث خطأ غير متوقع");
+    }
+  }
+
+  @override
+  Future<Either<String, List<FavoriteProductsData>>>
+      viewFavoriteProduct() async {
+    try {
+      FavoriteProductsModel dataRemotly =
+          await sl<HomeRemotlySource>().viewFavoriteProduct();
+      if (dataRemotly.result!) {
+        return right(dataRemotly.data!);
+      }
+      return left(dataRemotly.errorMessage!);
     } on DioException catch (e) {
       return left(ServerFailure.fromDioException(e).message);
     } catch (e) {

@@ -8,6 +8,7 @@ import 'package:selaty/core/service_locator.dart';
 import 'package:selaty/features/home/data/models/add_favorite_product_req_param.dart';
 import 'package:selaty/features/home/data/models/categories_model/categories.dart';
 import 'package:selaty/features/home/data/models/categories_model/categories_model.dart';
+import 'package:selaty/features/home/data/models/favorite_products_model/favorite_products_model.dart';
 import 'package:selaty/features/home/data/models/products_model/products_model.dart';
 import 'package:selaty/features/home/data/models/slider_model.dart';
 import 'package:selaty/features/home/domain/entities/slider_entity.dart';
@@ -17,6 +18,7 @@ abstract class HomeRemotlySource {
   Future<Either<String, List<Categories>>> viewCategories();
   Future<ProductsModel> viewProducts();
   Future<void> addFavoriteProduct(AddFavoriteProductReqParam param);
+  Future<FavoriteProductsModel> viewFavoriteProduct();
 }
 
 class HomeRemotlySourceImple extends HomeRemotlySource {
@@ -62,6 +64,22 @@ class HomeRemotlySourceImple extends HomeRemotlySource {
         },
       ),
     );
+  }
+
+  @override
+  Future<FavoriteProductsModel> viewFavoriteProduct() async {
+    Response response = await sl<DioApiService>().get(
+      ApiUrls.userFavoritesUrl,
+      options: Options(
+        headers: {
+          'Authorization':
+              "Bearer ${SharedPreferencesManager.getData(key: tokenKey)}",
+        },
+      ),
+    );
+    FavoriteProductsModel productsModel =
+        FavoriteProductsModel.fromJson(response.data);
+    return productsModel;
   }
 }
 

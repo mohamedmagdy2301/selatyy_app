@@ -19,8 +19,7 @@ class ApiUrls {
   // static const resetPasswordUrl = '${baseURL}change_password';
   // static const userOrdersUrl = '${baseURL}user_orders';
   // static const getUserOrdersUrl = '${baseURL}user_orders/t/ar';
-  // static const userFavoritesUrl = '${baseURL}user_favorite/t/ar';
+  static const userFavoritesUrl = '${baseURL}user_favorite/t/ar';
   // static const categoriesUrl = '${baseURL}categories/t/ar/0/0';
-  // static const categoriesWithSubUrl = '${baseURL}categories/get_with_sub/ar/0/0';
   // static const productsInCategoriesUrl = '${baseURL}categories/get_with_product_sub/ar/0/0';
 }
