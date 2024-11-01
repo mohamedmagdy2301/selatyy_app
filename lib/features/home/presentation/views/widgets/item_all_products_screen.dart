@@ -9,20 +9,29 @@ import 'package:selaty/core/utils/text_styles.dart';
 import 'package:selaty/features/home/domain/entities/product_entity.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
-class ItemAllProductHome extends StatelessWidget {
-  const ItemAllProductHome({
+class ItemAllProductScreen extends StatelessWidget {
+  const ItemAllProductScreen({
     super.key,
     required this.product,
     required this.isFavorite,
     required this.onFavorite,
   });
   final ProductEntity? product;
-
   final bool isFavorite;
   final void Function() onFavorite;
 
   @override
   Widget build(BuildContext context) {
+    final double height = context.width > 600
+        ? context.height * 0.25
+        : (context.isLandscape)
+            ? context.height * .24
+            : context.height * .22;
+    final double width =
+        context.width > 600 ? context.width * 0.028 : context.width * 0.035;
+    final double sizeIcon =
+        context.width > 600 ? 6 * context.textScale : 8.5 * context.textScale;
+
     return product == null
         ? SizedBox()
         : Card(
@@ -31,9 +40,9 @@ class ItemAllProductHome extends StatelessWidget {
               children: [
                 Positioned(
                   top: context.height * 0.01,
-                  left: context.width * 0.028,
-                  right: context.width * 0.028,
-                  height: context.height * 0.23,
+                  left: width,
+                  right: width,
+                  height: height,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -120,7 +129,11 @@ class ItemAllProductHome extends StatelessWidget {
                         Spacer(),
                         IconButton(
                           onPressed: () {},
-                          icon: Icon(CupertinoIcons.cart, color: primaryWhite),
+                          icon: Icon(
+                            CupertinoIcons.cart,
+                            color: primaryWhite,
+                            size: sizeIcon,
+                          ),
                         ),
                         SizedBox(width: context.width * 0.02),
                       ],
@@ -128,7 +141,7 @@ class ItemAllProductHome extends StatelessWidget {
                   ),
                 ),
                 Positioned(
-                  top: -0.01 * context.height,
+                  top: .002 * context.height,
                   left: 0,
                   child: IconButton(
                     onPressed: onFavorite,
@@ -136,8 +149,8 @@ class ItemAllProductHome extends StatelessWidget {
                       !isFavorite
                           ? CupertinoIcons.heart
                           : CupertinoIcons.heart_fill,
-                      color: primaryRed,
-                      size: 25,
+                      color: !isFavorite ? primaryGrey : primaryRed,
+                      size: sizeIcon,
                     ),
                   ),
                 ),

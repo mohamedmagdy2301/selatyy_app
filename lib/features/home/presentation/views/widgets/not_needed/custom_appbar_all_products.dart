@@ -3,18 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:selaty/core/utils/colors.dart';
 import 'package:selaty/core/utils/functions.dart';
 import 'package:selaty/core/utils/resposive.dart';
-import 'package:selaty/core/utils/text_styles.dart';
 
-class CustomAppbarAllItemFeatures {
-  static List<Widget> appBarActions(BuildContext context, titleAppBar) {
+class CustomAppbarAllProductsScreen {
+  static List<Widget> appBarActions(BuildContext context) {
     return [
       Spacer(),
-      Text(
-        titleAppBar,
-        style: StylesManager.textStyle_40_Red_AR(context).copyWith(
-          color: primaryBlack,
-        ),
-      ),
       Spacer(),
       GestureDetector(
         onTap: () {

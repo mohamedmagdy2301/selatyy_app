@@ -4,10 +4,9 @@ import 'package:selaty/core/constants/constants.dart';
 import 'package:selaty/core/utils/resposive.dart';
 import 'package:selaty/features/auth/presentation/view_model/view_user_profile_cubit/view_user_profile_cubit.dart';
 import 'package:selaty/features/home/presentation/views/widgets/build/build_slider_home.dart';
-import 'package:selaty/features/home/presentation/views/widgets/custom_appbar.dart';
+import 'package:selaty/features/home/presentation/views/widgets/custom_appbar_home.dart';
 import 'package:selaty/features/home/presentation/views/widgets/section_categories_home.dart';
-import 'package:selaty/features/home/presentation/views/widgets/section_most_seller_home.dart';
-import 'package:selaty/features/home/presentation/views/widgets/section_search_home.dart';
+import 'package:selaty/features/home/presentation/views/widgets/section_products_home.dart';
 import 'package:selaty/selaty%20app/cubit.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -51,7 +50,6 @@ class HomeScreen extends StatelessWidget {
                 );
               },
             ),
-            SliverToBoxAdapter(child: SectionSearchHome()),
             SliverToBoxAdapter(child: BuildSliderHome()),
             SliverToBoxAdapter(child: SectionCategoriesHome()),
             SliverToBoxAdapter(child: SectionMostSellerHome()),
@@ -67,3 +65,4 @@ class HomeScreen extends StatelessWidget {
 // SliverToBoxAdapter(child: SectionFrashAndFasterHome()),
 // SliverToBoxAdapter(child: SecationAbsCardHome()),
 // SliverToBoxAdapter(child: SectionSeizeOpportunityHome()),
+            // SliverToBoxAdapter(child: SectionSearchHome()),

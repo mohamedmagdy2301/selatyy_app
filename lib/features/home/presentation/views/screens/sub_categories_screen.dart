@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:selaty/core/utils/colors.dart';
 import 'package:selaty/core/utils/resposive.dart';
+import 'package:selaty/core/utils/text_styles.dart';
 import 'package:selaty/features/home/data/models/categories_model/sub_cat.dart';
-import 'package:selaty/features/home/presentation/views/widgets/custom_appbar_all_item_features.dart';
 import 'package:selaty/features/home/presentation/views/widgets/item_sub_categories_home.dart';
 
 class SubCategoriesScreen extends StatelessWidget {
@@ -13,58 +14,50 @@ class SubCategoriesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Size screenSize = MediaQuery.of(context).size;
-    final bool isLandscape = screenSize.width > screenSize.height;
+    final double paddingFactor = context.width > 600
+        ? (context.isLandscape ? 0.08 : 0.05)
+        : (context.isLandscape ? 0.1 : 0.06);
+    final int crossAxisCount = context.width > 600
+        ? (context.isLandscape ? 4 : 3)
+        : (context.isLandscape ? 4 : 2);
+
+    final double childAspectRatio = context.width > 600
+        ? (context.isLandscape ? 0.75 : 0.7)
+        : (context.isLandscape ? 0.9 : 0.85);
+
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 234, 234, 234),
-      body: SafeArea(
-        child: NestedScrollView(
-          physics: const NeverScrollableScrollPhysics(),
-          headerSliverBuilder: (context, innerBoxIsScrolled) {
-            return [
-              SliverAppBar(
-                // pinned: true,
-
-                expandedHeight: context.height * 0.08,
-                toolbarHeight: context.height * 0.075,
-                flexibleSpace: Container(
-                  color: const Color.fromARGB(255, 234, 234, 234),
-                ),
-                actions:
-                    CustomAppbarAllItemFeatures.appBarActions(context, title),
-                automaticallyImplyLeading: false,
-              ),
-              SliverToBoxAdapter(
-                  child: SizedBox(height: screenSize.height * 0.02)),
-            ];
-          },
-          body: OrientationBuilder(
-            builder: (context, orientation) {
-              final double paddingFactor = isLandscape ? 0.1 : 0.06;
-              final int crossAxisCount = isLandscape ? 4 : 2;
-              return Padding(
-                padding: EdgeInsets.symmetric(
-                  vertical: screenSize.height * 0.02,
-                  horizontal: screenSize.width * paddingFactor,
-                ),
-                child: GridView.builder(
-                  itemCount: subCategories.length,
-                  padding: EdgeInsets.zero,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: crossAxisCount,
-                    mainAxisSpacing: 0.035 * screenSize.width,
-                    crossAxisSpacing: 0.02 * screenSize.width,
-                    childAspectRatio: isLandscape ? 0.78 : 0.85,
-                  ),
-                  itemBuilder: (context, index) {
-                    return ItemSubCategoriesHome(
-                      product: subCategories[index],
-                    );
-                  },
-                ),
-              );
-            },
+      appBar: AppBar(
+        backgroundColor: primaryWhite,
+        toolbarHeight: context.height * 0.08,
+        title: Text(
+          title,
+          style: StylesManager.textStyle_40_Red_AR(context)
+              .copyWith(color: primaryBlack),
+        ),
+        centerTitle: true,
+      ),
+      body: Padding(
+        padding: EdgeInsets.symmetric(
+          vertical: context.isLandscape
+              ? context.height * .01
+              : context.height * 0.02,
+          horizontal: context.width * paddingFactor,
+        ),
+        child: GridView.builder(
+          itemCount: subCategories.length,
+          padding: EdgeInsets.zero,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: crossAxisCount,
+            mainAxisSpacing: 0.035 * context.width,
+            crossAxisSpacing: 0.02 * context.width,
+            childAspectRatio: childAspectRatio,
           ),
+          itemBuilder: (context, index) {
+            return ItemSubCategoriesHome(
+              product: subCategories[index],
+            );
+          },
         ),
       ),
     );

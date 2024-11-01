@@ -53,6 +53,7 @@ dependencies:
   cached_network_image: ^3.4.1
   carousel_slider: ^5.0.0
   skeletonizer: ^1.4.2
+  responsive: ^0.3.11+11
 
 dev_dependencies:
   flutter_test:

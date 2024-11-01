@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:selaty/core/utils/colors.dart';
 import 'package:selaty/core/utils/resposive.dart';
+import 'package:selaty/core/utils/text_styles.dart';
 import 'package:selaty/features/home/domain/entities/product_entity.dart';
-import 'package:selaty/features/home/presentation/view%20model/add_favorite_product_cubit/add_favorite_product_cubit.dart';
-import 'package:selaty/features/home/presentation/views/widgets/custom_appbar_all_features.dart';
-import 'package:selaty/features/home/presentation/views/widgets/item_all_products_screens.dart';
+import 'package:selaty/features/home/presentation/views/widgets/build/build_all_products.dart';
 
 class AllProductsScreen extends StatelessWidget {
   const AllProductsScreen({super.key, required this.products});
@@ -12,119 +11,56 @@ class AllProductsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isTablet = context.width > 600;
+
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 234, 234, 234),
-      body: NestedScrollView(
-        physics: NeverScrollableScrollPhysics(),
-        headerSliverBuilder: (context, innerBoxIsScrolled) {
-          return [
-            SliverAppBar(
-              // pinned: true,
-              floating: true,
-              snap: true,
-              expandedHeight: context.height * 0.06,
-              toolbarHeight: context.height * 0.06,
-              actions: CustomAppbarAllFeatures.appBarActions(context),
-              automaticallyImplyLeading: false,
-            ),
-          ];
-        },
-        body: OrientationBuilder(builder: (context, orientation) {
-          if (orientation == Orientation.landscape) {
-            return Padding(
-              padding: EdgeInsets.symmetric(
-                vertical: context.height * 0.04,
-                horizontal: context.width * 0.2,
-              ),
-              child: GridView.builder(
-                itemCount: products.length - 1,
-                padding: EdgeInsets.zero,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 3,
-                  mainAxisSpacing: .04 * context.width,
-                  crossAxisSpacing: .015 * context.width,
-                  childAspectRatio: 4.4 / 5.5,
-                ),
-                itemBuilder: (context, index) {
-                  return BlocConsumer<AddFavoriteProductCubit,
-                      AddFavoriteProductState>(
-                    listener: (context, state) {
-                      if (state is AddFavoriteProductError) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text(state.message),
-                          ),
-                        );
-                      }
-                    },
-                    builder: (context, state) {
-                      var isFavorite = context
-                          .read<AddFavoriteProductCubit>()
-                          .favoriteProductIds
-                          .contains(products[index + 1].id!.toString());
-                      return ItemAllProductHome(
-                        product: products[index + 1],
-                        isFavorite: isFavorite,
-                        onFavorite: () {
-                          context
-                              .read<AddFavoriteProductCubit>()
-                              .addFavoriteProduct(
-                                  productId: products[index + 1].id!);
-                        },
-                      );
-                    },
-                  );
-                },
-              ),
-            );
-          }
-          return Padding(
-            padding: EdgeInsets.symmetric(
-                vertical: context.height * 0.04,
-                horizontal: context.width * 0.06),
-            child: GridView.builder(
-              itemCount: products.length - 1,
-              padding: EdgeInsets.zero,
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                mainAxisSpacing: .04 * context.width,
-                crossAxisSpacing: 10,
-                childAspectRatio: 4 / 6.3,
-              ),
-              itemBuilder: (context, index) {
-                return BlocConsumer<AddFavoriteProductCubit,
-                    AddFavoriteProductState>(
-                  listener: (context, state) {
-                    if (state is AddFavoriteProductError) {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text(state.message),
-                        ),
-                      );
-                    }
-                  },
-                  builder: (context, state) {
-                    var isFavorite = context
-                        .read<AddFavoriteProductCubit>()
-                        .favoriteProductIds
-                        .contains(products[index + 1].id!.toString());
-                    return ItemAllProductHome(
-                      product: products[index + 1],
-                      isFavorite: isFavorite,
-                      onFavorite: () {
-                        context
-                            .read<AddFavoriteProductCubit>()
-                            .addFavoriteProduct(
-                                productId: products[index + 1].id!);
-                      },
-                    );
-                  },
-                );
-              },
-            ),
-          );
-        }),
+      appBar: AppBar(
+        toolbarHeight: context.height * .07,
+        title: Text(
+          "كل المنتجات",
+          style: StylesManager.textStyle_28_bold(context).copyWith(
+            color: primaryBlack,
+          ),
+        ),
+        centerTitle: true,
       ),
+      body: Padding(
+        padding: EdgeInsets.symmetric(
+          vertical: context.isLandscape
+              ? context.height * 0.01
+              : context.height * 0.02,
+          horizontal: isTablet || context.isLandscape
+              ? context.width * 0.03
+              : context.width * 0.06,
+        ),
+        child: GridView.builder(
+          itemCount: products.length - 1,
+          padding: EdgeInsets.zero,
+          gridDelegate:
+              sliverGridDelegateWithFixedCrossAxisCount(context, isTablet),
+          itemBuilder: (context, index) {
+            return BuildAllProducts(products: products, index: index + 1);
+          },
+        ),
+      ),
+    );
+  }
+
+  SliverGridDelegateWithFixedCrossAxisCount
+      sliverGridDelegateWithFixedCrossAxisCount(
+          BuildContext context, bool isTablet) {
+    int crossAxisCount = context.isLandscape ? (isTablet ? 4 : 3) : 2;
+
+    double childAspectRatio = context.isLandscape
+        ? (isTablet ? 4.5 / 6.4 : 4.4 / 4.5)
+        : (isTablet ? 4 / 4.7 : 4 / 6.3);
+
+    return SliverGridDelegateWithFixedCrossAxisCount(
+      crossAxisCount: crossAxisCount,
+      mainAxisSpacing: 0.04 * context.width,
+      crossAxisSpacing: 10,
+      childAspectRatio: childAspectRatio,
     );
   }
 }

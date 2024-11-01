@@ -82,6 +82,9 @@ class HomeRepoImple extends HomeRepo {
       if (dataRemotly.result!) {
         return right(dataRemotly.data!);
       }
+      if (dataRemotly.errorMessage == "لايوجد بيانات") {
+        return right(dataRemotly.data!);
+      }
       return left(dataRemotly.errorMessage!);
     } on DioException catch (e) {
       return left(ServerFailure.fromDioException(e).message);

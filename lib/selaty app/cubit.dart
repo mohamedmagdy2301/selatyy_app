@@ -8,14 +8,13 @@ class TabIndexState {
   TabIndexState(this.currentIndex);
 }
 
-// Define the Cubit class, responsible for handling the tab index state.
 class TabCubit extends Cubit<TabIndexState> {
-  TabCubit() : super(TabIndexState(2)); // Default to index 2 (Home)
+  TabCubit() : super(TabIndexState(0));
   final PersistentTabController controller =
-      PersistentTabController(initialIndex: 2);
+      PersistentTabController(initialIndex: 0);
 
   void updateTabIndex(int index) {
     controller.jumpToTab(index);
-    emit(TabIndexState(index)); // Emit a new state with the updated index
+    emit(TabIndexState(index));
   }
 }

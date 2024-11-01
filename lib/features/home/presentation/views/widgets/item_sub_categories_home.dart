@@ -14,6 +14,8 @@ class ItemSubCategoriesHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final double width =
+        context.width > 600 ? context.width * 0.25 : context.width * 0.32;
     return product == null
         ? SizedBox()
         : Card(
@@ -27,7 +29,7 @@ class ItemSubCategoriesHome extends StatelessWidget {
                   child: CachedNetworkImage(
                     fit: BoxFit.fill,
                     height: context.height * 0.12,
-                    width: context.width * 0.35,
+                    width: width,
                     imageUrl: product!.imageSubCategory,
                     placeholder: (context, url) {
                       return Skeletonizer(

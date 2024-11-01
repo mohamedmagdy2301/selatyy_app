@@ -26,6 +26,16 @@ class ItemProductHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final double height = context.width > 600
+        ? context.height * 0.25
+        : (context.isLandscape)
+            ? context.height * .24
+            : context.height * .22;
+    final double width =
+        context.width > 600 ? context.width * 0.028 : context.width * 0.035;
+    final double sizeIcon =
+        context.width > 600 ? 6 * context.textScale : 8.5 * context.textScale;
+
     return product == null
         ? SizedBox()
         : GestureDetector(
@@ -45,9 +55,9 @@ class ItemProductHome extends StatelessWidget {
                 children: [
                   Positioned(
                     top: context.height * 0.01,
-                    left: context.width * 0.028,
-                    right: context.width * 0.028,
-                    height: context.height * 0.23,
+                    left: width,
+                    right: width,
+                    height: height,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -136,8 +146,11 @@ class ItemProductHome extends StatelessWidget {
                           Spacer(),
                           IconButton(
                             onPressed: () {},
-                            icon:
-                                Icon(CupertinoIcons.cart, color: primaryWhite),
+                            icon: Icon(
+                              CupertinoIcons.cart,
+                              color: primaryWhite,
+                              size: sizeIcon,
+                            ),
                           ),
                           SizedBox(width: context.width * 0.02),
                         ],
@@ -145,16 +158,16 @@ class ItemProductHome extends StatelessWidget {
                     ),
                   ),
                   Positioned(
-                    top: -0.01 * context.height,
-                    left: 0,
+                    top: .005 * context.height,
+                    left: .1,
                     child: IconButton(
                       onPressed: onFavorite,
                       icon: Icon(
                         !isFavorite
                             ? CupertinoIcons.heart
                             : CupertinoIcons.heart_fill,
-                        color: primaryRed,
-                        size: 25,
+                        color: !isFavorite ? primaryGrey : primaryRed,
+                        size: sizeIcon,
                       ),
                     ),
                   ),

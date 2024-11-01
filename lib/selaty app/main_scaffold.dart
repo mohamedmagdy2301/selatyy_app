@@ -1,9 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 import 'package:selaty/core/constants/constants.dart';
 import 'package:selaty/core/utils/colors.dart';
-import 'package:selaty/core/utils/resposive.dart';
 import 'package:selaty/features/auth/presentation/views/screens/profile_screen.dart';
 import 'package:selaty/features/home/presentation/views/screens/favorits_products_screen.dart';
 import 'package:selaty/features/home/presentation/views/screens/home_screen.dart';
@@ -31,10 +31,9 @@ class MainScaffold extends StatelessWidget {
             resizeToAvoidBottomInset: true,
             stateManagement: true,
             hideNavigationBarWhenKeyboardAppears: true,
-            navBarHeight: 0.06 * context.height,
             screens: getScreens(),
             items: getNavBarItems(context, state),
-            navBarStyle: NavBarStyle.style15,
+            navBarStyle: NavBarStyle.style1,
             onItemSelected: (index) {
               tabCubit.updateTabIndex(index);
               controller.jumpToTab(index);
@@ -47,75 +46,38 @@ class MainScaffold extends StatelessWidget {
 
   List<Widget> getScreens() {
     return [
-      ProfileScreen(),
-      FavoritsProductsScreen(),
       HomeScreen(),
       SearchScreen(),
-      SettingsScreen(),
+      FavoritsProductsScreen(),
+      ProfileScreen(),
     ];
   }
 
   List<PersistentBottomNavBarItem> getNavBarItems(context, state) {
-    // double iconSize = 5 * context.textScale as double;
-
     return [
       PersistentBottomNavBarItem(
-        iconSize: 30,
-        icon: Padding(
-          padding: EdgeInsets.only(
-              // top: .015 * context.height,
-              ),
-          child: Icon(Icons.person),
-        ),
-        title: " ",
+        icon: Image.asset(kLogo),
+        title: "الصفحة الرئسية",
         activeColorPrimary:
             (state.currentIndex == 0) ? primaryGreen : primaryGrey,
       ),
       PersistentBottomNavBarItem(
-        iconSize: 30,
-        icon: Padding(
-          padding: EdgeInsets.only(
-              // top: .015 * context.height,
-              ),
-          child: Icon(Icons.notifications),
-        ),
-        title: " ",
+        icon: Icon(CupertinoIcons.cart_fill),
+        title: "عربة التسوق",
         activeColorPrimary:
             (state.currentIndex == 1) ? primaryGreen : primaryGrey,
       ),
       PersistentBottomNavBarItem(
-        iconSize: 30,
-        icon: Image.asset(
-          kLogo,
-          fit: BoxFit.cover,
-        ),
-        title: " ",
+        icon: Icon(CupertinoIcons.heart_fill),
+        title: "المفضلة",
         activeColorPrimary:
             (state.currentIndex == 2) ? primaryGreen : primaryGrey,
       ),
       PersistentBottomNavBarItem(
-        iconSize: 30,
-        icon: Padding(
-          padding: EdgeInsets.only(
-              // top: .015 * context.height,
-              ),
-          child: Icon(Icons.search),
-        ),
-        title: " ",
+        icon: Icon(Icons.person),
+        title: "الملف الشخصي",
         activeColorPrimary:
             (state.currentIndex == 3) ? primaryGreen : primaryGrey,
-      ),
-      PersistentBottomNavBarItem(
-        iconSize: 30,
-        icon: Padding(
-          padding: EdgeInsets.only(
-              // top: .015 * context.height,
-              ),
-          child: Icon(Icons.settings),
-        ),
-        title: " ",
-        activeColorPrimary:
-            (state.currentIndex == 4) ? primaryGreen : primaryGrey,
       ),
     ];
   }

@@ -1,22 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:selaty/core/utils/Strings_app.dart';
 import 'package:selaty/core/utils/colors.dart';
 import 'package:selaty/core/utils/functions.dart';
 import 'package:selaty/core/utils/resposive.dart';
-import 'package:selaty/core/utils/text_styles.dart';
 
-class CustomAppbarAllFeatures {
-  static List<Widget> appBarActions(BuildContext context) {
+class CustomAppbarSubCategoriesScreen {
+  static List<Widget> appBarActions(BuildContext context, titleAppBar) {
     return [
-      Spacer(),
-      Text(
-        StringsApp.features,
-        style: StylesManager.textStyle_11_bold(context).copyWith(
-          color: primaryBlack,
-        ),
-      ),
-      Spacer(),
       GestureDetector(
         onTap: () {
           hideKeybourd();
@@ -40,7 +30,6 @@ class CustomAppbarAllFeatures {
           ),
         ),
       ),
-      SizedBox(width: context.width * 0.02),
     ];
   }
 }

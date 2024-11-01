@@ -1,20 +1,20 @@
 import 'package:bloc/bloc.dart';
+import 'package:dartz/dartz.dart';
 import 'package:selaty/core/service_locator.dart';
 import 'package:selaty/features/home/data/models/add_favorite_product_req_param.dart';
 import 'package:selaty/features/home/data/models/favorite_products_model/favorite_products_data.dart';
 import 'package:selaty/features/home/domain/usecases/add_favorite_product_usecase.dart';
 import 'package:selaty/features/home/domain/usecases/view_favorite_product_usecase.dart';
+import 'package:selaty/features/home/presentation/view%20model/favorite_product_cubit/favorite_product_state.dart';
 
-part 'add_favorite_product_state.dart';
-
-class AddFavoriteProductCubit extends Cubit<AddFavoriteProductState> {
-  AddFavoriteProductCubit() : super(AddFavoriteProductInitial());
+class FavoriteProductCubit extends Cubit<FavoriteProductState> {
+  FavoriteProductCubit() : super(FavoriteProductInitial());
 
   List<FavoriteProductsData> favoriteProductsList = [];
   final Set<String> favoriteProductIds = {};
   Future<void> viewFavoriteProduct() async {
-    var data = await sl<ViewFavoriteProductUsecase>().call();
-
+    emit(ViewFavoriteProductLoading());
+    Either data = await sl<ViewFavoriteProductUsecase>().call();
     data.fold(
       (error) => emit(ViewFavoriteProductError(error)),
       (list) {
