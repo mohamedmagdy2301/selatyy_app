@@ -26,9 +26,9 @@ class SubCategoriesScreen extends StatelessWidget {
         : (context.isLandscape ? 0.9 : 0.85);
 
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 234, 234, 234),
+      backgroundColor: backGroundScaffold,
       appBar: AppBar(
-        backgroundColor: primaryWhite,
+        flexibleSpace: Container(color: backGroundScaffold),
         toolbarHeight: context.height * 0.08,
         title: Text(
           title,

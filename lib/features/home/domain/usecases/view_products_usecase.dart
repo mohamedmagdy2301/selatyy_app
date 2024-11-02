@@ -5,11 +5,11 @@ import 'package:selaty/features/home/domain/entities/product_entity.dart';
 import 'package:selaty/features/home/domain/repo/home_repo.dart';
 
 class ViewProductsUseCase
-    extends UseCase<Either<String, List<ProductEntity>>, dynamic> {
+    extends UseCase<Either<String, List<ProductEntity>>, int> {
   @override
-  Future<Either<String, List<ProductEntity>>> call({param}) async {
+  Future<Either<String, List<ProductEntity>>> call({int? param}) async {
     Either<String, List<ProductEntity>> data =
-        await sl<HomeRepo>().viewProducts();
+        await sl<HomeRepo>().viewProducts(page: param!);
     return data.fold(
       (error) => left(error),
       (data) => right(data),

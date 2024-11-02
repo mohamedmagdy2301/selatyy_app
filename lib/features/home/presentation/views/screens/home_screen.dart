@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:selaty/core/constants/constants.dart';
+import 'package:selaty/core/utils/colors.dart';
 import 'package:selaty/core/utils/resposive.dart';
 import 'package:selaty/features/auth/presentation/view_model/view_user_profile_cubit/view_user_profile_cubit.dart';
 import 'package:selaty/features/home/presentation/views/widgets/build/build_slider_home.dart';
@@ -16,7 +17,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final tabCubit = context.read<TabCubit>();
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 238, 238, 238),
+      backgroundColor: backGroundScaffold,
       body: SafeArea(
         bottom: false,
         child: CustomScrollView(
@@ -28,9 +29,8 @@ class HomeScreen extends StatelessWidget {
                   floating: true,
                   snap: true, expandedHeight: context.height * 0.08,
                   toolbarHeight: context.height * 0.075,
-                  flexibleSpace: Container(
-                    color: Color.fromARGB(255, 238, 238, 238),
-                  ),
+                  flexibleSpace: Container(color: backGroundScaffold),
+
                   actions: CustomAppbarHome.appBarActions(
                     context,
                     () {
@@ -60,9 +60,3 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-// SliverToBoxAdapter(child: SecationAbsCardHome()),
-// SliverToBoxAdapter(child: SectionShopByOfferHome()),
-// SliverToBoxAdapter(child: SectionFrashAndFasterHome()),
-// SliverToBoxAdapter(child: SecationAbsCardHome()),
-// SliverToBoxAdapter(child: SectionSeizeOpportunityHome()),
-            // SliverToBoxAdapter(child: SectionSearchHome()),

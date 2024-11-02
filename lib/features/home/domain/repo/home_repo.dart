@@ -8,7 +8,7 @@ import 'package:selaty/features/home/domain/entities/slider_entity.dart';
 abstract class HomeRepo {
   Future<Either<String, List<SliderEntity>>> viewSlider();
   Future<Either<String, List<Categories>>> viewCategories();
-  Future<Either<String, List<ProductEntity>>> viewProducts();
+  Future<Either<String, List<ProductEntity>>> viewProducts({required int page});
   Future<Either<String, void>> addFavoriteProduct(
       AddFavoriteProductReqParam param);
   Future<Either<String, List<FavoriteProductsData>>> viewFavoriteProduct();

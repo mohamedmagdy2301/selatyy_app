@@ -10,7 +10,7 @@ class FavoritsProductsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 234, 234, 234),
+      backgroundColor: backGroundScaffold,
       appBar: AppBar(
         toolbarHeight: context.height * .07,
         title: Text(
@@ -19,6 +19,7 @@ class FavoritsProductsScreen extends StatelessWidget {
             color: primaryBlack,
           ),
         ),
+        flexibleSpace: Container(color: backGroundScaffold),
         centerTitle: true,
       ),
       body: BuildFavorite(),

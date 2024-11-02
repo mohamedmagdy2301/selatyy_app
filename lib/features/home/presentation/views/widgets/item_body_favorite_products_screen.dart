@@ -21,6 +21,7 @@ class ItemBodyFavoriteProductsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    int count = 0;
     final cubit = context.read<FavoriteProductCubit>();
     final double height = context.width > 600
         ? context.height * 0.25
@@ -124,9 +125,12 @@ class ItemBodyFavoriteProductsScreen extends StatelessWidget {
                   Spacer(),
                   IconButton(
                     onPressed: () {
-                      cubit.addFavoriteProduct(
-                        productId: favoriteProductsList.id!,
-                      );
+                      if (count == 0) {
+                        cubit.addFavoriteProduct(
+                          productId: favoriteProductsList.id!,
+                        );
+                        count++;
+                      }
                     },
                     icon: Icon(
                       CupertinoIcons.delete,

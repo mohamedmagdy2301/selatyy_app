@@ -8,18 +8,19 @@ import 'package:selaty/core/utils/colors.dart';
 import 'package:selaty/core/utils/resposive.dart';
 import 'package:selaty/core/utils/text_styles.dart';
 import 'package:selaty/features/home/domain/entities/product_entity.dart';
-import 'package:selaty/features/home/presentation/views/screens/all_products_screen.dart';
+import 'package:selaty/features/home/presentation/views/screens/details_screen.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 class ItemProductHome extends StatelessWidget {
-  const ItemProductHome(
-      {super.key,
-      required this.product,
-      required this.isFavorite,
-      required this.onFavorite,
-      required this.products});
+  const ItemProductHome({
+    super.key,
+    required this.product,
+    required this.isFavorite,
+    required this.onFavorite,
+    required this.products,
+  });
   final ProductEntity? product;
-  final List<ProductEntity> products;
+  final Set<ProductEntity> products;
 
   final bool isFavorite;
   final void Function() onFavorite;
@@ -43,9 +44,7 @@ class ItemProductHome extends StatelessWidget {
               PersistentNavBarNavigator.pushNewScreen(
                 context,
                 withNavBar: true,
-                screen: AllProductsScreen(
-                  products: products,
-                ),
+                screen: ProductDetailsScreen(product: product!),
                 pageTransitionAnimation: PageTransitionAnimation.cupertino,
               );
             },

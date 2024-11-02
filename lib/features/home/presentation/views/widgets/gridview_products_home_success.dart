@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:selaty/core/utils/resposive.dart';
 import 'package:selaty/features/home/domain/entities/product_entity.dart';
-import 'package:selaty/features/home/presentation/views/widgets/build/build_product_home.dart';
+import 'package:selaty/features/home/presentation/views/widgets/build/build_item_product_home.dart';
 
 class GridViewProductsHomeSuccess extends StatelessWidget {
   const GridViewProductsHomeSuccess({
@@ -31,9 +31,8 @@ class GridViewProductsHomeSuccess extends StatelessWidget {
           childAspectRatio: 4.5 / 3.7,
         ),
         itemBuilder: (context, index) {
-          return BuildProductHome(
+          return BuildItemProductHome(
             product: products[index + 1],
-            products: products,
           );
         },
       ),

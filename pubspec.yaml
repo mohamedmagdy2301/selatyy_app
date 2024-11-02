@@ -54,6 +54,7 @@ dependencies:
   carousel_slider: ^5.0.0
   skeletonizer: ^1.4.2
   responsive: ^0.3.11+11
+  visibility_detector: ^0.4.0+2
 
 dev_dependencies:
   flutter_test:

@@ -3,13 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:selaty/features/home/domain/entities/product_entity.dart';
 import 'package:selaty/features/home/presentation/view%20model/favorite_product_cubit/favorite_product_cubit.dart';
 import 'package:selaty/features/home/presentation/view%20model/favorite_product_cubit/favorite_product_state.dart';
+import 'package:selaty/features/home/presentation/view%20model/products_cubit/products_cubit.dart';
 import 'package:selaty/features/home/presentation/views/widgets/item_product_home.dart';
 
-class BuildProductHome extends StatelessWidget {
-  const BuildProductHome(
-      {super.key, required this.product, required this.products});
+class BuildItemProductHome extends StatelessWidget {
+  const BuildItemProductHome({super.key, required this.product});
   final ProductEntity product;
-  final List<ProductEntity> products;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +23,7 @@ class BuildProductHome extends StatelessWidget {
         }
       },
       builder: (context, state) {
-        var isFavorite = context
+        bool isFavorite = context
             .read<FavoriteProductCubit>()
             .favoriteProductIds
             .contains(product.id!.toString());
@@ -36,7 +35,7 @@ class BuildProductHome extends StatelessWidget {
                 .read<FavoriteProductCubit>()
                 .addFavoriteProduct(productId: product.id!);
           },
-          products: products,
+          products: context.read<ProductsCubit>().productsList,
         );
       },
     );

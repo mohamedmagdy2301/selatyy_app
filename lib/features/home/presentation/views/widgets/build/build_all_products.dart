@@ -1,44 +1,40 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:selaty/features/home/domain/entities/product_entity.dart';
-import 'package:selaty/features/home/presentation/view%20model/favorite_product_cubit/favorite_product_cubit.dart';
-import 'package:selaty/features/home/presentation/view%20model/favorite_product_cubit/favorite_product_state.dart';
-import 'package:selaty/features/home/presentation/views/widgets/item_all_products_screen.dart';
+import 'package:selaty/features/home/presentation/view%20model/products_cubit/products_cubit.dart';
+import 'package:selaty/features/home/presentation/views/widgets/gridview_all_products_loading.dart';
+import 'package:selaty/features/home/presentation/views/widgets/gridview_all_products_success.dart';
 
-class BuildAllProducts extends StatelessWidget {
-  const BuildAllProducts({
-    super.key,
-    required this.products,
-    required this.index,
-  });
-  final List<ProductEntity> products;
-  final int index;
+class BuildAllProductsHome extends StatelessWidget {
+  const BuildAllProductsHome({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final cubit = context.read<FavoriteProductCubit>();
-    return BlocConsumer<FavoriteProductCubit, FavoriteProductState>(
+    Set<ProductEntity> productsList =
+        context.read<ProductsCubit>().productsList;
+
+    return BlocConsumer<ProductsCubit, ProductsState>(
       listener: (context, state) {
-        if (state is AddFavoriteProductError) {
+        if (state is ProductsSuccess) {
+          productsList.addAll(state.productsList);
+        }
+        if (state is ProductsPagenationFailure) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: Text(state.message),
+              content: Text(state.errorMessage),
             ),
           );
         }
       },
       builder: (context, state) {
-        var isFavorite =
-            cubit.favoriteProductIds.contains(products[index].id!.toString());
-        return ItemAllProductScreen(
-          product: products[index],
-          isFavorite: isFavorite,
-          onFavorite: () {
-            context
-                .read<FavoriteProductCubit>()
-                .addFavoriteProduct(productId: products[index].id!);
-          },
-        );
+        if (state is ProductsSuccess ||
+            state is ProductsPagenationFailure ||
+            state is ProductsPagenationLoading) {
+          return GridViewAllProductsSuccess(products: productsList);
+        } else if (state is ProductsFailure) {
+          return SizedBox.shrink();
+        }
+        return GridViewAllProductsLoading();
       },
     );
   }

@@ -7,41 +7,36 @@ import 'package:selaty/core/utils/colors.dart';
 import 'package:selaty/core/utils/resposive.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
-class GridViewProductsHomeLoading extends StatefulWidget {
-  const GridViewProductsHomeLoading({
+class GridViewAllProductsLoading extends StatefulWidget {
+  const GridViewAllProductsLoading({
     super.key,
   });
 
   @override
-  State<GridViewProductsHomeLoading> createState() =>
-      _GridViewProductsHomeLoadingState();
+  State<GridViewAllProductsLoading> createState() =>
+      _GridViewAllProductsLoadingState();
 }
 
-class _GridViewProductsHomeLoadingState
-    extends State<GridViewProductsHomeLoading> {
+class _GridViewAllProductsLoadingState
+    extends State<GridViewAllProductsLoading> {
   @override
   Widget build(BuildContext context) {
-    final double height = context.width > 600
-        ? context.height * 0.34
-        : (context.isLandscape)
-            ? context.height * .33
-            : context.height * 0.31;
+    bool isTablet = context.width > 600;
 
     return Skeletonizer(
       effect: shimmerEffect(),
       enabled: true,
-      child: SizedBox(
-        height: height,
+      child: Padding(
+        padding: EdgeInsets.symmetric(
+          vertical: 0.015 * context.height,
+          horizontal: 0.03 * context.width,
+        ),
         child: GridView.builder(
-          itemCount: 4,
+          itemCount: 6,
           padding: EdgeInsets.zero,
-          scrollDirection: Axis.horizontal,
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 1,
-            mainAxisSpacing: 10,
-            crossAxisSpacing: 10,
-            childAspectRatio: 4.5 / 3.7,
-          ),
+          scrollDirection: Axis.vertical,
+          gridDelegate:
+              sliverGridDelegateWithFixedCrossAxisCount(context, isTablet),
           itemBuilder: (context, index) {
             return Card(
               color: primaryWhite,
@@ -63,13 +58,21 @@ class _GridViewProductsHomeLoadingState
                             height: context.height * 0.115,
                             imageUrl:
                                 "${kBaseUrlForImage}2024_08_12_11_46_14_sryr.jpg",
-                            errorWidget: (context, url, error) {
+                            placeholder: (context, url) {
                               return Skeletonizer(
                                 effect: shimmerEffect(),
                                 enabled: true,
                                 child: Image.asset(
                                   kCatagoryImage,
                                   fit: BoxFit.fill,
+                                ),
+                              );
+                            },
+                            errorWidget: (context, url, error) {
+                              return Center(
+                                child: Text(
+                                  "لا يوجد صوره لهذا المنتج",
+                                  textAlign: TextAlign.center,
                                 ),
                               );
                             },
@@ -100,13 +103,9 @@ class _GridViewProductsHomeLoadingState
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           SizedBox(width: context.width * 0.03),
-                          Text("erstdfgsfddجنية"),
+                          Text("erstdfgsfdd جنية"),
                           Spacer(),
-                          IconButton(
-                            onPressed: () {},
-                            icon:
-                                Icon(CupertinoIcons.cart, color: primaryWhite),
-                          ),
+                          Icon(CupertinoIcons.cart, color: primaryWhite),
                           SizedBox(width: context.width * 0.02),
                         ],
                       ),
@@ -118,6 +117,23 @@ class _GridViewProductsHomeLoadingState
           },
         ),
       ),
+    );
+  }
+
+  SliverGridDelegateWithFixedCrossAxisCount
+      sliverGridDelegateWithFixedCrossAxisCount(
+          BuildContext context, bool isTablet) {
+    int crossAxisCount = context.isLandscape ? (isTablet ? 4 : 3) : 2;
+
+    double childAspectRatio = context.isLandscape
+        ? (isTablet ? 4.5 / 6.4 : 4.4 / 4.5)
+        : (isTablet ? 4 / 4.7 : 4 / 6.3);
+
+    return SliverGridDelegateWithFixedCrossAxisCount(
+      crossAxisCount: crossAxisCount,
+      mainAxisSpacing: 0.02 * context.height,
+      crossAxisSpacing: 0.03 * context.width,
+      childAspectRatio: childAspectRatio,
     );
   }
 }

@@ -16,7 +16,7 @@ import 'package:selaty/features/home/domain/entities/slider_entity.dart';
 abstract class HomeRemotlySource {
   Future<List<SliderEntity>> viewSlider();
   Future<Either<String, List<Categories>>> viewCategories();
-  Future<ProductsModel> viewProducts();
+  Future<ProductsModel> viewProducts({required int page});
   Future<void> addFavoriteProduct(AddFavoriteProductReqParam param);
   Future<FavoriteProductsModel> viewFavoriteProduct();
 }
@@ -45,9 +45,9 @@ class HomeRemotlySourceImple extends HomeRemotlySource {
   }
 
   @override
-  Future<ProductsModel> viewProducts() async {
+  Future<ProductsModel> viewProducts({required int page}) async {
     Response response =
-        await sl<DioApiService>().get("${ApiUrls.productsUrl}?page=1");
+        await sl<DioApiService>().get("${ApiUrls.productsUrl}?page=$page");
     ProductsModel productsModel = ProductsModel.fromJson(response.data);
     return productsModel;
   }

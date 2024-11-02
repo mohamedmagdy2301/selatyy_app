@@ -1,7 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
+import 'package:selaty/core/utils/colors.dart';
 import 'package:selaty/core/utils/resposive.dart';
 import 'package:selaty/core/utils/text_styles.dart';
+import 'package:selaty/features/home/presentation/views/screens/all_products_screen.dart';
 import 'package:selaty/features/home/presentation/views/widgets/build/build_products_home.dart';
 
 class SectionMostSellerHome extends StatelessWidget {
@@ -23,6 +25,23 @@ class SectionMostSellerHome extends StatelessWidget {
               Text(
                 "منتجات قد تعجبك",
                 style: StylesManager.textStyle_30_bold(context),
+              ),
+              const Spacer(),
+              TextButton(
+                onPressed: () {
+                  PersistentNavBarNavigator.pushNewScreen(
+                    context,
+                    withNavBar: true,
+                    screen: AllProductsScreen(),
+                    pageTransitionAnimation: PageTransitionAnimation.cupertino,
+                  );
+                },
+                child: Text(
+                  "عرض الكل",
+                  style: StylesManager.textStyle_14_bold(context).copyWith(
+                    color: primaryGreen,
+                  ),
+                ),
               ),
             ],
           ),

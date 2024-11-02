@@ -46,9 +46,11 @@ class HomeRepoImple extends HomeRepo {
   }
 
   @override
-  Future<Either<String, List<ProductEntity>>> viewProducts() async {
+  Future<Either<String, List<ProductEntity>>> viewProducts(
+      {required int page}) async {
     try {
-      ProductsModel dataRemotly = await sl<HomeRemotlySource>().viewProducts();
+      ProductsModel dataRemotly =
+          await sl<HomeRemotlySource>().viewProducts(page: page);
       if (dataRemotly.status!) {
         return right(dataRemotly.data!.data!);
       }

@@ -8,14 +8,31 @@ part 'products_state.dart';
 
 class ProductsCubit extends Cubit<ProductsState> {
   ProductsCubit() : super(ProductsInitial());
+  Set<ProductEntity> productsList = {};
+  List<ProductEntity> productsListHome = [];
 
-  Future<void> getProducts() async {
-    emit(ProductsLoading());
+  Future<void> getProducts(int page) async {
+    if (page == 1) {
+      emit(ProductsLoading());
+    } else {
+      emit(ProductsPagenationLoading());
+    }
     Either<String, List<ProductEntity>> data =
-        await sl<ViewProductsUseCase>().call();
+        await sl<ViewProductsUseCase>().call(param: page);
     data.fold(
-      (error) => emit(ProductsFailure(error)),
-      (data) => emit(ProductsSuccess(data)),
+      (error) {
+        if (page == 1) {
+          return emit(ProductsFailure(error));
+        }
+        return emit(ProductsPagenationFailure(error));
+      },
+      (data) {
+        productsList.addAll(data);
+        if (page == 1) {
+          productsListHome = data;
+        }
+        return emit(ProductsSuccess(productsListHome));
+      },
     );
   }
 }
