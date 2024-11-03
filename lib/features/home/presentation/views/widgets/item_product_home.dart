@@ -31,7 +31,7 @@ class ItemProductHome extends StatelessWidget {
         ? context.height * 0.25
         : (context.isLandscape)
             ? context.height * .24
-            : context.height * .22;
+            : context.height * .23;
     final double width =
         context.width > 600 ? context.width * 0.028 : context.width * 0.035;
     final double sizeIcon =
@@ -59,13 +59,15 @@ class ItemProductHome extends StatelessWidget {
                     height: height,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Center(
                           child: CachedNetworkImage(
-                            fit: BoxFit.fill,
-                            width: context.width * 0.4,
-                            height: context.height * 0.115,
+                            fit: BoxFit.contain,
+                            width: context.width * 0.45,
+                            height: context.isLandscape
+                                ? context.height * 0.1
+                                : context.height * 0.135,
                             imageUrl: product!.image!,
                             placeholder: (context, url) {
                               return Skeletonizer(
@@ -93,7 +95,7 @@ class ItemProductHome extends StatelessWidget {
                             },
                           ),
                         ),
-                        SizedBox(height: context.height * 0.01),
+                        SizedBox(height: context.height * 0.008),
                         Text(
                           product!.name!,
                           maxLines: 2,
@@ -103,16 +105,23 @@ class ItemProductHome extends StatelessWidget {
                             color: primaryBlack,
                           ),
                         ),
-                        SizedBox(height: context.height * .005),
-                        Text(
-                          product!.details!,
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                          style: StylesManager.textStyle_8_Medium(context)
-                              .copyWith(
-                            color: const Color.fromARGB(213, 81, 81, 81),
-                          ),
-                        ),
+                        SizedBox(height: context.height * .003),
+                        product!.quantity == 0
+                            ? Text(
+                                "غير متوفر",
+                                style: StylesManager.textStyle_10_bold(context)
+                                    .copyWith(
+                                  color: primaryRed,
+                                  decoration: TextDecoration.lineThrough,
+                                ),
+                              )
+                            : Text(
+                                "متبقى ${product!.quantity} عناصر",
+                                style: StylesManager.textStyle_10_bold(context)
+                                    .copyWith(
+                                  color: primaryGreen,
+                                ),
+                              ),
                       ],
                     ),
                   ),

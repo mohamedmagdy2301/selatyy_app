@@ -27,6 +27,7 @@ class ProductsData extends ProductEntity {
   String? price;
   int? discount;
   dynamic sku;
+  @override
   int? quantity;
   int? notifiQuantity;
   int? stokeId;
@@ -96,6 +97,7 @@ class ProductsData extends ProductEntity {
           price: price ?? 'no price',
           image: "$kBaseUrlForImage${img ?? '30.jpg'}",
           isFavorite: isFavorite ?? 0,
+          quantity: quantity ?? 0,
         );
 
   factory ProductsData.fromJson(Map<String, dynamic> json) => ProductsData(

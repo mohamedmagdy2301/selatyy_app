@@ -3,7 +3,7 @@ import 'package:selaty/core/utils/resposive.dart';
 import 'package:selaty/features/home/domain/entities/product_entity.dart';
 import 'package:selaty/features/home/presentation/views/widgets/build/build_item_product_home.dart';
 
-class GridViewAllProductsSuccess extends StatelessWidget {
+class GridViewAllProductsSuccess extends StatefulWidget {
   const GridViewAllProductsSuccess({
     super.key,
     required this.products,
@@ -11,6 +11,13 @@ class GridViewAllProductsSuccess extends StatelessWidget {
 
   final Set<ProductEntity> products;
 
+  @override
+  State<GridViewAllProductsSuccess> createState() =>
+      _GridViewAllProductsSuccessState();
+}
+
+class _GridViewAllProductsSuccessState
+    extends State<GridViewAllProductsSuccess> {
   @override
   Widget build(BuildContext context) {
     bool isTablet = context.width > 600;
@@ -21,14 +28,14 @@ class GridViewAllProductsSuccess extends StatelessWidget {
         horizontal: 0.03 * context.width,
       ),
       child: GridView.builder(
-        itemCount: products.length - 1,
+        itemCount: widget.products.length - 1,
         padding: EdgeInsets.zero,
         scrollDirection: Axis.vertical,
         gridDelegate:
             sliverGridDelegateWithFixedCrossAxisCount(context, isTablet),
         itemBuilder: (context, index) {
           return BuildItemProductHome(
-            product: products.elementAt(index + 1),
+            product: widget.products.elementAt(index + 1),
           );
         },
       ),
@@ -42,7 +49,7 @@ class GridViewAllProductsSuccess extends StatelessWidget {
 
     double childAspectRatio = context.isLandscape
         ? (isTablet ? 4.5 / 6.4 : 4.4 / 4.5)
-        : (isTablet ? 4 / 4.7 : 4 / 6.3);
+        : (isTablet ? 4 / 4.7 : 4 / 5.9);
 
     return SliverGridDelegateWithFixedCrossAxisCount(
       crossAxisCount: crossAxisCount,
