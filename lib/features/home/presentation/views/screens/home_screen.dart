@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:selaty/core/constants/constants.dart';
 import 'package:selaty/core/utils/colors.dart';
 import 'package:selaty/core/utils/resposive.dart';
 import 'package:selaty/features/auth/presentation/view_model/view_user_profile_cubit/view_user_profile_cubit.dart';
@@ -43,8 +42,8 @@ class HomeScreen extends StatelessWidget {
                         ? state.userProfileInfo.address!
                         : '',
                     image: state is ViewUserProfileDone
-                        ? state.userProfileInfo.profilePhotoUrl!
-                        : kAvatarImageUrl,
+                        ? state.userProfileInfo.profilePhotoPath ?? "30.jpg"
+                        : "30.jpg",
                   ),
                   automaticallyImplyLeading: false,
                 );

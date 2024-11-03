@@ -19,26 +19,28 @@ class CustomAppbarHome {
           onTap();
         },
         child: ClipOval(
-          child: CachedNetworkImage(
-            fit: BoxFit.cover,
-            width: context.width * 0.1,
-            imageUrl: image,
-            placeholder: (context, url) {
-              Future.delayed(Duration(seconds: 6));
-              return Skeletonizer(
-                effect: shimmerEffect(),
-                enabled: true,
-                child: Image.asset(
-                  kAvatarImageUrl,
+          child: image == ""
+              ? Image.asset(kAvatarImageUrl)
+              : CachedNetworkImage(
+                  fit: BoxFit.fill,
+                  width: context.width * 0.1,
+                  imageUrl: "$kBaseUrlForImage$image",
+                  placeholder: (context, url) {
+                    Future.delayed(Duration(seconds: 6));
+                    return Skeletonizer(
+                      effect: shimmerEffect(),
+                      enabled: true,
+                      child: Image.asset(
+                        kAvatarImageUrl,
+                      ),
+                    );
+                  },
+                  errorWidget: (context, url, error) {
+                    return Image.asset(
+                      kAvatarImageUrl,
+                    );
+                  },
                 ),
-              );
-            },
-            errorWidget: (context, url, error) {
-              return Image.asset(
-                kAvatarImageUrl,
-              );
-            },
-          ),
         ),
       ),
       SizedBox(width: context.width * 0.02),

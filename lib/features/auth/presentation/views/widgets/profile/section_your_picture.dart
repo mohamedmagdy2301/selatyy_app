@@ -99,7 +99,7 @@ class SectionYourPicture extends StatelessWidget {
                     width: .28 * context.width,
                     height: .28 * context.width,
                     imageUrl: state is ViewUserProfileDone
-                        ? state.userProfileInfo.profilePhotoUrl!
+                        ? "$kBaseUrlForImage${state.userProfileInfo.profilePhotoPath!}"
                         : "",
                     placeholder: (context, url) {
                       Future.delayed(Duration(seconds: 6));

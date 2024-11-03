@@ -30,10 +30,10 @@ class LoginData extends UserProfileEntity {
   int? roleId;
   @override
   String? address;
+  @override
   dynamic profilePhotoPath;
   @override
   String? token;
-  @override
   String? profilePhotoUrl;
 
   LoginData({
@@ -43,14 +43,14 @@ class LoginData extends UserProfileEntity {
     this.email,
     this.roleId,
     required this.address,
-    this.profilePhotoPath,
+    required this.profilePhotoPath,
     required this.token,
-    required this.profilePhotoUrl,
+    this.profilePhotoUrl,
   }) : super(
           name: name,
           mobile: mobile,
           email: email,
-          profilePhotoUrl: profilePhotoUrl,
+          profilePhotoPath: profilePhotoPath,
           address: address,
           token: token,
         );

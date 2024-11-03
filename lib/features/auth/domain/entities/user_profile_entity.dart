@@ -2,7 +2,7 @@ class UserProfileEntity {
   final String? name;
   final String? mobile;
   final String? email;
-  final String? profilePhotoUrl;
+  final dynamic profilePhotoPath;
   final String? address;
   final String? token;
 
@@ -10,7 +10,7 @@ class UserProfileEntity {
     required this.name,
     required this.mobile,
     required this.email,
-    required this.profilePhotoUrl,
+    required this.profilePhotoPath,
     required this.address,
     required this.token,
   });

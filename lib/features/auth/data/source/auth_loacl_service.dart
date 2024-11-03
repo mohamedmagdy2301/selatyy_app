@@ -37,7 +37,7 @@ class AuthLocalServiceImpl extends AuthLocalService {
       email: email,
       address: address,
       token: token,
-      profilePhotoUrl: image,
+      profilePhotoPath: image,
     );
     return userProfileEntity;
   }
