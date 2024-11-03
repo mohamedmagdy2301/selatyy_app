@@ -48,7 +48,7 @@ class MainScaffold extends StatelessWidget {
     return [
       HomeScreen(),
       SearchScreen(),
-      FavoritsProductsScreen(),
+      FavoritesProductsScreen(),
       ProfileScreen(),
     ];
   }
