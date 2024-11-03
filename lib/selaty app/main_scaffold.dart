@@ -24,46 +24,20 @@ class MainScaffold extends StatelessWidget {
         builder: (context, state) {
           final tabCubit = context.read<TabCubit>();
           PersistentTabController controller = tabCubit.controller;
-
-          return WillPopScope(
-            onWillPop: () async {
-              // Handle the back button press
-              return await showDialog(
-                    context: context,
-                    builder: (context) => AlertDialog(
-                      title: Text('تأكيد الخروج'),
-                      content: Text('هل تريد الخروج من التطبيق؟'),
-                      actions: [
-                        TextButton(
-                          onPressed: () => Navigator.of(context)
-                              .pop(false), // Stay in the app
-                          child: Text('لا'),
-                        ),
-                        TextButton(
-                          onPressed: () =>
-                              Navigator.of(context).pop(true), // Exit app
-                          child: Text('نعم'),
-                        ),
-                      ],
-                    ),
-                  ) ??
-                  false; // Return false if dialog is dismissed
+          return PersistentTabView(
+            context,
+            controller: controller,
+            confineToSafeArea: true,
+            resizeToAvoidBottomInset: true,
+            stateManagement: true,
+            hideNavigationBarWhenKeyboardAppears: true,
+            screens: getScreens(),
+            items: getNavBarItems(context, state),
+            navBarStyle: NavBarStyle.style1,
+            onItemSelected: (index) {
+              tabCubit.updateTabIndex(index);
+              controller.jumpToTab(index);
             },
-            child: PersistentTabView(
-              context,
-              controller: controller,
-              confineToSafeArea: true,
-              resizeToAvoidBottomInset: true,
-              stateManagement: true,
-              hideNavigationBarWhenKeyboardAppears: true,
-              screens: getScreens(),
-              items: getNavBarItems(context, state),
-              navBarStyle: NavBarStyle.style1,
-              onItemSelected: (index) {
-                tabCubit.updateTabIndex(index);
-                controller.jumpToTab(index);
-              },
-            ),
           );
         },
       ),

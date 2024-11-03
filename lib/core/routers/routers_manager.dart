@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:selaty/features/auth/presentation/view_model/is_logged_in_cubit/is_logged_in_cubit.dart';
@@ -14,8 +13,6 @@ import 'package:selaty/features/home/presentation/views/screens/home_screen.dart
 import 'package:selaty/features/onboarding/preseentation/view/screens/onboarding_screen.dart';
 import 'package:selaty/features/onboarding/preseentation/view/screens/splash_screen.dart';
 import 'package:selaty/selaty%20app/main_scaffold.dart';
-
-final GlobalKey<NavigatorState> rootNavigatorKey = GlobalKey<NavigatorState>();
 
 class RoutersManager {
   static const String kSplashScreen = '/';
@@ -33,7 +30,6 @@ class RoutersManager {
   static const String kMainScaffoldScreen = "/mainScaffoldView";
 
   static final router = GoRouter(
-    navigatorKey: rootNavigatorKey,
     initialLocation: kSplashScreen,
     routes: [
       ShellRoute(
