@@ -25,7 +25,7 @@ class _BuildFavoriteState extends State<BuildFavorite> {
     return BlocBuilder<FavoriteProductCubit, FavoriteProductState>(
       builder: (context, state) {
         if (state is ViewFavoriteProductLoading) {
-          return Center(child: CircularProgressIndicator());
+          return const Center(child: CircularProgressIndicator());
         } else if (state is ViewFavoriteProductError) {
           return Center(
             child: Text(
@@ -36,7 +36,7 @@ class _BuildFavoriteState extends State<BuildFavorite> {
             ),
           );
         }
-        return BodyFavoriteProductsScreen();
+        return const BodyFavoriteProductsScreen();
       },
     );
   }

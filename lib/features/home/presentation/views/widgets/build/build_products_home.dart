@@ -14,9 +14,9 @@ class BuildProductsHome extends StatelessWidget {
         if (state is ProductsSuccess) {
           return GridViewProductsHomeSuccess(products: state.productsList);
         } else if (state is ProductsFailure) {
-          return SizedBox.shrink();
+          return Text("Error: ${state.errorMessage}");
         }
-        return GridViewProductsHomeLoading();
+        return const GridViewProductsHomeLoading();
       },
     );
   }

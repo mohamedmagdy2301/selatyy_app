@@ -42,7 +42,7 @@ class RoutersManager {
         routes: [
           GoRoute(
             path: kMainScaffoldScreen,
-            builder: (context, state) => HomeScreen(),
+            builder: (context, state) => const HomeScreen(),
           ),
         ],
       ),

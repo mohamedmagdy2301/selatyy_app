@@ -12,12 +12,12 @@ class LoginCubit extends Cubit<LoginState> {
 
   login({required LoginRequest param}) async {
     emit(LoginLoading());
-    Future.delayed(Duration(seconds: 2), () async {
+    Future.delayed(const Duration(seconds: 2), () async {
       Either<String, LoginData> result =
           await sl<LoginUsecase>().call(param: param);
       result.fold(
         (failure) => emit(LoginFailure(failure)),
-        (success) => emit(LoginSuccess()),
+        (success) => emit(LoginSuccess(success.token!)),
       );
     });
   }

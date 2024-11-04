@@ -15,7 +15,7 @@ class EmptyCartScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 234, 234, 234),
+      backgroundColor: const Color.fromARGB(255, 234, 234, 234),
       appBar: AppBar(actions: CustomAppbarCart.appBarActions(context)),
       body: SafeArea(
         child: OrientationBuilder(
@@ -33,7 +33,7 @@ class EmptyCartScreen extends StatelessWidget {
                 alignment: Alignment.center,
                 child: Column(
                   children: [
-                    Spacer(flex: 3),
+                    const Spacer(flex: 3),
                     Image.asset(
                       kEmptyCart,
                       width: context.width * .3,
@@ -51,7 +51,7 @@ class EmptyCartScreen extends StatelessWidget {
                         color: primaryGrey,
                       ),
                     ),
-                    Spacer(flex: 3),
+                    const Spacer(flex: 3),
                     Padding(
                       padding: EdgeInsets.symmetric(
                         horizontal: context.width * .04,
@@ -62,7 +62,7 @@ class EmptyCartScreen extends StatelessWidget {
                           onTap: () {
                             PersistentNavBarNavigator.pushNewScreen(
                               context,
-                              screen: AddressDeliveryScreen(),
+                              screen: const AddressDeliveryScreen(),
                               withNavBar: true,
                               pageTransitionAnimation:
                                   PageTransitionAnimation.cupertino,
@@ -73,7 +73,7 @@ class EmptyCartScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Spacer(flex: 1),
+                    const Spacer(flex: 1),
                   ],
                 ),
               );
@@ -90,7 +90,7 @@ class EmptyCartScreen extends StatelessWidget {
               alignment: Alignment.center,
               child: Column(
                 children: [
-                  Spacer(flex: 1),
+                  const Spacer(flex: 1),
                   Image.asset(
                     kEmptyCart,
                     width: context.width * .3,
@@ -108,7 +108,7 @@ class EmptyCartScreen extends StatelessWidget {
                       color: primaryGrey,
                     ),
                   ),
-                  Spacer(flex: 1),
+                  const Spacer(flex: 1),
                   Padding(
                     padding: EdgeInsets.symmetric(
                       horizontal: context.width * .04,
@@ -119,7 +119,7 @@ class EmptyCartScreen extends StatelessWidget {
                         onTap: () {
                           PersistentNavBarNavigator.pushNewScreen(
                             context,
-                            screen: AddressDeliveryScreen(),
+                            screen: const AddressDeliveryScreen(),
                             withNavBar: true,
                             pageTransitionAnimation:
                                 PageTransitionAnimation.cupertino,

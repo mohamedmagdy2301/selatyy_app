@@ -89,7 +89,7 @@ class AuthReposImpl implements AuthRepo {
     );
     SharedPreferencesManager.setData(
       key: imageKey,
-      value: "$kBaseUrlForImage${data.profilePhotoPath ?? '30.jpg'}",
+      value: data.profilePhotoPath,
     );
   }
 }

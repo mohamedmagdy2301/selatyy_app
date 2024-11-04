@@ -14,7 +14,8 @@ class FavoritesProductsScreen extends StatelessWidget {
       appBar: _buildAppBar(context, context.isLandscape),
       body: SafeArea(
         bottom: !context.isLandscape,
-        child: context.isLandscape ? _buildLandscapeBody() : BuildFavorite(),
+        child:
+            context.isLandscape ? _buildLandscapeBody() : const BuildFavorite(),
       ),
     );
   }
@@ -37,7 +38,7 @@ class FavoritesProductsScreen extends StatelessWidget {
 
   Widget _buildLandscapeBody() {
     return NestedScrollView(
-      physics: BouncingScrollPhysics(),
+      physics: const BouncingScrollPhysics(),
       headerSliverBuilder: (context, innerBoxIsScrolled) {
         return [
           SliverAppBar(
@@ -56,7 +57,7 @@ class FavoritesProductsScreen extends StatelessWidget {
           ),
         ];
       },
-      body: BuildFavorite(),
+      body: const BuildFavorite(),
     );
   }
 }
