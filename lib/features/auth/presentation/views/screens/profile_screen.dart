@@ -36,7 +36,7 @@ class ProfileScreen extends StatelessWidget {
               centerTitle: true,
               flexibleSpace: Container(color: backGroundScaffold),
               leading: CustomAppbarProfile.appBarActions(
-                  context, () => tabCubit.updateTabIndex(2)),
+                  context, () => tabCubit.updateTabIndex(0)),
             ),
             context.isLandscape
                 ? SliverToBoxAdapter(
