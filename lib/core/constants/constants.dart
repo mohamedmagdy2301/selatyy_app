@@ -30,3 +30,5 @@ const String isFisrtKey = "isFisrtKey";
 
 const String categoriesKey = "categoriesKey";
 const String nextPageKey = "nextPageKey";
+
+const String cartUsersBox = "cartUsersBox";
