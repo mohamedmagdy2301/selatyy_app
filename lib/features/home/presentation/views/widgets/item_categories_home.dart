@@ -35,7 +35,9 @@ class ItemCategoriesHome extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(15),
                 child: SizedBox(
-                  width: context.width * 0.3,
+                  width: context.isLandscape
+                      ? context.width * 0.35
+                      : context.width * 0.3,
                   child: Stack(
                     children: [
                       Positioned(
