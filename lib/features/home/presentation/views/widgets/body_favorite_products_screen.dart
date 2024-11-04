@@ -16,7 +16,7 @@ class BodyFavoriteProductsScreen extends StatelessWidget {
     bool isTablet = context.width > 600;
 
     return favoriteProductsList.isEmpty
-        ? NoItemBodyProductScreen(
+        ? const NoItemBodyProductScreen(
             text: "لا توجد منتجات في المفضلة",
             icon: CupertinoIcons.heart_slash,
           )
@@ -86,6 +86,7 @@ class NoItemBodyProductScreen extends StatelessWidget {
           SizedBox(height: context.height * .03),
           Text(
             text,
+            textAlign: TextAlign.center,
             style: StylesManager.textStyle_28_bold(context).copyWith(
               color: const Color.fromARGB(255, 175, 175, 175),
             ),

@@ -14,6 +14,7 @@ import 'package:selaty/core/widgets/custom_text_feild.dart';
 import 'package:selaty/core/widgets/custom_toast_massage.dart';
 import 'package:selaty/features/auth/data/models/login_model/login_request.dart';
 import 'package:selaty/features/auth/presentation/view_model/login_cubit/login_cubit.dart';
+import 'package:selaty/features/cart/data/repos/cart_repo_impl.dart';
 
 class SectionTextFeildLoginScreen extends StatefulWidget {
   const SectionTextFeildLoginScreen({super.key});
@@ -52,7 +53,7 @@ class _SectionTextFeildLoginScreenState
             child: CustomTextFeild(
               labelText: StringsApp.password,
               obscureText: true,
-              suffixIcon: Icon(
+              suffixIcon: const Icon(
                 CupertinoIcons.eye_slash_fill,
                 color: primaryDarkGrey,
               ),
@@ -84,6 +85,7 @@ class _SectionTextFeildLoginScreenState
                   color: primaryGreen,
                   icon: Icons.check,
                 );
+                saveUserCart(state.token);
                 GoRouter.of(context)
                     .pushReplacement(RoutersManager.kMainScaffoldScreen);
               }
@@ -98,7 +100,7 @@ class _SectionTextFeildLoginScreenState
             },
             builder: (context, state) {
               if (state is LoginLoading) {
-                return Center(child: ButtonLoading());
+                return const Center(child: ButtonLoading());
               }
               return CustomButton(
                 colorButton: primaryGreen,

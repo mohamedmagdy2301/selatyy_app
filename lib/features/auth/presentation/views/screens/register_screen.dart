@@ -17,7 +17,7 @@ class RegisterScreen extends StatelessWidget {
         iconRight: CupertinoIcons.camera_on_rectangle,
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(
+        padding: const EdgeInsets.symmetric(
           horizontal: 20,
           vertical: 10,
         ),
@@ -27,9 +27,9 @@ class RegisterScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               isKeybordVisible(context)
-                  ? SizedBox()
-                  : SectionCreateNewAccRegeisterScreen(),
-              SectionTextFeildRegister(),
+                  ? const SizedBox()
+                  : const SectionCreateNewAccRegeisterScreen(),
+              const SectionTextFeildRegister(),
               SizedBox(height: context.height * 0.01),
               const SectionAlreadyHaveAccount(),
               // SizedBox(height: context.height * 0.01),

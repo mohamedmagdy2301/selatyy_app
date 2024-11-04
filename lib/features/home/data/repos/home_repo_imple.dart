@@ -21,7 +21,7 @@ class HomeRepoImple extends HomeRepo {
     } on DioException catch (e) {
       return left(ServerFailure.fromDioException(e).message);
     } catch (e) {
-      return left("حدث خطأ غير متوقع");
+      return left("حدث خطأ غير متوقع\n$e");
     }
   }
 
@@ -41,7 +41,7 @@ class HomeRepoImple extends HomeRepo {
     } on DioException catch (e) {
       return left(ServerFailure.fromDioException(e).message);
     } catch (e) {
-      return left("حدث خطأ غير متوقع");
+      return left("حدث خطأ غير متوقع\n$e");
     }
   }
 
@@ -58,7 +58,7 @@ class HomeRepoImple extends HomeRepo {
     } on DioException catch (e) {
       return left(ServerFailure.fromDioException(e).message);
     } catch (e) {
-      return left("حدث خطأ غير متوقع");
+      return left("حدث خطأ غير متوقع\n$e");
     }
   }
 
@@ -71,7 +71,7 @@ class HomeRepoImple extends HomeRepo {
     } on DioException catch (e) {
       return left(ServerFailure.fromDioException(e).message);
     } catch (e) {
-      return left("حدث خطأ غير متوقع");
+      return left("حدث خطأ غير متوقع\n$e");
     }
   }
 
@@ -91,7 +91,7 @@ class HomeRepoImple extends HomeRepo {
     } on DioException catch (e) {
       return left(ServerFailure.fromDioException(e).message);
     } catch (e) {
-      return left("حدث خطأ غير متوقع");
+      return left("حدث خطأ غير متوقع\n$e");
     }
   }
 }

@@ -53,7 +53,7 @@ class SectionLogAndHelp extends StatelessWidget {
                   color: primaryGreen,
                 ),
                 alignment: Alignment.center,
-                child: CircularProgressIndicator(
+                child: const CircularProgressIndicator(
                   strokeAlign: 10,
                   strokeWidth: 5,
                   valueColor: AlwaysStoppedAnimation<Color>(primaryWhite),
@@ -64,7 +64,7 @@ class SectionLogAndHelp extends StatelessWidget {
               onTap: () {
                 showDialogEditUserProfile(context);
               },
-              child: EditUserProfile(),
+              child: const EditUserProfile(),
             );
           },
         ),
@@ -73,7 +73,7 @@ class SectionLogAndHelp extends StatelessWidget {
           onTap: () {
             showDialogLogOut(context);
           },
-          child: ItemLogOutProfile(),
+          child: const ItemLogOutProfile(),
         ),
       ],
     );

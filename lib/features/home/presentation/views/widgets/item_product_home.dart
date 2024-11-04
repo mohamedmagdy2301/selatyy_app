@@ -1,17 +1,21 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 import 'package:selaty/core/constants/constants.dart';
 import 'package:selaty/core/decoration/decoration.dart';
 import 'package:selaty/core/utils/colors.dart';
+import 'package:selaty/core/utils/functions.dart';
 import 'package:selaty/core/utils/resposive.dart';
 import 'package:selaty/core/utils/text_styles.dart';
+import 'package:selaty/features/cart/data/models/cart_user_model.dart';
+import 'package:selaty/features/cart/presentation/view%20model/cart_cubit.dart';
 import 'package:selaty/features/home/domain/entities/product_entity.dart';
 import 'package:selaty/features/home/presentation/views/screens/details_screen.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
-class ItemProductHome extends StatelessWidget {
+class ItemProductHome extends StatefulWidget {
   const ItemProductHome({
     super.key,
     required this.product,
@@ -26,25 +30,32 @@ class ItemProductHome extends StatelessWidget {
   final void Function() onFavorite;
 
   @override
+  State<ItemProductHome> createState() => _ItemProductHomeState();
+}
+
+class _ItemProductHomeState extends State<ItemProductHome> {
+  int click = 0;
+
+  @override
   Widget build(BuildContext context) {
     final double height = context.width > 600
         ? context.height * 0.25
         : (context.isLandscape)
             ? context.height * .24
-            : context.height * .23;
+            : context.height * .225;
     final double width =
         context.width > 600 ? context.width * 0.028 : context.width * 0.035;
     final double sizeIcon =
         context.width > 600 ? 6 * context.textScale : 8.5 * context.textScale;
 
-    return product == null
-        ? SizedBox()
+    return widget.product == null
+        ? const SizedBox()
         : GestureDetector(
             onTap: () {
               PersistentNavBarNavigator.pushNewScreen(
                 context,
                 withNavBar: true,
-                screen: ProductDetailsScreen(product: product!),
+                screen: ProductDetailsScreen(product: widget.product!),
                 pageTransitionAnimation: PageTransitionAnimation.cupertino,
               );
             },
@@ -67,8 +78,8 @@ class ItemProductHome extends StatelessWidget {
                             width: context.width * 0.45,
                             height: context.isLandscape
                                 ? context.height * 0.1
-                                : context.height * 0.135,
-                            imageUrl: product!.image!,
+                                : context.height * 0.13,
+                            imageUrl: widget.product!.image!,
                             placeholder: (context, url) {
                               return Skeletonizer(
                                 effect: shimmerEffect(),
@@ -97,7 +108,7 @@ class ItemProductHome extends StatelessWidget {
                         ),
                         SizedBox(height: context.height * 0.008),
                         Text(
-                          product!.name!,
+                          widget.product!.name!,
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                           style:
@@ -106,7 +117,7 @@ class ItemProductHome extends StatelessWidget {
                           ),
                         ),
                         SizedBox(height: context.height * .003),
-                        product!.quantity == 0
+                        widget.product!.quantity == 0
                             ? Text(
                                 "غير متوفر",
                                 style: StylesManager.textStyle_10_bold(context)
@@ -116,7 +127,7 @@ class ItemProductHome extends StatelessWidget {
                                 ),
                               )
                             : Text(
-                                "متبقى ${product!.quantity} عناصر",
+                                "متبقى ${widget.product!.quantity} عناصر",
                                 style: StylesManager.textStyle_10_bold(context)
                                     .copyWith(
                                   color: primaryGreen,
@@ -132,7 +143,7 @@ class ItemProductHome extends StatelessWidget {
                     height: context.height * 0.058,
                     child: Card(
                       color: const Color.fromARGB(184, 98, 98, 98),
-                      shape: RoundedRectangleBorder(
+                      shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.only(
                           bottomLeft: Radius.circular(10),
                           bottomRight: Radius.circular(10),
@@ -144,16 +155,40 @@ class ItemProductHome extends StatelessWidget {
                         children: [
                           SizedBox(width: context.width * 0.03),
                           Text(
-                            "${product?.price!.split(".").first ?? ""} جنية",
+                            "${widget.product?.price!.split(".").first ?? ""} جنية",
                             style: StylesManager.textStyle_14_bold(context)
                                 .copyWith(
                               color: primaryWhite,
                               fontWeight: FontWeight.w700,
                             ),
                           ),
-                          Spacer(),
+                          const Spacer(),
                           IconButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              if (widget.product!.quantity == 0) {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                    content: Text("هذا المنتج غير متوفر"),
+                                    backgroundColor: Colors.red,
+                                  ),
+                                );
+                              }
+                              showQuantityDialog(
+                                context,
+                                (quantity) =>
+                                    context.read<CartCubit>().addProduct(
+                                          ProductCart(
+                                            id: widget.product!.id,
+                                            name: widget.product!.name,
+                                            image: widget.product!.image,
+                                            details: widget.product!.details,
+                                            price: double.parse(
+                                                widget.product!.price!),
+                                            quantity: quantity,
+                                          ),
+                                        ),
+                              );
+                            },
                             icon: Icon(
                               CupertinoIcons.cart,
                               color: primaryWhite,
@@ -169,12 +204,12 @@ class ItemProductHome extends StatelessWidget {
                     top: .005 * context.height,
                     left: .1,
                     child: IconButton(
-                      onPressed: onFavorite,
+                      onPressed: widget.onFavorite,
                       icon: Icon(
-                        !isFavorite
+                        !widget.isFavorite
                             ? CupertinoIcons.heart
                             : CupertinoIcons.heart_fill,
-                        color: !isFavorite ? primaryGrey : primaryRed,
+                        color: !widget.isFavorite ? primaryGrey : primaryRed,
                         size: sizeIcon,
                       ),
                     ),

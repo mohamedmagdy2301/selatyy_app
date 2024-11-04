@@ -2,11 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:selaty/core/utils/colors.dart';
 import 'package:selaty/core/utils/resposive.dart';
 import 'package:selaty/core/utils/text_styles.dart';
+import 'package:selaty/features/cart/data/models/cart_user_model.dart';
 
 class TotalPriceCartScreen extends StatelessWidget {
   const TotalPriceCartScreen({
     super.key,
+    required this.cartUser,
   });
+
+  final CartUserModel cartUser;
 
   @override
   Widget build(BuildContext context) {
@@ -61,24 +65,24 @@ class TotalPriceCartScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "8",
+                cartUser.totalQuantity.toString(),
                 style: StylesManager.textStyle_10_Light(context)
                     .copyWith(color: primaryDarkGrey),
               ),
               Text(
-                "EGP 110.0",
+                "${cartUser.totalPrice} جنية",
                 style: StylesManager.textStyle_10_Light(context)
                     .copyWith(color: primaryDarkGrey),
               ),
               Text(
-                "free",
+                "مجاني",
                 style: StylesManager.textStyle_10_Light(context)
                     .copyWith(color: primaryDarkGrey),
               ),
               Padding(
                 padding: EdgeInsets.only(top: context.height * .02),
                 child: Text(
-                  "EGP 880.0",
+                  "${cartUser.totalPrice} جنية",
                   style: StylesManager.textStyle_14_bold(context)
                       .copyWith(color: primaryBlack),
                 ),
