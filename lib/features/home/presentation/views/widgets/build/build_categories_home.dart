@@ -27,9 +27,9 @@ class BuildCategoriesHome extends StatelessWidget {
             ),
           );
         } else if (state is CategoriesFailure) {
-          return SizedBox();
+          return const SizedBox();
         }
-        return CustomLoadingCategoriesCard();
+        return const CustomLoadingCategoriesCard();
       },
     );
   }

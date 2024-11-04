@@ -19,7 +19,7 @@ class SectionCategoriesHome extends StatelessWidget {
             style: StylesManager.textStyle_14_bold(context),
           ),
         ),
-        BuildCategoriesHome()
+        const BuildCategoriesHome()
       ],
     );
   }

@@ -21,7 +21,7 @@ class TimelineTileScreen extends StatelessWidget {
         child: Center(
           child: SingleChildScrollView(
             padding: EdgeInsets.zero,
-            physics: BouncingScrollPhysics(),
+            physics: const BouncingScrollPhysics(),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -84,7 +84,7 @@ class TimelineTileScreen extends StatelessWidget {
                         height: context.height * 0.15,
                         width: context.width * .2,
                         alignment: Alignment.center,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           shape: BoxShape.circle,
                           color: Colors.white,
                         ),
@@ -97,7 +97,7 @@ class TimelineTileScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-                TimeLineCard(),
+                const TimeLineCard(),
               ],
             ),
           ),

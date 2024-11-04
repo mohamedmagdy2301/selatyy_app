@@ -16,7 +16,7 @@ class CustomDotOnboarding extends StatelessWidget {
       height: context.height * 0.012,
       width:
           currentIndex == index ? context.width * 0.05 : context.width * 0.02,
-      margin: EdgeInsets.only(right: 5),
+      margin: const EdgeInsets.only(right: 5),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         color: onboradingInfo[currentIndex].color,

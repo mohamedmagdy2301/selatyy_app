@@ -28,12 +28,12 @@ class SectionYourPicture extends StatelessWidget {
                   children: [
                     Container(
                       height: .16 * context.width,
-                      color: Color.fromARGB(255, 238, 238, 238),
+                      color: const Color.fromARGB(255, 238, 238, 238),
                     ),
                     Container(
                       width: context.width * 0.84,
                       height: .18 * context.width,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(10),
                           topRight: Radius.circular(10),
@@ -47,7 +47,7 @@ class SectionYourPicture extends StatelessWidget {
                   width: context.width * 0.84,
                   padding: EdgeInsets.zero,
                   alignment: Alignment.center,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(10),
                       bottomRight: Radius.circular(10),
@@ -89,7 +89,7 @@ class SectionYourPicture extends StatelessWidget {
                 width: .31 * context.width,
                 height: .31 * context.width,
                 alignment: Alignment.center,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   shape: BoxShape.circle,
                   color: Color.fromARGB(255, 238, 238, 238),
                 ),
@@ -102,7 +102,7 @@ class SectionYourPicture extends StatelessWidget {
                         ? "$kBaseUrlForImage${state.userProfileInfo.profilePhotoPath!}"
                         : "",
                     placeholder: (context, url) {
-                      Future.delayed(Duration(seconds: 6));
+                      Future.delayed(const Duration(seconds: 6));
                       return Skeletonizer(
                         effect: shimmerEffect(),
                         enabled: true,

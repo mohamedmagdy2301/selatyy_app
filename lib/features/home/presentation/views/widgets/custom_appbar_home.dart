@@ -22,11 +22,11 @@ class CustomAppbarHome {
           child: image == ""
               ? Image.asset(kAvatarImageUrl)
               : CachedNetworkImage(
-                  fit: BoxFit.fill,
+                  fit: BoxFit.cover,
                   width: context.width * 0.1,
                   imageUrl: "$kBaseUrlForImage$image",
                   placeholder: (context, url) {
-                    Future.delayed(Duration(seconds: 6));
+                    Future.delayed(const Duration(seconds: 6));
                     return Skeletonizer(
                       effect: shimmerEffect(),
                       enabled: true,
@@ -63,7 +63,7 @@ class CustomAppbarHome {
           ),
         ],
       ),
-      Spacer(),
+      const Spacer(),
     ];
   }
 }

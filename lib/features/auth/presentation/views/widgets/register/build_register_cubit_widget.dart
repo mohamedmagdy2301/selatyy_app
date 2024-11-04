@@ -40,7 +40,7 @@ class BuildRegisterCubitWidget extends StatelessWidget {
       },
       builder: (context, state) {
         if (state is RegisterCubitLoading) {
-          return ButtonLoading();
+          return const ButtonLoading();
         }
         return CustomButton(
           titleButton: StringsApp.submitRegister,

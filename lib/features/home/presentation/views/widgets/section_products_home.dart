@@ -32,7 +32,7 @@ class SectionMostSellerHome extends StatelessWidget {
                   PersistentNavBarNavigator.pushNewScreen(
                     context,
                     withNavBar: true,
-                    screen: AllProductsScreen(),
+                    screen: const AllProductsScreen(),
                     pageTransitionAnimation: PageTransitionAnimation.cupertino,
                   );
                 },
@@ -46,7 +46,7 @@ class SectionMostSellerHome extends StatelessWidget {
             ],
           ),
         ),
-        BuildProductsHome(),
+        const BuildProductsHome(),
       ],
     );
   }

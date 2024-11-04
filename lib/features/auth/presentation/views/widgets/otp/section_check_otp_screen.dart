@@ -9,7 +9,7 @@ class SectionTitleOtpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 20),
+      padding: const EdgeInsets.symmetric(vertical: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
@@ -23,7 +23,7 @@ class SectionTitleOtpScreen extends StatelessWidget {
               style: StylesManager.textStyle_9_Medium(context).copyWith(
                 color: primaryGrey,
               )),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
         ],
       ),
     );

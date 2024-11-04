@@ -20,9 +20,9 @@ class AuthScreen extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: context.width * 0.035),
               decoration: kBackgroundDecoration,
               child: isLandscape
-                  ? Center(
+                  ? const Center(
                       child: SingleChildScrollView(
-                        physics: const BouncingScrollPhysics(),
+                        physics: BouncingScrollPhysics(),
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.spaceAround,

@@ -49,7 +49,7 @@ class ItemSeizeOpportunityHome extends StatelessWidget {
                   width: context.width * 0.18,
                   alignment: Alignment.centerRight,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
+                    borderRadius: const BorderRadius.only(
                       bottomLeft: Radius.circular(10),
                       bottomRight: Radius.circular(10),
                     ),

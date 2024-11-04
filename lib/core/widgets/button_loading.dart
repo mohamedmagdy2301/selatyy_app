@@ -20,7 +20,7 @@ class ButtonLoading extends StatelessWidget {
       child: SizedBox(
         width: context.width * 0.05,
         height: context.width * 0.05,
-        child: CircularProgressIndicator(
+        child: const CircularProgressIndicator(
           valueColor: AlwaysStoppedAnimation<Color>(primaryWhite),
         ),
       ),

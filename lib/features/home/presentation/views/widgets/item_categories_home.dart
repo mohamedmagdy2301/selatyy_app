@@ -17,7 +17,7 @@ class ItemCategoriesHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return categories == null
-        ? SizedBox()
+        ? const SizedBox()
         : GestureDetector(
             onTap: () {
               PersistentNavBarNavigator.pushNewScreen(

@@ -90,7 +90,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 ),
               ),
               isLandscape
-                  ? SizedBox()
+                  ? const SizedBox()
                   : SizedBox(height: context.height * 0.02),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,

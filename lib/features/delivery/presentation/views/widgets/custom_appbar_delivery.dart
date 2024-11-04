@@ -27,14 +27,14 @@ class CustomAppbarDelivery {
           ),
         ),
       ),
-      Spacer(),
+      const Spacer(),
       Text(
         StringsApp.addressDelivery,
         style: StylesManager.textStyle_11_bold(context).copyWith(
           color: primaryBlack,
         ),
       ),
-      Spacer(),
+      const Spacer(),
       GestureDetector(
         onTap: () {
           hideKeybourd();

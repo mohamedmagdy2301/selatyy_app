@@ -19,4 +19,4 @@ const Color secondarySkyBlue = Color(0xff24B4AA); // Teal Blue
 // Accent Colors
 const Color accentRedText = Color(0xffE11E24); // Deep Red Text
 
-Color backGroundScaffold = Color.fromARGB(255, 238, 238, 238);
+Color backGroundScaffold = const Color.fromARGB(255, 238, 238, 238);

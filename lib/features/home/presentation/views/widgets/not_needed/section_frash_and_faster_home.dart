@@ -28,7 +28,7 @@ class SectionFrashAndFasterHome extends StatelessWidget {
             padding: EdgeInsets.zero,
             scrollDirection: Axis.horizontal,
             itemBuilder: (context, index) {
-              return SizedBox();
+              return const SizedBox();
               // return ItemProductHome();
             },
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(

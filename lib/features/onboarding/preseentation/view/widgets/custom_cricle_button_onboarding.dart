@@ -25,12 +25,12 @@ class CustomCricleButtonOnboarding extends StatelessWidget {
           GoRouter.of(context).pushReplacement(RoutersManager.kAuthScreen);
         }
         _controller.nextPage(
-          duration: Duration(milliseconds: 10),
+          duration: const Duration(milliseconds: 10),
           curve: Curves.bounceIn,
         );
       },
       child: Container(
-        padding: EdgeInsets.all(12),
+        padding: const EdgeInsets.all(12),
         width: context.height * 0.06,
         height: context.height * 0.06,
         decoration: BoxDecoration(

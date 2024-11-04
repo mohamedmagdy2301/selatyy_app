@@ -5,7 +5,7 @@ class SearchScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text('Search Screen'));
+    return const Center(child: Text('Search Screen'));
   }
 }
 
@@ -14,7 +14,7 @@ class NotificationsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text('Notifications Screen'));
+    return const Center(child: Text('Notifications Screen'));
   }
 }
 
@@ -23,6 +23,6 @@ class SettingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text('Settings Screen'));
+    return const Center(child: Text('Settings Screen'));
   }
 }

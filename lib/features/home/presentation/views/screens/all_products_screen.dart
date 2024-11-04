@@ -77,7 +77,7 @@ class _AllProductsScreenState extends State<AllProductsScreen> {
   Widget _buildLandscapeBody() {
     return NestedScrollView(
       controller: _scrollController,
-      physics: BouncingScrollPhysics(),
+      physics: const BouncingScrollPhysics(),
       headerSliverBuilder: (context, innerBoxIsScrolled) {
         return [
           SliverAppBar(
@@ -96,7 +96,7 @@ class _AllProductsScreenState extends State<AllProductsScreen> {
           ),
         ];
       },
-      body: BuildAllProductsHome(),
+      body: const BuildAllProductsHome(),
     );
   }
 }

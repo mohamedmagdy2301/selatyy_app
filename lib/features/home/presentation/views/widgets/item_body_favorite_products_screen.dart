@@ -104,7 +104,7 @@ class ItemBodyFavoriteProductsScreen extends StatelessWidget {
             height: context.height * 0.058,
             child: Card(
               color: const Color.fromARGB(184, 98, 98, 98),
-              shape: RoundedRectangleBorder(
+              shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(10),
                   bottomRight: Radius.circular(10),
@@ -122,7 +122,7 @@ class ItemBodyFavoriteProductsScreen extends StatelessWidget {
                       fontWeight: FontWeight.w700,
                     ),
                   ),
-                  Spacer(),
+                  const Spacer(),
                   IconButton(
                     onPressed: () {
                       if (count == 0) {

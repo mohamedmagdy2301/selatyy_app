@@ -9,6 +9,6 @@ ShimmerEffect shimmerEffect() {
   return ShimmerEffect(
     baseColor: Colors.grey.shade300,
     highlightColor: Colors.grey.shade100,
-    duration: Duration(seconds: 1),
+    duration: const Duration(seconds: 1),
   );
 }

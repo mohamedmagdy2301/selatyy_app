@@ -15,7 +15,7 @@ class SuccessOrderDeliveryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 234, 234, 234),
+      backgroundColor: const Color.fromARGB(255, 234, 234, 234),
       appBar: AppBar(actions: CustomAppbarDelivery.appBarActions(context)),
       body: SafeArea(
         child: OrientationBuilder(
@@ -33,7 +33,7 @@ class SuccessOrderDeliveryScreen extends StatelessWidget {
                 alignment: Alignment.center,
                 child: Column(
                   children: [
-                    Spacer(flex: 2),
+                    const Spacer(flex: 2),
                     Image.asset(
                       kSuccessBagDelivery,
                       width: context.width * .4,
@@ -53,7 +53,7 @@ class SuccessOrderDeliveryScreen extends StatelessWidget {
                         color: primaryWhite,
                       ),
                     ),
-                    Spacer(flex: 3),
+                    const Spacer(flex: 3),
                     Padding(
                       padding: EdgeInsets.symmetric(
                         horizontal: context.width * .04,
@@ -64,7 +64,7 @@ class SuccessOrderDeliveryScreen extends StatelessWidget {
                           onTap: () {
                             PersistentNavBarNavigator.pushNewScreen(
                               context,
-                              screen: TimelineTileScreen(),
+                              screen: const TimelineTileScreen(),
                               withNavBar: true,
                               pageTransitionAnimation:
                                   PageTransitionAnimation.cupertino,
@@ -76,7 +76,7 @@ class SuccessOrderDeliveryScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Spacer(flex: 1),
+                    const Spacer(flex: 1),
                   ],
                 ),
               );
@@ -93,7 +93,7 @@ class SuccessOrderDeliveryScreen extends StatelessWidget {
               alignment: Alignment.center,
               child: Column(
                 children: [
-                  Spacer(flex: 1),
+                  const Spacer(flex: 1),
                   Image.asset(
                     kSuccessBagDelivery,
                     width: context.width * .4,
@@ -113,7 +113,7 @@ class SuccessOrderDeliveryScreen extends StatelessWidget {
                       color: primaryWhite,
                     ),
                   ),
-                  Spacer(flex: 2),
+                  const Spacer(flex: 2),
                   Padding(
                     padding: EdgeInsets.symmetric(
                       horizontal: context.width * .04,
@@ -124,7 +124,7 @@ class SuccessOrderDeliveryScreen extends StatelessWidget {
                         onTap: () {
                           PersistentNavBarNavigator.pushNewScreen(
                             context,
-                            screen: TimelineTileScreen(),
+                            screen: const TimelineTileScreen(),
                             withNavBar: true,
                             pageTransitionAnimation:
                                 PageTransitionAnimation.cupertino,

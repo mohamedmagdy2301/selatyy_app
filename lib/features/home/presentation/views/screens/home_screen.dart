@@ -43,7 +43,7 @@ class HomeScreen extends StatelessWidget {
                         : '',
                     image: state is ViewUserProfileDone
                         ? state.userProfileInfo.profilePhotoPath ?? "30.jpg"
-                        : "30.jpg",
+                        : "",
                   ),
                   automaticallyImplyLeading: false,
                 );

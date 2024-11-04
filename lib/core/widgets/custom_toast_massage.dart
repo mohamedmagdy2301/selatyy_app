@@ -9,7 +9,7 @@ showToast(context,
     {required String text, required Color color, required IconData icon}) {
   FToast().init(context).showToast(
         gravity: ToastGravity.BOTTOM,
-        toastDuration: Duration(seconds: 2),
+        toastDuration: const Duration(seconds: 2),
         child: CustomToastMassage(text: text, color: color, icon: icon),
       );
 }
@@ -37,7 +37,7 @@ class CustomToastMassage extends StatelessWidget {
             icon,
             color: primaryWhite,
           ),
-          SizedBox(
+          const SizedBox(
             width: 12.0,
           ),
           Expanded(

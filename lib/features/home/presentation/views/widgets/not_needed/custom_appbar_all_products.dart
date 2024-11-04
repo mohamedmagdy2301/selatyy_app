@@ -7,8 +7,8 @@ import 'package:selaty/core/utils/resposive.dart';
 class CustomAppbarAllProductsScreen {
   static List<Widget> appBarActions(BuildContext context) {
     return [
-      Spacer(),
-      Spacer(),
+      const Spacer(),
+      const Spacer(),
       GestureDetector(
         onTap: () {
           hideKeybourd();

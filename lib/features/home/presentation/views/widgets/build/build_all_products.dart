@@ -32,9 +32,9 @@ class BuildAllProductsHome extends StatelessWidget {
             state is ProductsPagenationLoading) {
           return GridViewAllProductsSuccess(products: productsList);
         } else if (state is ProductsFailure) {
-          return SizedBox.shrink();
+          return const SizedBox.shrink();
         }
-        return GridViewAllProductsLoading();
+        return const GridViewAllProductsLoading();
       },
     );
   }

@@ -76,9 +76,9 @@ class _GridViewProductsHomeLoadingState
                           ),
                         ),
                         SizedBox(height: context.height * 0.006),
-                        Text("oduct!.name!"),
+                        const Text("oduct!.name!"),
                         SizedBox(height: context.height * .005),
-                        Text("product!.de taijkhkhls!"),
+                        const Text("product!.de taijkhkhls!"),
                       ],
                     ),
                   ),
@@ -89,7 +89,7 @@ class _GridViewProductsHomeLoadingState
                     height: context.height * 0.058,
                     child: Card(
                       color: const Color.fromARGB(184, 98, 98, 98),
-                      shape: RoundedRectangleBorder(
+                      shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.only(
                           bottomLeft: Radius.circular(10),
                           bottomRight: Radius.circular(10),
@@ -100,12 +100,12 @@ class _GridViewProductsHomeLoadingState
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           SizedBox(width: context.width * 0.03),
-                          Text("erstdfgsfddجنية"),
-                          Spacer(),
+                          const Text("erstdfgsfddجنية"),
+                          const Spacer(),
                           IconButton(
                             onPressed: () {},
-                            icon:
-                                Icon(CupertinoIcons.cart, color: primaryWhite),
+                            icon: const Icon(CupertinoIcons.cart,
+                                color: primaryWhite),
                           ),
                           SizedBox(width: context.width * 0.02),
                         ],

@@ -22,7 +22,7 @@ class SplashScreen extends StatelessWidget {
 
     return BlocListener<IsLoggedInCubit, IsLoggedInState>(
       listener: (context, state) {
-        Future.delayed(Duration(seconds: 3), () {
+        Future.delayed(const Duration(seconds: 3), () {
           if (SharedPreferencesManager.getData(key: isFisrtKey) ?? true) {
             GoRouter.of(context)
                 .pushReplacement(RoutersManager.kOnboardingScreen);

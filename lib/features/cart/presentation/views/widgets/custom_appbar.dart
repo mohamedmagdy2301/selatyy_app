@@ -27,14 +27,14 @@ class CustomAppbarCart {
           ),
         ),
       ),
-      Spacer(),
+      const Spacer(),
       Text(
         StringsApp.cartShopping,
         style: StylesManager.textStyle_11_bold(context).copyWith(
           color: primaryBlack,
         ),
       ),
-      Spacer(),
+      const Spacer(),
       GestureDetector(
         onTap: () {
           hideKeybourd();

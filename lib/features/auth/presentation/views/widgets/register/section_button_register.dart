@@ -20,15 +20,15 @@ class SectionButtonSocialRegister extends StatelessWidget {
           ),
         ),
         SizedBox(height: context.height * 0.025),
-        Row(
+        const Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            const CustomButtonSocial(
+            CustomButtonSocial(
               title: StringsApp.facebook,
               icon: kFacebook,
               color: primaryBlue,
             ),
-            const CustomButtonSocial(
+            CustomButtonSocial(
               title: StringsApp.google,
               icon: kGoogle,
               color: primaryRed,

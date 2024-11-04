@@ -34,7 +34,7 @@ class SectionShopByOfferHome extends StatelessWidget {
         Wrap(
           spacing: context.width * 0.02,
           runSpacing: context.height * 0.01,
-          children: [
+          children: const [
             ItemShopByOfferHome1(
               color: primaryGreen,
               number: '10%',

@@ -38,14 +38,14 @@ class TimelineTile extends StatelessWidget {
                 color: isCompleted ? Colors.green : Colors.black,
               ),
             ),
-            SizedBox(height: 4),
+            const SizedBox(height: 4),
             Text(
               date,
               style: StylesManager.textStyle_8_Medium(context).copyWith(
                 color: primaryGrey,
               ),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
           ],
         ),
         Column(

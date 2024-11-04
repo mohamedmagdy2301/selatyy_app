@@ -16,7 +16,7 @@ class BuildSliderHome extends StatelessWidget {
         if (state is SliderSuccess) {
           return SliderHome(imgList: state.sliders);
         } else if (state is SliderFailure) {
-          return SizedBox.shrink();
+          return const SizedBox.shrink();
         }
         return Skeletonizer(
           effect: shimmerEffect(),

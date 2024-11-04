@@ -17,7 +17,7 @@ class ItemSubCategoriesHome extends StatelessWidget {
     final double width =
         context.width > 600 ? context.width * 0.25 : context.width * 0.32;
     return product == null
-        ? SizedBox()
+        ? const SizedBox()
         : Card(
             color: primaryWhite,
             child: Column(

@@ -16,7 +16,7 @@ class ProfileScreen extends StatelessWidget {
     final tabCubit = context.read<TabCubit>();
 
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 238, 238, 238),
+      backgroundColor: const Color.fromARGB(255, 238, 238, 238),
       body: SafeArea(
         bottom: false,
         child: CustomScrollView(
@@ -39,7 +39,7 @@ class ProfileScreen extends StatelessWidget {
                   context, () => tabCubit.updateTabIndex(0)),
             ),
             context.isLandscape
-                ? SliverToBoxAdapter(
+                ? const SliverToBoxAdapter(
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -53,9 +53,9 @@ class ProfileScreen extends StatelessWidget {
                     child: Column(
                       children: [
                         SizedBox(height: context.height * 0.06),
-                        SectionYourPicture(),
+                        const SectionYourPicture(),
                         SizedBox(height: context.height * 0.018),
-                        SectionLogAndHelp(),
+                        const SectionLogAndHelp(),
                         SizedBox(height: context.height * 0.018),
                       ],
                     ),

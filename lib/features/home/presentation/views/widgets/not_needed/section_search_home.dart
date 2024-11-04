@@ -17,13 +17,13 @@ class SectionSearchHome extends StatelessWidget {
           IconButton(
             onPressed: () {},
             padding: EdgeInsets.zero,
-            icon: Icon(
+            icon: const Icon(
               CupertinoIcons.square_list_fill,
               size: 60,
               color: primaryRed,
             ),
           ),
-          Expanded(
+          const Expanded(
             child: CustomTextFieldSearch(),
           ),
         ],

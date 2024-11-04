@@ -69,7 +69,7 @@ class _GridViewAllProductsLoadingState
                               );
                             },
                             errorWidget: (context, url, error) {
-                              return Center(
+                              return const Center(
                                 child: Text(
                                   "لا يوجد صوره لهذا المنتج",
                                   textAlign: TextAlign.center,
@@ -79,9 +79,9 @@ class _GridViewAllProductsLoadingState
                           ),
                         ),
                         SizedBox(height: context.height * 0.006),
-                        Text("oduct!.name!"),
+                        const Text("oduct!.name!"),
                         SizedBox(height: context.height * .005),
-                        Text("product!.de taijkhkhls!"),
+                        const Text("product!.de taijkhkhls!"),
                       ],
                     ),
                   ),
@@ -92,7 +92,7 @@ class _GridViewAllProductsLoadingState
                     height: context.height * 0.058,
                     child: Card(
                       color: const Color.fromARGB(184, 98, 98, 98),
-                      shape: RoundedRectangleBorder(
+                      shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.only(
                           bottomLeft: Radius.circular(10),
                           bottomRight: Radius.circular(10),
@@ -103,9 +103,9 @@ class _GridViewAllProductsLoadingState
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           SizedBox(width: context.width * 0.03),
-                          Text("erstdfgsfdd جنية"),
-                          Spacer(),
-                          Icon(CupertinoIcons.cart, color: primaryWhite),
+                          const Text("erstdfgsfdd جنية"),
+                          const Spacer(),
+                          const Icon(CupertinoIcons.cart, color: primaryWhite),
                           SizedBox(width: context.width * 0.02),
                         ],
                       ),

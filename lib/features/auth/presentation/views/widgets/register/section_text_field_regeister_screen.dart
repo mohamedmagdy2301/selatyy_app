@@ -49,7 +49,7 @@ class _SectionTextFeildRegisterState extends State<SectionTextFeildRegister> {
           CustomTextFeild(
             labelText: StringsApp.password,
             obscureText: true,
-            suffixIcon: Icon(
+            suffixIcon: const Icon(
               CupertinoIcons.eye_slash_fill,
               color: primaryDarkGrey,
             ),

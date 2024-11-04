@@ -54,7 +54,7 @@ class _DetailsAddressDelivryScreenState
                   height: context.height * 0.026,
                   width: context.width * 0.09,
                   alignment: Alignment.center,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     borderRadius: BorderRadius.only(
                       bottomRight: Radius.circular(8),
                       bottomLeft: Radius.circular(8),
@@ -81,10 +81,10 @@ class _DetailsAddressDelivryScreenState
                       StringsApp.home,
                       style: StylesManager.textStyle_9_bold(context),
                     ),
-                    Spacer(),
+                    const Spacer(),
                     IconButton(
                       onPressed: () {},
-                      icon: Icon(CupertinoIcons.ellipsis_vertical),
+                      icon: const Icon(CupertinoIcons.ellipsis_vertical),
                     ),
                   ],
                 ),
@@ -96,12 +96,12 @@ class _DetailsAddressDelivryScreenState
                   StringsApp.addressDetails,
                   style: StylesManager.textStyle_8_Medium(context),
                 ),
-                Spacer(flex: 1),
+                const Spacer(flex: 1),
                 Text(
                   "${StringsApp.phone} : 01015415210",
                   style: StylesManager.textStyle_9_bold(context),
                 ),
-                Spacer(flex: 1),
+                const Spacer(flex: 1),
               ],
             ),
           );

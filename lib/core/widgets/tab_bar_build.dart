@@ -14,7 +14,7 @@ class TabBarBuild extends StatelessWidget {
         fontSize: 16,
         color: Colors.white,
       ),
-      unselectedLabelStyle: TextStyle(
+      unselectedLabelStyle: const TextStyle(
         fontWeight: FontWeight.w400,
         fontSize: 15,
         // color: ColorsManager.kLightGrey,

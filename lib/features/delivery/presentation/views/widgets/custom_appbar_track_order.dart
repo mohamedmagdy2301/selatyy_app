@@ -16,7 +16,7 @@ class CustomAppbarTrackOrder {
         onTap: () {
           PersistentNavBarNavigator.pushNewScreen(
             context,
-            screen: HomeScreen(),
+            screen: const HomeScreen(),
             withNavBar: true,
             pageTransitionAnimation: PageTransitionAnimation.cupertino,
           );
@@ -36,14 +36,14 @@ class CustomAppbarTrackOrder {
           ),
         ),
       ),
-      Spacer(),
+      const Spacer(),
       Text(
         StringsApp.trackOrder,
         style: StylesManager.textStyle_11_bold(context).copyWith(
           color: primaryBlack,
         ),
       ),
-      Spacer(),
+      const Spacer(),
       GestureDetector(
         onTap: () {
           hideKeybourd();

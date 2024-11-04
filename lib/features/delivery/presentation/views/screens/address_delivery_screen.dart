@@ -14,13 +14,13 @@ class AddressDeliveryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 234, 234, 234),
+      backgroundColor: const Color.fromARGB(255, 234, 234, 234),
       body: SafeArea(
         child: OrientationBuilder(
           builder: (context, orientation) {
             if (context.isLandscape) {
               return NestedScrollView(
-                physics: BouncingScrollPhysics(),
+                physics: const BouncingScrollPhysics(),
                 headerSliverBuilder: (context, innerBoxIsScrolled) {
                   return [
                     SliverAppBar(
@@ -37,7 +37,7 @@ class AddressDeliveryScreen extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Expanded(child: DetailsAddressDelivryScreen()),
+                      const Expanded(child: DetailsAddressDelivryScreen()),
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -46,7 +46,7 @@ class AddressDeliveryScreen extends StatelessWidget {
                             onTap: () {
                               PersistentNavBarNavigator.pushNewScreen(
                                 context,
-                                screen: SuccessOrderDeliveryScreen(),
+                                screen: const SuccessOrderDeliveryScreen(),
                                 withNavBar: true,
                                 pageTransitionAnimation:
                                     PageTransitionAnimation.cupertino,
@@ -64,7 +64,7 @@ class AddressDeliveryScreen extends StatelessWidget {
               );
             }
             return NestedScrollView(
-              physics: NeverScrollableScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),
               headerSliverBuilder: (context, innerBoxIsScrolled) {
                 return [
                   SliverAppBar(
@@ -74,14 +74,14 @@ class AddressDeliveryScreen extends StatelessWidget {
                     actions: CustomAppbarDelivery.appBarActions(context),
                     automaticallyImplyLeading: false,
                   ),
-                  SliverToBoxAdapter(
+                  const SliverToBoxAdapter(
                     child: DetailsAddressDelivryScreen(),
                   ),
                 ];
               },
               body: Column(
                 children: [
-                  Spacer(flex: 1),
+                  const Spacer(flex: 1),
                   Padding(
                     padding: EdgeInsets.symmetric(
                       horizontal: context.width * .04,
@@ -92,7 +92,7 @@ class AddressDeliveryScreen extends StatelessWidget {
                         onTap: () {
                           PersistentNavBarNavigator.pushNewScreen(
                             context,
-                            screen: SuccessOrderDeliveryScreen(),
+                            screen: const SuccessOrderDeliveryScreen(),
                             withNavBar: true,
                             pageTransitionAnimation:
                                 PageTransitionAnimation.cupertino,
@@ -103,7 +103,7 @@ class AddressDeliveryScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Spacer(flex: 1),
+                  const Spacer(flex: 1),
                 ],
               ),
             );

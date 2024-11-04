@@ -46,7 +46,7 @@ class SectionInfoAboutMe extends StatelessWidget {
             childAspectRatio: childAspectRatio,
           ),
           itemBuilder: (context, index) {
-            return ItemGridviewProfile();
+            return const ItemGridviewProfile();
           },
         );
       },
