@@ -4,10 +4,7 @@ import 'package:selaty/core/utils/resposive.dart';
 import 'package:selaty/core/utils/text_styles.dart';
 
 class EditUserProfile extends StatelessWidget {
-  const EditUserProfile({
-    super.key,
-  });
-
+  const EditUserProfile({super.key});
   @override
   Widget build(BuildContext context) {
     return Container(

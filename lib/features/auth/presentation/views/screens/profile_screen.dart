@@ -66,8 +66,3 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 }
-            // SliverToBoxAdapter(child: SizedBox(height: context.height * 0.07)),
-            // SliverToBoxAdapter(child: SectionYourPicture()),
-            // SliverToBoxAdapter(child: SizedBox(height: context.height * 0.018)),
-            // SliverToBoxAdapter(child: SectionLogAndHelp()),
-            // SliverToBoxAdapter(child: SizedBox(height: context.height * 0.018)),

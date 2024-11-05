@@ -22,8 +22,9 @@ class CustomAppbarHome {
           child: image == ""
               ? Image.asset(kAvatarImageUrl)
               : CachedNetworkImage(
-                  fit: BoxFit.cover,
-                  width: context.width * 0.1,
+                  fit: BoxFit.fill,
+                  width: context.width * 0.13,
+                  height: context.width * 0.13,
                   imageUrl: "$kBaseUrlForImage$image",
                   placeholder: (context, url) {
                     Future.delayed(const Duration(seconds: 6));

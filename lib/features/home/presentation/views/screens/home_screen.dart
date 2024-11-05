@@ -33,7 +33,7 @@ class HomeScreen extends StatelessWidget {
                   actions: CustomAppbarHome.appBarActions(
                     context,
                     () {
-                      tabCubit.updateTabIndex(0);
+                      tabCubit.updateTabIndex(3);
                     },
                     name: state is ViewUserProfileDone
                         ? state.userProfileInfo.name!

@@ -163,38 +163,33 @@ class _ItemProductHomeState extends State<ItemProductHome> {
                             ),
                           ),
                           const Spacer(),
-                          IconButton(
-                            onPressed: () {
-                              if (widget.product!.quantity == 0) {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(
-                                    content: Text("هذا المنتج غير متوفر"),
-                                    backgroundColor: Colors.red,
-                                  ),
-                                );
-                              }
-                              showQuantityDialog(
-                                context,
-                                (quantity) =>
-                                    context.read<CartCubit>().addProduct(
-                                          ProductCart(
-                                            id: widget.product!.id,
-                                            name: widget.product!.name,
-                                            image: widget.product!.image,
-                                            details: widget.product!.details,
-                                            price: double.parse(
-                                                widget.product!.price!),
-                                            quantity: quantity,
+                          widget.product!.quantity == 0
+                              ? const SizedBox()
+                              : IconButton(
+                                  onPressed: () {
+                                    showQuantityDialog(
+                                      context,
+                                      (quantity) => context
+                                          .read<CartCubit>()
+                                          .addProduct(
+                                            ProductCart(
+                                              id: widget.product!.id,
+                                              name: widget.product!.name,
+                                              image: widget.product!.image,
+                                              details: widget.product!.details,
+                                              price: double.parse(
+                                                  widget.product!.price!),
+                                              quantity: quantity,
+                                            ),
                                           ),
-                                        ),
-                              );
-                            },
-                            icon: Icon(
-                              CupertinoIcons.cart,
-                              color: primaryWhite,
-                              size: sizeIcon,
-                            ),
-                          ),
+                                    );
+                                  },
+                                  icon: Icon(
+                                    CupertinoIcons.cart,
+                                    color: primaryWhite,
+                                    size: sizeIcon,
+                                  ),
+                                ),
                           SizedBox(width: context.width * 0.02),
                         ],
                       ),
