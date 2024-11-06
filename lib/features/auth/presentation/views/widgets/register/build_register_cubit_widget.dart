@@ -50,13 +50,13 @@ class BuildRegisterCubitWidget extends StatelessWidget {
               formKey.currentState?.save();
               context.read<RegisterCubit>().register(
                     registerRequest: RegisterRequest(
-                        mobile: registerRequest.mobile,
-                        name: registerRequest.name,
-                        email: registerRequest.email,
-                        password: registerRequest.password,
-                        cPassword: registerRequest.password,
-                        address: registerRequest.address,
-                        profilePhotoPath: registerRequest.profilePhotoPath),
+                      mobile: registerRequest.mobile,
+                      name: registerRequest.name,
+                      email: registerRequest.email,
+                      password: registerRequest.password,
+                      cPassword: registerRequest.password,
+                      address: registerRequest.address,
+                    ),
                   );
             }
             hideKeybourd();

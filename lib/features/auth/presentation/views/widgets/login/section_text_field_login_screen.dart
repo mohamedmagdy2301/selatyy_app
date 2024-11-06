@@ -33,9 +33,7 @@ class _SectionTextFeildLoginScreenState
   Widget build(BuildContext context) {
     return Form(
       key: _formKey,
-      autovalidateMode: _formKey.currentState?.validate() ?? false
-          ? AutovalidateMode.disabled
-          : AutovalidateMode.always,
+      autovalidateMode: AutovalidateMode.onUserInteraction,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

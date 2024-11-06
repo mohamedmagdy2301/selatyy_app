@@ -5,7 +5,6 @@ class RegisterRequest {
   final String password;
   final String cPassword;
   final String address;
-  final dynamic profilePhotoPath;
 
   RegisterRequest({
     required this.mobile,
@@ -14,16 +13,25 @@ class RegisterRequest {
     required this.password,
     required this.cPassword,
     required this.address,
-    required this.profilePhotoPath,
   });
 
-  Map<String, dynamic> toJson() => {
-        'mobile': mobile,
-        'name': name,
-        'email': email,
-        'password': password,
-        'c_password': cPassword,
-        'address': address,
-        'profile_photo_path': profilePhotoPath,
-      };
+  // Future<File> _getDefaultAvatarFile() async {
+  //   final byteData = await rootBundle.load(kAvatarImageUrl);
+  //   final tempDir = await getTemporaryDirectory();
+  //   final file = File('${tempDir.path}/avatar.jpg');
+  //   await file.writeAsBytes(byteData.buffer.asUint8List());
+  //   return file;
+  // }
+
+  Future<Map<String, dynamic>> toJson() async {
+    return {
+      'mobile': mobile,
+      'name': name,
+      'email': email,
+      'password': password,
+      'c_password': cPassword,
+      'address': address,
+      // 'profile_photo_path': await MultipartFile.fromFile(file.path),
+    };
+  }
 }

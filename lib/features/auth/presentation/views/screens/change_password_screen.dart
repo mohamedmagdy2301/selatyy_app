@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:selaty/core/routers/routers_manager.dart';
@@ -8,7 +7,6 @@ import 'package:selaty/core/utils/resposive.dart';
 import 'package:selaty/core/widgets/custom_button.dart';
 import 'package:selaty/features/auth/presentation/views/widgets/change_password/section_textfeild%20_change_password_screen.dart';
 import 'package:selaty/features/auth/presentation/views/widgets/change_password/section_title_change_password_screen.dart';
-import 'package:selaty/features/auth/presentation/views/widgets/custom_appbar.dart';
 
 class ChangePasswordScreen extends StatelessWidget {
   const ChangePasswordScreen({super.key});
@@ -17,9 +15,6 @@ class ChangePasswordScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: const CustomAppbarAuth(
-        iconRight: CupertinoIcons.camera_on_rectangle,
-      ),
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: context.width * 0.05),

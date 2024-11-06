@@ -23,7 +23,7 @@ class AuthApiServiceImpl implements AuthApiService {
     try {
       Response<dynamic> response = await sl<DioApiService>().post(
         ApiUrls.registerUrl,
-        data: model.toJson(),
+        data: FormData.fromMap(await model.toJson()),
       );
       RegisterResponse registerResponse =
           RegisterResponse.fromJson(response.data);

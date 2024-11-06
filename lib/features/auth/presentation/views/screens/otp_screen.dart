@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:selaty/core/utils/colors.dart';
 import 'package:selaty/core/utils/resposive.dart';
-import 'package:selaty/features/auth/presentation/views/widgets/custom_appbar.dart';
 import 'package:selaty/features/auth/presentation/views/widgets/otp/otp_input.dart';
 import 'package:selaty/features/auth/presentation/views/widgets/otp/section_check_otp_screen.dart';
 import 'package:selaty/features/auth/presentation/views/widgets/otp/section_resent_otp_screen.dart';
@@ -14,9 +13,9 @@ class OtpVerificationScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: primaryWhite,
-      appBar: const CustomAppbarAuth(
-        iconRight: CupertinoIcons.camera_on_rectangle,
-      ),
+      // appBar: const CustomAppbarAuth(
+      //   iconRight: CupertinoIcons.camera_on_rectangle,
+      // ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: context.width * 0.05),
         child: OrientationBuilder(

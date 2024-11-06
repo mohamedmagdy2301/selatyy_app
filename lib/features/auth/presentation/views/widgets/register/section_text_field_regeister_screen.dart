@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:selaty/core/constants/constants.dart';
 import 'package:selaty/core/utils/Strings_app.dart';
 import 'package:selaty/core/utils/colors.dart';
 import 'package:selaty/core/utils/resposive.dart';
@@ -26,38 +25,42 @@ class _SectionTextFeildRegisterState extends State<SectionTextFeildRegister> {
   Widget build(BuildContext context) {
     return Form(
       key: _formKey,
-      autovalidateMode: _formKey.currentState?.validate() ?? false
-          ? AutovalidateMode.disabled
-          : AutovalidateMode.always,
+      autovalidateMode: AutovalidateMode.onUserInteraction,
       child: Column(
         children: [
+          SizedBox(height: context.height * 0.022),
           CustomTextFeild(
             labelText: StringsApp.nameUser,
             controller: name,
+            keyboardType: TextInputType.name,
           ),
           SizedBox(height: context.height * 0.018),
           CustomTextFeild(
             labelText: StringsApp.phone,
             controller: phone,
+            keyboardType: TextInputType.phone,
           ),
           SizedBox(height: context.height * 0.018),
           CustomTextFeild(
             labelText: StringsApp.email,
             controller: email,
+            keyboardType: TextInputType.emailAddress,
           ),
           SizedBox(height: context.height * 0.018),
           CustomTextFeild(
             labelText: StringsApp.password,
+            controller: password,
+            keyboardType: TextInputType.visiblePassword,
             obscureText: true,
             suffixIcon: const Icon(
               CupertinoIcons.eye_slash_fill,
               color: primaryDarkGrey,
             ),
-            controller: password,
           ),
           SizedBox(height: context.height * 0.018),
           CustomTextFeild(
             labelText: 'العنوان',
+            keyboardType: TextInputType.streetAddress,
             controller: address,
           ),
           SizedBox(height: context.height * 0.022),
@@ -70,7 +73,6 @@ class _SectionTextFeildRegisterState extends State<SectionTextFeildRegister> {
               password: password.text.trim(),
               cPassword: password.text.trim(),
               address: address.text.trim(),
-              profilePhotoPath: kMegoImageUrl,
             ),
           ),
         ],

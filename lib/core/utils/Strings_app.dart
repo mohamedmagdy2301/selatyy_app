@@ -5,10 +5,12 @@ abstract class StringsApp {
   static const String appNameEn = "SELATY ";
 
   static const String createAccount = "أنشاء حساب";
+  static const String enterYourData = "أدخل بيانات حسابك";
+
   static const String loginAccount = "تسجيل الدخول";
 
   static const String createAccountNew = "أنشاء حساب جديد";
-  static const String enterYourData = "أدخل بياناتك لإنشاء حساب";
+  static const String enterYourDataNew = "أدخل بياناتك لإنشاء حساب";
 
   static const String nameUser = "الاسم";
   static const String email = "البريد الالكتروني";
