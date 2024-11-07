@@ -1,7 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 import 'package:selaty/core/constants/constants.dart';
 import 'package:selaty/core/decoration/decoration.dart';
@@ -9,8 +8,6 @@ import 'package:selaty/core/utils/colors.dart';
 import 'package:selaty/core/utils/functions.dart';
 import 'package:selaty/core/utils/resposive.dart';
 import 'package:selaty/core/utils/text_styles.dart';
-import 'package:selaty/features/cart/data/models/cart_user_model.dart';
-import 'package:selaty/features/cart/presentation/view%20model/cart_cubit.dart';
 import 'package:selaty/features/home/domain/entities/product_entity.dart';
 import 'package:selaty/features/home/presentation/views/screens/details_screen.dart';
 import 'package:skeletonizer/skeletonizer.dart';
@@ -169,19 +166,12 @@ class _ItemProductHomeState extends State<ItemProductHome> {
                                   onPressed: () {
                                     showQuantityDialog(
                                       context,
-                                      (quantity) => context
-                                          .read<CartCubit>()
-                                          .addProduct(
-                                            ProductCart(
-                                              id: widget.product!.id,
-                                              name: widget.product!.name,
-                                              image: widget.product!.image,
-                                              details: widget.product!.details,
-                                              price: double.parse(
-                                                  widget.product!.price!),
-                                              quantity: quantity,
-                                            ),
-                                          ),
+                                      widget.product!.id!,
+                                      widget.product!.name!,
+                                      widget.product!.details!,
+                                      widget.product!.price!,
+                                      widget.product!.image!,
+                                      widget.product!.quantity!,
                                     );
                                   },
                                   icon: Icon(

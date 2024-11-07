@@ -15,7 +15,7 @@ class CustomAppbarHome {
       SizedBox(width: context.width * 0.02),
       GestureDetector(
         onTap: () {
-          hideKeybourd();
+          hideKeyboard();
           onTap();
         },
         child: ClipOval(

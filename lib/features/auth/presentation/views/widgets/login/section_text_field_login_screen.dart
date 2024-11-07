@@ -124,7 +124,7 @@ class _SectionTextFeildLoginScreenState
                           ),
                         );
                   }
-                  hideKeybourd();
+                  hideKeyboard();
                 },
               );
             },

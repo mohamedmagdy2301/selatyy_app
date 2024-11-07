@@ -75,7 +75,7 @@ class BuildRegisterCubitWidget extends StatelessWidget {
                     registerRequest: registerRequest,
                   );
             }
-            hideKeybourd();
+            hideKeyboard();
           },
         );
       },

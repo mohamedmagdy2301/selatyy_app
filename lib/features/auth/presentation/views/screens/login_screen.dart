@@ -3,8 +3,8 @@ import 'package:selaty/core/utils/colors.dart';
 import 'package:selaty/core/utils/functions.dart';
 import 'package:selaty/core/utils/resposive.dart';
 import 'package:selaty/features/auth/presentation/views/widgets/login/section_text_field_login_screen.dart';
-import 'package:selaty/features/auth/presentation/views/widgets/section_have_or_nothave_acc.dart';
 import 'package:selaty/features/auth/presentation/views/widgets/register/title_appbar.dart';
+import 'package:selaty/features/auth/presentation/views/widgets/section_have_or_nothave_acc.dart';
 import 'package:selaty/features/auth/presentation/views/widgets/section_name_auth_screen.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -48,7 +48,7 @@ class LoginScreen extends StatelessWidget {
                 : Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      isKeybordVisible(context)
+                      isKeyboardVisible(context)
                           ? SizedBox(height: context.height * 0.04)
                           : const SectionNameAuthScreen(),
                       SizedBox(height: context.height * 0.04),

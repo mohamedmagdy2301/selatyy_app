@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:selaty/core/utils/colors.dart';
 import 'package:selaty/core/utils/functions.dart';
 import 'package:selaty/core/utils/resposive.dart';
 import 'package:selaty/core/utils/text_styles.dart';
 import 'package:selaty/core/widgets/custom_button.dart';
-import 'package:selaty/features/cart/data/models/cart_user_model.dart';
-import 'package:selaty/features/cart/presentation/view%20model/cart_cubit.dart';
 import 'package:selaty/features/home/domain/entities/product_entity.dart';
 import 'package:selaty/features/home/presentation/views/widgets/icon_favorite_details_widget.dart';
 import 'package:selaty/features/home/presentation/views/widgets/image_details_product_widget.dart';
@@ -80,7 +77,13 @@ class ProductDetailsScreen extends StatelessWidget {
                           fontSize: 5 * context.textScale,
                           fontWeight: FontWeight.bold,
                         ))
-                    : const SizedBox(),
+                    : Text(
+                        "   (متبقى ${product.quantity} عناصر)",
+                        style:
+                            StylesManager.textStyle_10_bold(context).copyWith(
+                          color: const Color.fromARGB(162, 30, 189, 118),
+                        ),
+                      ),
                 const Spacer(),
                 IconFavorite(product: product),
                 SizedBox(width: context.width * 0.04),
@@ -114,16 +117,12 @@ class ProductDetailsScreen extends StatelessWidget {
                     }
                     showQuantityDialog(
                       context,
-                      (quantity) => context.read<CartCubit>().addProduct(
-                            ProductCart(
-                              id: product.id,
-                              name: product.name,
-                              image: product.image,
-                              details: product.details,
-                              price: double.parse(product.price!),
-                              quantity: quantity,
-                            ),
-                          ),
+                      product.id!,
+                      product.name!,
+                      product.details!,
+                      product.price!,
+                      product.image!,
+                      product.quantity!,
                     );
                   },
                 )

@@ -37,7 +37,7 @@ class CustomAppbarDelivery {
       const Spacer(),
       GestureDetector(
         onTap: () {
-          hideKeybourd();
+          hideKeyboard();
           Navigator.pop(context);
         },
         child: Container(

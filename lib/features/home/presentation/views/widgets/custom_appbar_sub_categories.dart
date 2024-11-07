@@ -9,7 +9,7 @@ class CustomAppbarSubCategoriesScreen {
     return [
       GestureDetector(
         onTap: () {
-          hideKeybourd();
+          hideKeyboard();
           Navigator.pop(context);
         },
         child: Container(

@@ -7,7 +7,7 @@ class CustomAppbarProfile {
   static Widget appBarActions(BuildContext context, Function()? onTap) {
     return GestureDetector(
       onTap: () {
-        hideKeybourd();
+        hideKeyboard();
         onTap!();
       },
       child: Icon(
