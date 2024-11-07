@@ -3,8 +3,8 @@ import 'package:selaty/core/utils/Strings_app.dart';
 import 'package:selaty/core/utils/colors.dart';
 import 'package:selaty/core/utils/resposive.dart';
 import 'package:selaty/core/utils/text_styles.dart';
-import 'package:selaty/features/delivery/presentation/views/widgets/custom_appbar_track_order.dart';
-import 'package:selaty/features/delivery/presentation/views/widgets/custom_timeline_tile.dart';
+import 'package:selaty/not_needed/delivery/presentation/views/widgets/custom_appbar_track_order.dart';
+import 'package:selaty/not_needed/delivery/presentation/views/widgets/custom_timeline_tile.dart';
 
 class TimelineTileScreen extends StatelessWidget {
   const TimelineTileScreen({super.key});

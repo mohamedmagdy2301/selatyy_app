@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:selaty/core/utils/colors.dart';
 import 'package:selaty/core/utils/functions.dart';
 import 'package:selaty/core/utils/resposive.dart';
+import 'package:selaty/features/auth/presentation/views/widgets/section_have_or_nothave_acc.dart';
 import 'package:selaty/features/auth/presentation/views/widgets/register/section_text_field_regeister_screen.dart';
 import 'package:selaty/features/auth/presentation/views/widgets/register/title_appbar.dart';
 import 'package:selaty/features/auth/presentation/views/widgets/section_name_auth_screen.dart';
@@ -14,6 +15,7 @@ class RegisterScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: backGroundScaffold,
       body: NestedScrollView(
+        physics: const NeverScrollableScrollPhysics(),
         headerSliverBuilder: (context, innerBoxIsScrolled) {
           return [
             SliverAppBar(
@@ -40,16 +42,20 @@ class RegisterScreen extends StatelessWidget {
                         child: const SectionTextFeildRegister(),
                       ),
                       const SectionNameAuthScreen(),
+                      SizedBox(height: context.height * 0.02),
+                      const SectionAlreadyHaveAccount(),
                     ],
                   )
                 : Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       isKeybordVisible(context)
-                          ? const SizedBox(height: 10)
+                          ? const SizedBox(height: 0)
                           : const SectionNameAuthScreen(),
                       SizedBox(height: context.height * 0.04),
                       const SectionTextFeildRegister(),
+                      SizedBox(height: context.height * 0.02),
+                      const SectionAlreadyHaveAccount(),
                     ],
                   ),
           ),

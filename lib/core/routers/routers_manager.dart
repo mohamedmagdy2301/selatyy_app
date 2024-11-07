@@ -5,9 +5,9 @@ import 'package:selaty/features/auth/presentation/view_model/login_cubit/login_c
 import 'package:selaty/features/auth/presentation/view_model/register_cubit/register_cubit_cubit.dart';
 import 'package:selaty/features/auth/presentation/view_model/view_user_profile_cubit/view_user_profile_cubit.dart';
 import 'package:selaty/features/auth/presentation/views/screens/auth_screen.dart';
-import 'package:selaty/features/auth/presentation/views/screens/change_password_screen.dart';
+import 'package:selaty/not_needed/change_password_screen.dart';
 import 'package:selaty/features/auth/presentation/views/screens/login_screen.dart';
-import 'package:selaty/features/auth/presentation/views/screens/otp_screen.dart';
+import 'package:selaty/not_needed/otp_screen.dart';
 import 'package:selaty/features/auth/presentation/views/screens/register_screen.dart';
 import 'package:selaty/features/home/presentation/views/screens/home_screen.dart';
 import 'package:selaty/features/onboarding/preseentation/view/screens/onboarding_screen.dart';

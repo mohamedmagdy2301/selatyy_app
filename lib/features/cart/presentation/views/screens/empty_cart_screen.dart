@@ -7,7 +7,7 @@ import 'package:selaty/core/utils/resposive.dart';
 import 'package:selaty/core/utils/text_styles.dart';
 import 'package:selaty/core/widgets/custom_button.dart';
 import 'package:selaty/features/cart/presentation/views/widgets/custom_appbar.dart';
-import 'package:selaty/features/delivery/presentation/views/screens/address_delivery_screen.dart';
+import 'package:selaty/not_needed/delivery/presentation/views/screens/address_delivery_screen.dart';
 
 class EmptyCartScreen extends StatelessWidget {
   const EmptyCartScreen({super.key});

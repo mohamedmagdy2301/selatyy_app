@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:selaty/core/utils/Strings_app.dart';
 import 'package:selaty/core/utils/colors.dart';
 import 'package:selaty/core/utils/resposive.dart';
 import 'package:selaty/core/widgets/custom_text_feild.dart';
-import 'package:selaty/features/auth/data/models/register_model/register_request.dart';
 import 'package:selaty/features/auth/presentation/views/widgets/register/build_register_cubit_widget.dart';
 
 class SectionTextFeildRegister extends StatefulWidget {
@@ -21,61 +21,71 @@ class _SectionTextFeildRegisterState extends State<SectionTextFeildRegister> {
   final TextEditingController email = TextEditingController();
   final TextEditingController phone = TextEditingController();
   final TextEditingController password = TextEditingController();
+  bool isObscure = true;
   @override
   Widget build(BuildContext context) {
     return Form(
       key: _formKey,
       autovalidateMode: AutovalidateMode.onUserInteraction,
-      child: Column(
-        children: [
-          SizedBox(height: context.height * 0.022),
-          CustomTextFeild(
-            labelText: StringsApp.nameUser,
-            controller: name,
-            keyboardType: TextInputType.name,
-          ),
-          SizedBox(height: context.height * 0.018),
-          CustomTextFeild(
-            labelText: StringsApp.phone,
-            controller: phone,
-            keyboardType: TextInputType.phone,
-          ),
-          SizedBox(height: context.height * 0.018),
-          CustomTextFeild(
-            labelText: StringsApp.email,
-            controller: email,
-            keyboardType: TextInputType.emailAddress,
-          ),
-          SizedBox(height: context.height * 0.018),
-          CustomTextFeild(
-            labelText: StringsApp.password,
-            controller: password,
-            keyboardType: TextInputType.visiblePassword,
-            obscureText: true,
-            suffixIcon: const Icon(
-              CupertinoIcons.eye_slash_fill,
-              color: primaryDarkGrey,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: Column(
+          children: [
+            SizedBox(height: context.height * 0.022),
+            CustomTextFeild(
+              controller: name,
+              labelText: StringsApp.nameUser,
+              keyboardType: TextInputType.name,
             ),
-          ),
-          SizedBox(height: context.height * 0.018),
-          CustomTextFeild(
-            labelText: 'العنوان',
-            keyboardType: TextInputType.streetAddress,
-            controller: address,
-          ),
-          SizedBox(height: context.height * 0.022),
-          BuildRegisterCubitWidget(
-            formKey: _formKey,
-            registerRequest: RegisterRequest(
-              mobile: phone.text.trim(),
-              name: name.text.trim(),
-              email: email.text.trim(),
-              password: password.text.trim(),
-              cPassword: password.text.trim(),
-              address: address.text.trim(),
+            SizedBox(height: context.height * 0.018),
+            CustomTextFeild(
+              controller: phone,
+              labelText: StringsApp.phone,
+              keyboardType: TextInputType.phone,
             ),
-          ),
-        ],
+            SizedBox(height: context.height * 0.018),
+            CustomTextFeild(
+              controller: email,
+              labelText: StringsApp.email,
+              keyboardType: TextInputType.emailAddress,
+            ),
+            SizedBox(height: context.height * 0.018),
+            CustomTextFeild(
+              obscureText: isObscure,
+              controller: password,
+              labelText: StringsApp.password,
+              keyboardType: TextInputType.visiblePassword,
+              suffixIcon: IconButton(
+                onPressed: () {
+                  setState(() {
+                    isObscure = !isObscure;
+                  });
+                },
+                icon: Icon(
+                  isObscure
+                      ? CupertinoIcons.eye_slash_fill
+                      : CupertinoIcons.eye_fill,
+                  color: primaryDarkGrey,
+                ),
+              ),
+            ),
+            SizedBox(height: context.height * 0.018),
+            CustomTextFeild(
+              controller: address,
+              labelText: StringsApp.address,
+              keyboardType: TextInputType.streetAddress,
+            ),
+            SizedBox(height: context.height * 0.022),
+            BuildRegisterCubitWidget(
+              formKey: _formKey,
+              name: name,
+              phone: phone,
+              email: email,
+              password: password,
+              address: address,
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:selaty/core/utils/colors.dart';
 import 'package:selaty/core/utils/resposive.dart';
 import 'package:selaty/core/utils/text_styles.dart';
-import 'package:selaty/features/home/presentation/views/widgets/not_needed/item_shop_by_offer_home.dart';
+import 'package:selaty/not_needed/item_shop_by_offer_home.dart';
 
 class SectionShopByOfferHome extends StatelessWidget {
   const SectionShopByOfferHome({super.key});

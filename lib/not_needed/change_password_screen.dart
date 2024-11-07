@@ -5,8 +5,8 @@ import 'package:selaty/core/utils/Strings_app.dart';
 import 'package:selaty/core/utils/colors.dart';
 import 'package:selaty/core/utils/resposive.dart';
 import 'package:selaty/core/widgets/custom_button.dart';
-import 'package:selaty/features/auth/presentation/views/widgets/change_password/section_textfeild%20_change_password_screen.dart';
-import 'package:selaty/features/auth/presentation/views/widgets/change_password/section_title_change_password_screen.dart';
+import 'package:selaty/not_needed/change_password/section_textfeild%20_change_password_screen.dart';
+import 'package:selaty/not_needed/change_password/section_title_change_password_screen.dart';
 
 class ChangePasswordScreen extends StatelessWidget {
   const ChangePasswordScreen({super.key});

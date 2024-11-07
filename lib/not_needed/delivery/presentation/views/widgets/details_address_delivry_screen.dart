@@ -98,7 +98,7 @@ class _DetailsAddressDelivryScreenState
                 ),
                 const Spacer(flex: 1),
                 Text(
-                  "${StringsApp.phone} : 01015415210",
+                  "${StringsApp.phonee} : 01015415210",
                   style: StylesManager.textStyle_9_bold(context),
                 ),
                 const Spacer(flex: 1),

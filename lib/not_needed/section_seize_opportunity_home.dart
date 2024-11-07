@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:selaty/core/utils/colors.dart';
 import 'package:selaty/core/utils/resposive.dart';
 import 'package:selaty/core/utils/text_styles.dart';
-import 'package:selaty/features/home/presentation/views/widgets/not_needed/item_seize_opportunity_home.dart';
+import 'package:selaty/not_needed/item_seize_opportunity_home.dart';
 
 class SectionSeizeOpportunityHome extends StatelessWidget {
   const SectionSeizeOpportunityHome({super.key});

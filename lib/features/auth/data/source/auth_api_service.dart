@@ -20,31 +20,27 @@ abstract class AuthApiService {
 class AuthApiServiceImpl implements AuthApiService {
   @override
   Future<Either<String, RegisterData>> register(RegisterRequest model) async {
-    try {
-      Response<dynamic> response = await sl<DioApiService>().post(
-        ApiUrls.registerUrl,
-        data: FormData.fromMap(await model.toJson()),
-      );
-      RegisterResponse registerResponse =
-          RegisterResponse.fromJson(response.data);
-      if (registerResponse.status) {
-        return right(registerResponse.data!);
-      }
-      return left(registerResponse.errorMessage!);
-    } on DioException catch (e) {
-      return left(e.toString());
-    } catch (e) {
-      return left(e.toString());
+    Response<dynamic> response = await sl<DioApiService>().post(
+      ApiUrls.registerUrl,
+      data: FormData.fromMap(
+        await model.toJson(),
+      ),
+    );
+    RegisterResponse registerResponse =
+        RegisterResponse.fromJson(response.data);
+    if (registerResponse.status) {
+      return right(registerResponse.data!);
     }
+    return left(registerResponse.errorMessage!);
   }
 
   @override
   Future<Either<String, LoginData>> login(LoginRequest model) async {
-    Response<dynamic> result = await sl<DioApiService>().post(
+    Response<dynamic> response = await sl<DioApiService>().post(
       ApiUrls.loginUrl,
       data: model.toJson(),
     );
-    LoginResponse loginResponse = LoginResponse.fromJson(result.data);
+    LoginResponse loginResponse = LoginResponse.fromJson(response.data);
     if (loginResponse.status!) {
       return right(loginResponse.data!);
     }

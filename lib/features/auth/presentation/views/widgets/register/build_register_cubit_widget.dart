@@ -12,10 +12,23 @@ import 'package:selaty/features/auth/data/models/register_model/register_request
 import 'package:selaty/features/auth/presentation/view_model/register_cubit/register_cubit_cubit.dart';
 
 class BuildRegisterCubitWidget extends StatelessWidget {
-  const BuildRegisterCubitWidget(
-      {super.key, required this.formKey, required this.registerRequest});
+  const BuildRegisterCubitWidget({
+    super.key,
+    required this.formKey,
+    required this.name,
+    required this.phone,
+    required this.email,
+    required this.password,
+    required this.address,
+  });
+
   final GlobalKey<FormState> formKey;
-  final RegisterRequest registerRequest;
+  final TextEditingController name;
+  final TextEditingController phone;
+  final TextEditingController email;
+  final TextEditingController password;
+  final TextEditingController address;
+
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<RegisterCubit, RegisterCubitState>(
@@ -48,15 +61,18 @@ class BuildRegisterCubitWidget extends StatelessWidget {
           onTap: () {
             if (formKey.currentState?.validate() ?? false) {
               formKey.currentState?.save();
+
+              final registerRequest = RegisterRequest(
+                mobile: phone.text.trim(),
+                name: name.text.trim(),
+                email: email.text.trim(),
+                password: password.text.trim(),
+                cPassword: password.text.trim(),
+                address: address.text.trim(),
+              );
+
               context.read<RegisterCubit>().register(
-                    registerRequest: RegisterRequest(
-                      mobile: registerRequest.mobile,
-                      name: registerRequest.name,
-                      email: registerRequest.email,
-                      password: registerRequest.password,
-                      cPassword: registerRequest.password,
-                      address: registerRequest.address,
-                    ),
+                    registerRequest: registerRequest,
                   );
             }
             hideKeybourd();

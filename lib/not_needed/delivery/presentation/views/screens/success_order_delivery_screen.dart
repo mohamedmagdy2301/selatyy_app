@@ -6,8 +6,8 @@ import 'package:selaty/core/utils/colors.dart';
 import 'package:selaty/core/utils/resposive.dart';
 import 'package:selaty/core/utils/text_styles.dart';
 import 'package:selaty/core/widgets/custom_button.dart';
-import 'package:selaty/features/delivery/presentation/views/screens/timeline_tile_screen.dart';
-import 'package:selaty/features/delivery/presentation/views/widgets/custom_appbar_delivery.dart';
+import 'package:selaty/not_needed/delivery/presentation/views/screens/timeline_tile_screen.dart';
+import 'package:selaty/not_needed/delivery/presentation/views/widgets/custom_appbar_delivery.dart';
 
 class SuccessOrderDeliveryScreen extends StatelessWidget {
   const SuccessOrderDeliveryScreen({super.key});

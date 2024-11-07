@@ -17,12 +17,20 @@ class AuthReposImpl implements AuthRepo {
   @override
   Future<Either<String, RegisterData>> register(
       RegisterRequest registerReqPram) async {
-    var data = await sl<AuthApiService>().register(registerReqPram);
-    return data.fold((e) {
-      return left(e);
-    }, (data) {
-      return right(data);
-    });
+    try {
+      var result = await sl<AuthApiService>().register(registerReqPram);
+      return result.fold(
+        (error) => left(error),
+        (data) {
+          // saveUerInfo(data);
+          return right(data);
+        },
+      );
+    } on DioException catch (e) {
+      return left(ServerFailure.fromDioException(e).message);
+    } catch (e) {
+      return left("حدث خطأ غير متوقع$e");
+    }
   }
 
   @override
@@ -39,7 +47,7 @@ class AuthReposImpl implements AuthRepo {
     } on DioException catch (e) {
       return left(ServerFailure.fromDioException(e).message);
     } catch (e) {
-      return left("حدث خطأ غير متوقع");
+      return left("حدث خطأ غير متوقع$e");
     }
   }
 
@@ -61,7 +69,7 @@ class AuthReposImpl implements AuthRepo {
     } on DioException catch (e) {
       return ServerFailure.fromDioException(e).message;
     } catch (e) {
-      return "حدث خطأ غير متوقع";
+      return "حدث خطأ غير متوقع$e";
     }
   }
 

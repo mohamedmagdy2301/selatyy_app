@@ -12,7 +12,7 @@ class CustomTextFeild extends StatelessWidget {
     this.obscureText,
     this.keyboardType,
   });
-  final Icon? suffixIcon;
+  final Widget? suffixIcon;
   final Color? iconColor;
   final String labelText;
   final TextEditingController? controller;

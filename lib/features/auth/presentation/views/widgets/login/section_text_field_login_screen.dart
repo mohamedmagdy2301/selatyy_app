@@ -29,6 +29,8 @@ class _SectionTextFeildLoginScreenState
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController email = TextEditingController();
   final TextEditingController password = TextEditingController();
+
+  bool isObscure = true;
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -49,16 +51,25 @@ class _SectionTextFeildLoginScreenState
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: CustomTextFeild(
-              labelText: StringsApp.password,
-              obscureText: true,
-              suffixIcon: const Icon(
-                CupertinoIcons.eye_slash_fill,
-                color: primaryDarkGrey,
-              ),
               controller: password,
+              obscureText: isObscure,
+              labelText: StringsApp.password,
+              suffixIcon: IconButton(
+                onPressed: () {
+                  setState(() {
+                    isObscure = !isObscure;
+                  });
+                },
+                icon: Icon(
+                  isObscure
+                      ? CupertinoIcons.eye_slash_fill
+                      : CupertinoIcons.eye_fill,
+                  color: primaryDarkGrey,
+                ),
+              ),
             ),
           ),
-          SizedBox(height: context.height * 0.015),
+          SizedBox(height: context.height * 0.01),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: TextButton(
@@ -67,13 +78,13 @@ class _SectionTextFeildLoginScreenState
               },
               child: Text(
                 StringsApp.forgetPassword,
-                style: StylesManager.textStyle_8_Medium(context).copyWith(
+                style: StylesManager.textStyle_10_Medium(context).copyWith(
                   color: primaryDarkGrey,
                 ),
               ),
             ),
           ),
-          SizedBox(height: context.height * 0.035),
+          SizedBox(height: context.height * 0.025),
           BlocConsumer<LoginCubit, LoginState>(
             listener: (context, state) {
               if (state is LoginSuccess) {
@@ -118,13 +129,6 @@ class _SectionTextFeildLoginScreenState
               );
             },
           )
-          // BuildLoginCubitWidget(
-          //   formKey: _formKey,
-          //   loginRequest: LoginRequest(
-          //     phoneEmail: email.text,
-          //     password: password.text,
-          //   ),
-          // ),
         ],
       ),
     );

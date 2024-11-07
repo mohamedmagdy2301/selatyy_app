@@ -6,8 +6,8 @@ abstract class StringsApp {
 
   static const String createAccount = "أنشاء حساب";
   static const String enterYourData = "أدخل بيانات حسابك";
-
   static const String loginAccount = "تسجيل الدخول";
+  static const String notHaveAccount = "ليس لديك حساب؟";
 
   static const String createAccountNew = "أنشاء حساب جديد";
   static const String enterYourDataNew = "أدخل بياناتك لإنشاء حساب";
@@ -15,6 +15,9 @@ abstract class StringsApp {
   static const String nameUser = "الاسم";
   static const String email = "البريد الالكتروني";
   static const String password = "كلمة المرور";
+  static const String confirmPassword = "تاكيد كلمة المرور";
+  static const String phone = "رقم الهاتف";
+  static const String address = "العنوان";
 
   static const String submitRegister = "اشتراك";
   static const String doneRegister = "تم الأشتراك";
@@ -57,10 +60,9 @@ abstract class StringsApp {
 // delivery
   static const String addressDelivery = "عنوان التسليم";
   static const String deliveryForThisAddress = "التسليم لهذا العنوان";
-  static const String phone = "جوال";
+  static const String phonee = "جوال";
   static const String home = "المنزل";
   static const String defaultDelivery = "افتراضي";
-  static const String address = "المنوفيه ,شبين الكوم";
   static const String addressDetails =
       "المنوفيه ,شبين الكوم ,شارع باريس وبرج العربي";
 

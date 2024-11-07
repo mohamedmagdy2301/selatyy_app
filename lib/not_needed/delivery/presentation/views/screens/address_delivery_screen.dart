@@ -4,9 +4,9 @@ import 'package:selaty/core/utils/Strings_app.dart';
 import 'package:selaty/core/utils/colors.dart';
 import 'package:selaty/core/utils/resposive.dart';
 import 'package:selaty/core/widgets/custom_button.dart';
-import 'package:selaty/features/delivery/presentation/views/screens/success_order_delivery_screen.dart';
-import 'package:selaty/features/delivery/presentation/views/widgets/custom_appbar_delivery.dart';
-import 'package:selaty/features/delivery/presentation/views/widgets/details_address_delivry_screen.dart';
+import 'package:selaty/not_needed/delivery/presentation/views/screens/success_order_delivery_screen.dart';
+import 'package:selaty/not_needed/delivery/presentation/views/widgets/custom_appbar_delivery.dart';
+import 'package:selaty/not_needed/delivery/presentation/views/widgets/details_address_delivry_screen.dart';
 
 class AddressDeliveryScreen extends StatelessWidget {
   const AddressDeliveryScreen({super.key});
