@@ -12,6 +12,7 @@ import 'package:selaty/features/auth/data/source/auth_api_service.dart';
 import 'package:selaty/features/auth/data/source/auth_loacl_service.dart';
 import 'package:selaty/features/auth/domain/entities/user_profile_entity.dart';
 import 'package:selaty/features/auth/domain/repos/auth_repo.dart';
+import 'package:selaty/features/cart/data/repos/cart_repo_impl.dart';
 
 class AuthReposImpl implements AuthRepo {
   @override
@@ -41,6 +42,8 @@ class AuthReposImpl implements AuthRepo {
         (error) => left(error),
         (data) {
           saveUerInfo(data);
+          saveUserCart(data.token!);
+
           return right(data);
         },
       );

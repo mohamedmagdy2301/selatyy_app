@@ -12,13 +12,11 @@ class RegisterCubit extends Cubit<RegisterCubitState> {
 
   register({required RegisterRequest registerRequest}) async {
     emit(RegisterCubitLoading());
-    Future.delayed(const Duration(seconds: 2), () async {
-      Either<String, RegisterData> result =
-          await sl<RegisterUsecase>().call(param: registerRequest);
-      result.fold(
-        (error) => emit(RegisterCubitFailure(error)),
-        (data) => emit(RegisterCubitSuccess()),
-      );
-    });
+    Either<String, RegisterData> result =
+        await sl<RegisterUsecase>().call(param: registerRequest);
+    result.fold(
+      (error) => emit(RegisterCubitFailure(error)),
+      (data) => emit(RegisterCubitSuccess()),
+    );
   }
 }

@@ -12,8 +12,19 @@ import 'package:selaty/core/utils/resposive.dart';
 import 'package:selaty/core/utils/text_styles.dart';
 import 'package:selaty/features/auth/presentation/view_model/is_logged_in_cubit/is_logged_in_cubit.dart';
 
-class SplashScreen extends StatelessWidget {
+class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
+
+  @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    context.read<IsLoggedInCubit>().isLoggedIn();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +33,7 @@ class SplashScreen extends StatelessWidget {
 
     return BlocListener<IsLoggedInCubit, IsLoggedInState>(
       listener: (context, state) {
-        Future.delayed(const Duration(seconds: 3), () {
+        Future.delayed(const Duration(seconds: 2), () {
           if (SharedPreferencesManager.getData(key: isFisrtKey) ?? true) {
             GoRouter.of(context)
                 .pushReplacement(RoutersManager.kOnboardingScreen);

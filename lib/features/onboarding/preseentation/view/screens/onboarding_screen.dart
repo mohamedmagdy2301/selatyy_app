@@ -23,7 +23,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   @override
   void initState() {
-    SharedPreferencesManager.setData(key: isFisrtKey, value: false);
     _controller = PageController(initialPage: 0);
     super.initState();
   }
@@ -77,7 +76,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       currentIndex = index;
                       if (index == 2) {
                         SharedPreferencesManager.setData(
-                            key: isFisrtKey, value: true);
+                            key: isFisrtKey, value: false);
                       }
                     });
                   },
