@@ -11,35 +11,50 @@ class CartState {
 }
 
 class CartCubit extends Cubit<CartState> {
-  CartCubit() : super(CartState(cartUser: _loadUserCart()));
+  final CartRepoImpl _cartRepository;
+  final String _token;
 
-  static final String _token = SharedPreferencesManager.getData(key: tokenKey);
-
-  static CartUserModel _loadUserCart() {
-    return getUserCart(_token) ??
-        CartUserModel(tonken: _token, productCart: []);
+  CartCubit(this._cartRepository)
+      : _token = SharedPreferencesManager.getData(key: tokenKey),
+        super(CartState(cartUser: CartUserModel(tonken: "", productCart: []))) {
+    _initializeCart();
   }
 
-  void refreshCart() => emit(CartState(cartUser: _loadUserCart()));
+  Future<void> _initializeCart() async {
+    final loadedCartUser = _cartRepository.getUserCart(_token);
+    emit(CartState(
+        cartUser:
+            loadedCartUser ?? CartUserModel(tonken: _token, productCart: [])));
+  }
+
+  void refreshCart() async {
+    final updatedCartUser = _cartRepository.getUserCart(_token);
+    emit(CartState(cartUser: updatedCartUser ?? state.cartUser));
+  }
 
   Future<void> addProduct(ProductCart product) async {
-    final cartUser = state.cartUser;
-    await addProductToCart(_token, product);
-    cartUser.calculateTotalPrice();
-    cartUser.calculateTotalQuantity();
-    await saveUserCart(_token);
-
-    refreshCart();
+    try {
+      await _cartRepository.addProductToCart(_token, product);
+      final updatedCartUser = state.cartUser;
+      updatedCartUser.calculateTotalPrice();
+      updatedCartUser.calculateTotalQuantity();
+      emit(CartState(cartUser: updatedCartUser));
+    } catch (e) {
+      print("Error adding product: $e"); // Handle error appropriately
+    }
   }
 
-  // Removes a product from the cart by product ID
   Future<void> removeProduct(String productId) async {
-    final cartUser = state.cartUser;
-    cartUser.productCart
-        ?.removeWhere((product) => product.id.toString() == productId);
-    cartUser.calculateTotalPrice();
-    cartUser.calculateTotalQuantity();
-    await saveUserCart(_token);
-    refreshCart();
+    try {
+      final updatedCartUser = state.cartUser;
+      updatedCartUser.productCart
+          ?.removeWhere((product) => product.id == productId);
+      updatedCartUser.calculateTotalPrice();
+      updatedCartUser.calculateTotalQuantity();
+      await _cartRepository.saveUserCart(_token);
+      emit(CartState(cartUser: updatedCartUser));
+    } catch (e) {
+      print("Error removing product: $e"); // Handle error appropriately
+    }
   }
 }

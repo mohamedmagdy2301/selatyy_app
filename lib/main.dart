@@ -15,9 +15,10 @@ void main() async {
   setupServiceLocator();
   await SharedPreferencesManager.sharedPreferencesInitialize();
   await Hive.initFlutter();
+  Hive.registerAdapter(AllCartUserModelAdapter());
   Hive.registerAdapter(CartUserModelAdapter());
   Hive.registerAdapter(ProductCartAdapter());
-  await Hive.openBox<CartUserModel>(cartUsersBox);
+  await Hive.openBox<AllCartUserModel>(cartUsersBox);
   // FlutterError.onError = ErrorHandler.handleFlutterError;
   await SharedPreferencesManager.setData(key: nextPageKey, value: 2);
   runApp(const SelatyApp());

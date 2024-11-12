@@ -42,7 +42,7 @@ class AuthReposImpl implements AuthRepo {
         (error) => left(error),
         (data) {
           saveUerInfo(data);
-          saveUserCart(data.token!);
+          CartRepoImpl().saveUserCart(data.token!);
 
           return right(data);
         },

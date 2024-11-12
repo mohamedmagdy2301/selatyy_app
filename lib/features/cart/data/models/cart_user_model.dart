@@ -3,6 +3,14 @@ import 'package:hive/hive.dart';
 part 'cart_user_model.g.dart';
 
 @HiveType(typeId: 0)
+class AllCartUserModel {
+  @HiveField(0)
+  List<CartUserModel>? cartUsers;
+
+  AllCartUserModel({required this.cartUsers});
+}
+
+@HiveType(typeId: 1)
 class CartUserModel {
   @HiveField(0)
   String? tonken;
@@ -40,7 +48,7 @@ class CartUserModel {
   }
 }
 
-@HiveType(typeId: 1)
+@HiveType(typeId: 2)
 class ProductCart {
   @HiveField(0)
   final int? id;

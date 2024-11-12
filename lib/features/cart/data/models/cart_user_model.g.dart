@@ -5,10 +5,37 @@ part of 'cart_user_model.dart';
 // **************************************************************************
 // TypeAdapterGenerator
 // **************************************************************************
+class AllCartUserModelAdapter extends TypeAdapter<AllCartUserModel> {
+  @override
+  final int typeId = 0;
+
+  @override
+  AllCartUserModel read(BinaryReader reader) {
+    return AllCartUserModel(
+      cartUsers: (reader.read() as List)
+          .cast<CartUserModel>(), // Ensure cast to List<CartUserModel>
+    );
+  }
+
+  @override
+  void write(BinaryWriter writer, AllCartUserModel obj) {
+    writer.write(obj.cartUsers);
+  }
+
+  @override
+  int get hashCode => typeId.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is AllCartUserModelAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
+}
 
 class CartUserModelAdapter extends TypeAdapter<CartUserModel> {
   @override
-  final int typeId = 0;
+  final int typeId = 1;
 
   @override
   CartUserModel read(BinaryReader reader) {
@@ -51,7 +78,7 @@ class CartUserModelAdapter extends TypeAdapter<CartUserModel> {
 
 class ProductCartAdapter extends TypeAdapter<ProductCart> {
   @override
-  final int typeId = 1;
+  final int typeId = 2;
 
   @override
   ProductCart read(BinaryReader reader) {
