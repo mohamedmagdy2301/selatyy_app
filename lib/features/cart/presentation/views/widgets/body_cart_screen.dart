@@ -9,6 +9,7 @@ import 'package:selaty/features/cart/presentation/views/widgets/body_empty_cart_
 import 'package:selaty/features/cart/presentation/views/widgets/item_product_cart_screen.dart';
 import 'package:selaty/features/cart/presentation/views/widgets/total_price_cart_screen.dart';
 
+// fake
 class BodyCartProductScreen extends StatelessWidget {
   const BodyCartProductScreen({super.key});
 
