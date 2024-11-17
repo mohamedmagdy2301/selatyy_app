@@ -9,6 +9,7 @@ import 'package:selaty/features/cart/presentation/views/widgets/body_empty_cart_
 import 'package:selaty/features/cart/presentation/views/widgets/item_product_cart_screen.dart';
 import 'package:selaty/features/cart/presentation/views/widgets/total_price_cart_screen.dart';
 
+//
 class BodyCartProductScreen extends StatelessWidget {
   const BodyCartProductScreen({super.key});
 
@@ -75,24 +76,24 @@ class BodyCartProductScreen extends StatelessWidget {
     );
   }
 }
- // ScaffoldMessenger.of(context).showSnackBar(
-                            //   snackBarAnimationStyle: AnimationStyle(
-                            //     duration: const Duration(seconds: 1),
-                            //     reverseDuration: const Duration(seconds: 1),
-                            //     curve: Curves.fastOutSlowIn,
-                            //     reverseCurve: Curves.fastOutSlowIn,
-                            //   ),
-                            //   SnackBar(
-                            //     showCloseIcon: true,
-                            //     content: const Text('تم الحذف بنجاح'),
-                            //     duration: const Duration(seconds: 1),
-                            //     action: SnackBarAction(
-                            //       label: 'رجوع',
-                            //       onPressed: () {
-                            //         context
-                            //             .read<CartCubit>()
-                            //             .addProduct(product);
-                            //       },
-                            //     ),
-                            //   ),
-                            // );
+// ScaffoldMessenger.of(context).showSnackBar(
+//   snackBarAnimationStyle: AnimationStyle(
+//     duration: const Duration(seconds: 1),
+//     reverseDuration: const Duration(seconds: 1),
+//     curve: Curves.fastOutSlowIn,
+//     reverseCurve: Curves.fastOutSlowIn,
+//   ),
+//   SnackBar(
+//     showCloseIcon: true,
+//     content: const Text('تم الحذف بنجاح'),
+//     duration: const Duration(seconds: 1),
+//     action: SnackBarAction(
+//       label: 'رجوع',
+//       onPressed: () {
+//         context
+//             .read<CartCubit>()
+//             .addProduct(product);
+//       },
+//     ),
+//   ),
+// );
