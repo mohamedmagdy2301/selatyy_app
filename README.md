@@ -20,7 +20,6 @@
 - Shopping cart management
 - Favorite products
 - Localization support for Arabic (UAE)
-
 ---
 ## Screenshots
 
