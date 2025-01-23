@@ -9,6 +9,7 @@
 
  Salety is a Flutter-based shopping app that allows users to browse products, add them to their cart, and manage their shopping experience. This README provides an overview of the app's setup and usage.
 
+
 [![Flutter Version](https://img.shields.io/badge/Flutter-v3.0-blue.svg)](https://flutter.dev/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
